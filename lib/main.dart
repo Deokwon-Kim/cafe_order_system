@@ -1,4 +1,4 @@
-import 'package:cafe_order_system/home.dart';
+import 'package:cafe_order_system/login/login_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,6 +11,10 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(title: 'Flutter Demo2222', home: const Home());
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Flutter Demo2222',
+      home: const LoginPage(),
+    );
   }
 }
