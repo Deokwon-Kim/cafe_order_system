@@ -5,13 +5,15 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: Center(
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.only(top: 130.0),
+              padding: EdgeInsets.only(top: size.height * 0.2),
               child: Image.asset('lib/images/logo2.png', height: 240),
             ),
             SizedBox(height: 50),
