@@ -73,6 +73,10 @@ class LoginPage extends StatelessWidget {
                 ),
               ),
             ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [GestureDetector(onTap: () {}, child: Text("아이디 찾기"))],
+            ),
           ],
         ),
       ),
