@@ -156,7 +156,7 @@ class CafeViewmodel extends ChangeNotifier {
       Cafe(
         name: '자바 칩 프라푸치노',
         engname: 'Java Chip Frapuccino',
-        discription: 'qazds',
+        discription: '커피, 모카 소스, 진한 초콜릿 칩이 입안 가득 느껴지는 프라푸치노',
         price: '6,500',
         imagePath: 'lib/images/frappuchino/Java_Chip.jpg',
         rating: '5.0',
@@ -164,7 +164,7 @@ class CafeViewmodel extends ChangeNotifier {
       Cafe(
         name: '초콜릿 크림 칩 프라푸치노',
         engname: 'Chocaolate Cream Chip Frappuccino',
-        discription: 'ueijia',
+        discription: '모카 소스와 진한 초콜릿 칩, 초콜릿 드리즐이 올라간 달콤한 크림 프라푸치노',
         price: '6,200',
         imagePath: 'lib/images/frappuchino/Chocolate_Cream_Chip.jpg',
         rating: '5.0',
@@ -172,7 +172,7 @@ class CafeViewmodel extends ChangeNotifier {
       Cafe(
         name: '카라멜 프라푸치노',
         engname: 'Caramel Frappuccino',
-        discription: 'adadad',
+        discription: '카라멜과 커피가 어우러진 프라푸치노',
         price: '6,100',
         imagePath: 'lib/images/frappuchino/Caramel_Frappuccino.jpg',
         rating: '5.0',
@@ -180,7 +180,7 @@ class CafeViewmodel extends ChangeNotifier {
       Cafe(
         name: '에스프레소 프라푸치노',
         engname: 'Espresso Frappuccino',
-        discription: 'qwew',
+        discription: '풍부하고 진한 에스프레소 샷의 강렬함과 달콤함이 어우러져 깊은 커피의 풍미를 느낄 수 있는 프라푸치노',
         price: '5,700',
         imagePath: 'lib/images/frappuchino/Espresso_Frappuccino.jpg',
         rating: '5.0',
@@ -191,7 +191,8 @@ class CafeViewmodel extends ChangeNotifier {
       Cafe(
         name: '슈크림 말차 라떼',
         engname: 'Choux Cream Malcha Latte',
-        discription: 'vvssd',
+        discription:
+            '슈크림의 색다른 변신! 봄을 알리는 초록&노랑의 비주얼과 쌉싸름한 말차, 달콤한 슈크림이 잘 어우러진 티 라떼 음료',
         price: '6,500',
         imagePath: 'lib/images/tea/Malcha_Latte.jpg',
         rating: '5.0',
@@ -199,7 +200,8 @@ class CafeViewmodel extends ChangeNotifier {
       Cafe(
         name: '복숭아 아이스 티',
         engname: 'Iced Peach Black Tea',
-        discription: 'ㄹㄴㅇㄴㅇ',
+        discription:
+            '찻잎을 직접 우려 만든 상큼하고 청량한 아이스 티로, 복숭아의 진한 맛과 홍차의 조화가 매력적인 음료\n*Hot Tea로도 즐기실 수 있습니다.',
         price: '6,100',
         imagePath: 'lib/images/tea/IceTea.jpg',
         rating: '5.0',
@@ -207,7 +209,7 @@ class CafeViewmodel extends ChangeNotifier {
       Cafe(
         name: '클래식 밀크 티',
         engname: 'Classic Milk Tea',
-        discription: 'ㅂㅈㄷ',
+        discription: '진하게 오래 우려낸 티바나 블랙 티의 깊은 풍미와 우유의 조화로움을 담아낸 맛에 집중한 밀크 티',
         price: '6,100',
         imagePath: 'lib/images/tea/Classic_Milk_Tea.jpg',
         rating: '5.0',
@@ -215,7 +217,8 @@ class CafeViewmodel extends ChangeNotifier {
       Cafe(
         name: '제주 말차 라떼',
         engname: 'Jeju Malcha Latte',
-        discription: 'asdsd',
+        discription:
+            '차광재배한 어린 녹찻잎을 곱게 갈아 깊고 진한 말차 본연의 맛과 향을 부드럽게 즐길 수 있는 제주 말차 라떼',
         price: '6,100',
         imagePath: 'lib/images/tea/Jeju_Malcha_Latte.jpg',
         rating: '5.0',
@@ -223,7 +226,7 @@ class CafeViewmodel extends ChangeNotifier {
       Cafe(
         name: '유자 민트 티',
         engname: 'Yuja Mint Tea',
-        discription: 'adadadw',
+        discription: '달콤한 국내산 고흥 유자와 알싸하고 은은한 진저, 우릴 수록 상쾌한 민트 티가 조화로운 유자 민트 티',
         price: '6,100',
         imagePath: 'lib/images/tea/Yuja_Mint_Tea.jpg',
         rating: '5.0',
@@ -231,7 +234,7 @@ class CafeViewmodel extends ChangeNotifier {
       Cafe(
         name: '자몽 허니 블랙 티',
         engname: 'Grepefruit Honey Black Tea',
-        discription: 'vvvsd',
+        discription: '새콤한 자몽과 달콤한 꿀이 깊고 그윽한 풍미의 스타벅스 티바나 블랙 티의 조화',
         price: '5,900',
         imagePath: 'lib/images/tea/Honey_Black_Tea.jpg',
         rating: '5.0',
@@ -239,7 +242,7 @@ class CafeViewmodel extends ChangeNotifier {
       Cafe(
         name: '제주 유기농 녹차로 만든 티',
         engname: 'Jeju Green Tea',
-        discription: 'sdsdsd',
+        discription: '유기농 녹차 티백만을 100%(물 제외) 사용한 티로 맑은 수색과 고유의 풍미가 뛰어난 녹차',
         price: '5,300',
         imagePath: 'lib/images/tea/Jeju_Green_Tea.jpg',
         rating: '5.0',
@@ -247,7 +250,7 @@ class CafeViewmodel extends ChangeNotifier {
       Cafe(
         name: '잉글리쉬 브렉퍼스트 티',
         engname: 'English Breakfast Brewed Tea',
-        discription: 'adadadad',
+        discription: '인도 아삼, 제주도 유기농 홍차가 블렌딩되어 진한 벌꿀향과 그윽한 몰트향이 특징인 블랙 티',
         price: '4,500',
         imagePath: 'lib/images/tea/English_Black_Tea.jpg',
         rating: '5.0',
@@ -255,7 +258,7 @@ class CafeViewmodel extends ChangeNotifier {
       Cafe(
         name: '얼 그레이 티',
         engname: 'Earl Grey Brewed Tea',
-        discription: 'adadadad',
+        discription: '꽃향 가득한 라벤더와 베르가못 향이 진한 홍차와 블렌딩된 향긋한 블랙 티',
         price: '4,500',
         imagePath: 'lib/images/tea/Earl_Grey_Tea.jpg',
         rating: '5.0',
@@ -263,7 +266,8 @@ class CafeViewmodel extends ChangeNotifier {
       Cafe(
         name: '유스베리 티',
         engname: 'Youthberry Brewed Tea',
-        discription: 'gfdfdf',
+        discription:
+            '제주산 찻잎으로 만든 황차에 사과, 망고, 파인애플, 히비스커스, 로즈힙 등이 블렌딩되어 핑크빛 컬러가 감도는 수색과 베리류의 새콤함을 느낄 수 있는 옐로우 티',
         price: '4,500',
         imagePath: 'lib/images/tea/Youthberry_Tea.jpg',
         rating: '5.0',
@@ -271,7 +275,7 @@ class CafeViewmodel extends ChangeNotifier {
       Cafe(
         name: '히비스커스 블렌드 티',
         engname: 'Hibiscus Blend Brewed Tea',
-        discription: 'qwewe',
+        discription: '히비스커스, 사과, 파파야, 망고, 레몬그라스 등이 블렌딩된 상큼한 허브 티',
         price: '4,500',
         imagePath: 'lib/images/tea/Hibiscus_Blend_Tea.jpg',
         rating: '5.0',
@@ -279,7 +283,7 @@ class CafeViewmodel extends ChangeNotifier {
       Cafe(
         name: '민트 블렌드 티',
         engname: 'Mint Blend Brewed Tea',
-        discription: 'adsdwe',
+        discription: '스피어민트, 페퍼민트, 레몬머틀이 블렌딩된 상쾌한 허브 티',
         price: '4,500',
         imagePath: 'lib/images/tea/Mint_Blend_Tea.jpg',
         rating: '5.0',
@@ -287,7 +291,8 @@ class CafeViewmodel extends ChangeNotifier {
       Cafe(
         name: '케모마일 블렌드 티',
         engname: 'Chamomile Blend Brewed Tea',
-        discription: 'adadas',
+        discription:
+            '캐모마일과 레몬 그라스, 레몬밤, 히비스커스 등 블렌딩되어 은은하고 차분한 향이 기분을 좋게하는 허브 티',
         price: '4,500',
         imagePath: 'lib/images/tea/Chamomile_Blend_Tea.jpg',
         rating: '5.0',

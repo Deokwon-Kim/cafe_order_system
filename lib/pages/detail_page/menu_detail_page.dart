@@ -53,7 +53,7 @@ class MenuDetailPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Padding(
-                padding: const EdgeInsets.only(top: 200.0, left: 20),
+                padding: const EdgeInsets.only(top: 200.0, left: 20, right: 20),
                 child: Text(
                   displayCafe.discription,
                   textAlign: TextAlign.start,
