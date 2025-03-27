@@ -18,7 +18,7 @@ class CafeViewmodel extends ChangeNotifier {
         name: '플랫 화이트',
         engname: 'Flat White',
         discription:
-            '부드러운 리스트레토 샷과 완벽한 양의 스팀밀크를 더해,\n카페라떼 보다 커피의 맛을 진하게 즐길 수 있는 에스프레소\n음료입니다.',
+            '부드러운 리스트레토 샷과 완벽한 양의 스팀밀크를 더해, 카페라떼 보다 커피의 맛을 진하게 즐길 수 있는 에스프레소 음료입니다.',
         price: '5,800',
         imagePath: 'lib/images/espresso/Flat_White.jpg',
         rating: '5.0',
@@ -45,7 +45,7 @@ class CafeViewmodel extends ChangeNotifier {
         name: '돌체 라떼',
         engname: 'Dolce Latte',
         discription:
-            '스타벅스의 다른 커피 음료보다 더욱 깊은 커피의 맛과 향에\n깔끔한 무지방 우류와 부드러운 돌체 시럽이 들어간 음료로\n달콤하고 진한 커피 라떼',
+            '스타벅스의 다른 커피 음료보다 더욱 깊은 커피의 맛과 향에 깔끔한 무지방 우류와 부드러운 돌체 시럽이 들어간 음료로 달콤하고 진한 커피 라떼',
         price: '6,100',
         imagePath: 'lib/images/espresso/DolceLatte.jpg',
         rating: '5.0',
@@ -81,7 +81,7 @@ class CafeViewmodel extends ChangeNotifier {
         name: '에스프레소 마키아또',
         engname: 'Espresso Macchiato',
         discription:
-            '신선한 에스프레소 샷에 우유 거품을 살짝 얹은 커피 음료로,\n강렬한 에스프레소의 맛과 우유의 부드러움을 같이\n즐길 수 있는 커피 음료',
+            '신선한 에스프레소 샷에 우유 거품을 살짝 얹은 커피 음료로, 강렬한 에스프레소의 맛과 우유의 부드러움을 같이 즐길 수 있는 커피 음료',
         price: '3,900',
         imagePath: 'lib/images/espresso/espressomakiatto.jpg',
         rating: '5.0',
@@ -90,7 +90,7 @@ class CafeViewmodel extends ChangeNotifier {
         name: '에스프레소 콘 파나',
         engname: 'Espresso Con Panna',
         discription:
-            '신선한 에스프레소 샷에 풍부한 휘핑크림을 얹은\n커피 음료로서, 뜨거운 커피의 맛과 차갑고 달콤한 생크림의\n맛을 같이 즐길 수 있는 커피 음료',
+            '신선한 에스프레소 샷에 풍부한 휘핑크림을 얹은 커피 음료로서, 뜨거운 커피의 맛과 차갑고 달콤한 생크림의 맛을 같이 즐길 수 있는 커피 음료',
         price: '4,100',
         imagePath: 'lib/images/espresso/espressocon.jpg',
         rating: '5.0',

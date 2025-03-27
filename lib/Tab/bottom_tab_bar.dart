@@ -84,6 +84,7 @@ class _BottomTabBarState extends State<BottomTabBar> {
     IconData icon,
     String label,
     int index, {
+    // ignore: unused_element_parameter
     bool isActive = false,
   }) {
     return Column(
@@ -114,6 +115,7 @@ class _BottomTabBarState extends State<BottomTabBar> {
     String imagePath,
     String label,
     int index, {
+    // ignore: unused_element_parameter
     bool isActive = false,
   }) {
     return Padding(
