@@ -1,5 +1,6 @@
 import 'package:cafe_order_system/pages/home_page.dart';
 import 'package:cafe_order_system/pages/order_page.dart';
+import 'package:cafe_order_system/pages/other_page.dart';
 import 'package:flutter/material.dart';
 
 class BottomTabBar extends StatefulWidget {
@@ -10,7 +11,7 @@ class BottomTabBar extends StatefulWidget {
 }
 
 class _BottomTabBarState extends State<BottomTabBar> {
-  final List<Widget> _pages = [HomePage(), OrderPage()];
+  final List<Widget> _pages = [HomePage(), OrderPage(), OtherPage()];
   int _selectedIndex = 0;
 
   void _onItemTapped(int index) {
@@ -27,6 +28,7 @@ class _BottomTabBarState extends State<BottomTabBar> {
         mainAxisSize: MainAxisSize.min,
         children: [
           Container(
+            height: 110,
             decoration: BoxDecoration(
               boxShadow: [
                 BoxShadow(
@@ -90,7 +92,7 @@ class _BottomTabBarState extends State<BottomTabBar> {
         Icon(
           icon,
           color: _selectedIndex == index ? Color(0xfff37210) : Colors.grey,
-          size: 28,
+          size: 20,
         ),
         Text(
           label,
@@ -115,14 +117,14 @@ class _BottomTabBarState extends State<BottomTabBar> {
     bool isActive = false,
   }) {
     return Padding(
-      padding: const EdgeInsets.only(top: 12.0),
+      padding: const EdgeInsets.only(top: 5),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           ImageIcon(
             AssetImage(imagePath),
             color: _selectedIndex == index ? Color(0xfff37210) : Colors.grey,
-            size: 26,
+            size: 20,
           ),
           Text(
             label,
