@@ -55,7 +55,11 @@ class CafeTile extends StatelessWidget {
                       child: Text(
                         '${cafe.price}원',
                         textAlign: TextAlign.start,
-                        style: TextStyle(color: Colors.black, fontSize: 18),
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   ),

@@ -2,8 +2,9 @@ import 'package:cafe_order_system/model/cafe.dart';
 import 'package:flutter/material.dart';
 
 class CafeViewmodel extends ChangeNotifier {
+  final int _quantityCount = 1;
   // 각 디테일 페이지의 리스트를 관리하는 Map
-  final Map<String, List<Cafe>> _cafeMenus = {
+  final Map<String, List<Cafe>> _cafeMenu = {
     'espresso': [
       Cafe(
         name: '슈크림 라떼',
@@ -305,7 +306,7 @@ class CafeViewmodel extends ChangeNotifier {
 
   // 특정 카테고리의 리스트 가져오기
   List<Cafe> getMenu(String category) {
-    return _cafeMenus[category] ?? [];
+    return _cafeMenu[category] ?? [];
   }
 
   // 현재 선택된 카페 아이템 가져오기

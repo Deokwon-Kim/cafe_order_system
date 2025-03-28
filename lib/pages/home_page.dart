@@ -1,4 +1,7 @@
+import 'package:cafe_order_system/provider/cart_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:badges/badges.dart' as badges;
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -7,13 +10,44 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 237, 236, 236),
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        backgroundColor: const Color.fromARGB(255, 237, 236, 236),
+        actions: [
+          Consumer<CartProvider>(
+            builder: (context, viewModel, child) {
+              return badges.Badge(
+                position: badges.BadgePosition.topEnd(top: 0, end: 0),
+                badgeAnimation: const badges.BadgeAnimation.slide(
+                  animationDuration: Duration(milliseconds: 300),
+                ),
+                showBadge: viewModel.cart.isNotEmpty,
+                badgeStyle: const badges.BadgeStyle(
+                  badgeColor: Color(0xfff37210),
+                  padding: EdgeInsets.all(5),
+                ),
+                badgeContent: Text(
+                  '${viewModel.cart.length}',
+                  style: const TextStyle(color: Colors.white, fontSize: 10),
+                ),
+                child: IconButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, 'cart');
+                  },
+                  icon: const Icon(Icons.shopping_cart_outlined),
+                ),
+              );
+            },
+          ),
+        ],
+      ),
       body: Column(
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Padding(
-                padding: const EdgeInsets.only(top: 120.0, left: 20),
+                padding: const EdgeInsets.only(left: 20),
                 child: Text.rich(
                   TextSpan(
                     text: '닉네임 님\n환영합니다 ',

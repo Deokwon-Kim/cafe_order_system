@@ -16,10 +16,12 @@ class EspressoDetailPage extends StatelessWidget {
         slivers: [
           SliverAppBar(
             backgroundColor: Colors.white,
+            surfaceTintColor: Colors.white,
             expandedHeight: 70,
             floating: false,
             pinned: true,
-            scrolledUnderElevation: 0,
+            scrolledUnderElevation: 4.0,
+            shadowColor: const Color.fromARGB(91, 158, 158, 158),
             flexibleSpace: LayoutBuilder(
               builder: (context, constraints) {
                 // 스크롤 상태에 따라 타이틀을 보이게 설정
@@ -70,7 +72,8 @@ class EspressoDetailPage extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                       builder:
-                          (context) => const MenuDetailPage(cafeMenu: null),
+                          (context) =>
+                              MenuDetailPage(cafeMenu: cafeMenu[index]),
                     ),
                   );
                 },

@@ -1,8 +1,10 @@
 import 'package:cafe_order_system/Tab/bottom_tab_bar.dart';
+import 'package:cafe_order_system/pages/cart_page.dart';
 import 'package:cafe_order_system/pages/detail_page/coldbrew_detail_page.dart';
 import 'package:cafe_order_system/pages/detail_page/espresso_detail_page.dart';
 import 'package:cafe_order_system/pages/detail_page/frappu_detail_page.dart';
 import 'package:cafe_order_system/pages/detail_page/teabana_detail_page.dart';
+import 'package:cafe_order_system/provider/cart_provider.dart';
 import 'package:cafe_order_system/viewModel/cafe_viewmodel.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +12,10 @@ import 'package:flutter/material.dart';
 void main() {
   runApp(
     MultiProvider(
-      providers: [ChangeNotifierProvider(create: (context) => CafeViewmodel())],
+      providers: [
+        ChangeNotifierProvider(create: (context) => CafeViewmodel()),
+        ChangeNotifierProvider(create: (context) => CartProvider()),
+      ],
       child: const MyApp(),
     ),
   );
@@ -31,6 +36,7 @@ class MyApp extends StatelessWidget {
         'coldbrew': (context) => const ColdbrewDetailPage(),
         'frappuchino': (context) => const FrappuDetailPage(),
         'teabana': (context) => const TeabanaDetailPage(),
+        'cart': (context) => const CartPage(),
       },
     );
   }
