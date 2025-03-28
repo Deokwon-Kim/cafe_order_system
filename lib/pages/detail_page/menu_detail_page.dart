@@ -43,6 +43,15 @@ class _MenuDetailPageState extends State<MenuDetailPage> {
   }
 
   @override
+  void initState() {
+    super.initState();
+    // 페이지가 생성될 때 수량 초기화
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      context.read<CartProvider>().resetQuantity();
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Consumer<CartProvider>(
       builder: (context, viewModel, child) {

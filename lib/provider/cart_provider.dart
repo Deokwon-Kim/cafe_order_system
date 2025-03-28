@@ -25,6 +25,11 @@ class CartProvider extends ChangeNotifier {
     }
   }
 
+  void resetQuantity() {
+    _quantityCount = 1;
+    notifyListeners();
+  }
+
   void addToCart(Cafe cafeMenu, int quantity) {
     for (int i = 0; i < quantity; i++) {
       _cart.add(cafeMenu);
