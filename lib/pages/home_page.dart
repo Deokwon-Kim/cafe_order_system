@@ -14,30 +14,33 @@ class HomePage extends StatelessWidget {
         automaticallyImplyLeading: false,
         backgroundColor: const Color.fromARGB(255, 237, 236, 236),
         actions: [
-          Consumer<CartProvider>(
-            builder: (context, viewModel, child) {
-              return badges.Badge(
-                position: badges.BadgePosition.topEnd(top: 0, end: 0),
-                badgeAnimation: const badges.BadgeAnimation.slide(
-                  animationDuration: Duration(milliseconds: 300),
-                ),
-                showBadge: viewModel.cart.isNotEmpty,
-                badgeStyle: const badges.BadgeStyle(
-                  badgeColor: Color(0xfff37210),
-                  padding: EdgeInsets.all(5),
-                ),
-                badgeContent: Text(
-                  '${viewModel.cart.length}',
-                  style: const TextStyle(color: Colors.white, fontSize: 10),
-                ),
-                child: IconButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, 'cart');
-                  },
-                  icon: const Icon(Icons.shopping_cart_outlined),
-                ),
-              );
-            },
+          Padding(
+            padding: const EdgeInsets.only(right: 10.0),
+            child: Consumer<CartProvider>(
+              builder: (context, viewModel, child) {
+                return badges.Badge(
+                  position: badges.BadgePosition.topEnd(top: 0, end: 0),
+                  badgeAnimation: const badges.BadgeAnimation.slide(
+                    animationDuration: Duration(milliseconds: 300),
+                  ),
+                  showBadge: viewModel.cart.isNotEmpty,
+                  badgeStyle: const badges.BadgeStyle(
+                    badgeColor: Color(0xfff37210),
+                    padding: EdgeInsets.all(5),
+                  ),
+                  badgeContent: Text(
+                    '${viewModel.cart.length}',
+                    style: const TextStyle(color: Colors.white, fontSize: 10),
+                  ),
+                  child: IconButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, 'cart');
+                    },
+                    icon: const Icon(Icons.shopping_cart_outlined),
+                  ),
+                );
+              },
+            ),
           ),
         ],
       ),

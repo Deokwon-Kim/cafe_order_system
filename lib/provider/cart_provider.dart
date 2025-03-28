@@ -19,7 +19,7 @@ class CartProvider extends ChangeNotifier {
   }
 
   void decrementQuantity() {
-    if (_quantityCount > 1) {
+    if (_quantityCount > 0) {
       _quantityCount--;
       notifyListeners();
     }

@@ -12,13 +12,12 @@ class MenuDetailPage extends StatefulWidget {
 }
 
 class _MenuDetailPageState extends State<MenuDetailPage> {
-  int quantityCount = 1;
   final viewModel = CartProvider();
 
   void addToCart() {
-    if (quantityCount > 0) {
+    if (viewModel.quantityCount > 0) {
       final viewModel = context.read<CartProvider>();
-      viewModel.addToCart(widget.cafeMenu, quantityCount);
+      viewModel.addToCart(widget.cafeMenu, viewModel.quantityCount);
 
       showDialog(
         context: context,

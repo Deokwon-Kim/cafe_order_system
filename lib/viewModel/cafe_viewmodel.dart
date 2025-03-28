@@ -2,7 +2,6 @@ import 'package:cafe_order_system/model/cafe.dart';
 import 'package:flutter/material.dart';
 
 class CafeViewmodel extends ChangeNotifier {
-  final int _quantityCount = 1;
   // 각 디테일 페이지의 리스트를 관리하는 Map
   final Map<String, List<Cafe>> _cafeMenu = {
     'espresso': [
