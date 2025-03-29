@@ -1,5 +1,5 @@
-import 'package:cafe_order_system/model/cafe.dart';
-import 'package:cafe_order_system/provider/cart_provider.dart';
+import 'package:HERMESCAFE/model/cafe.dart';
+import 'package:HERMESCAFE/provider/cart_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -24,17 +24,40 @@ class _MenuDetailPageState extends State<MenuDetailPage> {
         builder:
             (context) => AlertDialog(
               backgroundColor: Colors.white,
-              content: Text(
-                '장바구니 추가완료',
-                style: TextStyle(color: Colors.black),
-                textAlign: TextAlign.center,
+              content: Container(
+                alignment: Alignment.center,
+                width: 200,
+                height: 50,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(top: 23.0),
+                      child: Text(
+                        '장바구니 추가완료',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
               actions: [
-                IconButton(
+                TextButton(
                   onPressed: () {
                     Navigator.pushNamed(context, 'cart');
                   },
-                  icon: Icon(Icons.done, color: Colors.black),
+                  child: Text(
+                    '장바구니로 이동',
+                    style: TextStyle(
+                      color: Color(0xfff37210),
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                 ),
               ],
             ),
@@ -188,7 +211,7 @@ class _MenuDetailPageState extends State<MenuDetailPage> {
                           borderRadius: BorderRadius.circular(30),
                         ),
                         child: Text(
-                          '주문하기',
+                          '장바구니에 담기',
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 16,

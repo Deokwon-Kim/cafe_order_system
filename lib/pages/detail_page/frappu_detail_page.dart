@@ -1,6 +1,6 @@
-import 'package:cafe_order_system/components/cafe_tile.dart';
-import 'package:cafe_order_system/pages/detail_page/menu_detail_page.dart';
-import 'package:cafe_order_system/viewModel/cafe_viewmodel.dart';
+import 'package:HERMESCAFE/components/cafe_tile.dart';
+import 'package:HERMESCAFE/pages/detail_page/menu_detail_page.dart';
+import 'package:HERMESCAFE/viewModel/cafe_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

@@ -1,6 +1,6 @@
-import 'package:cafe_order_system/pages/home_page.dart';
-import 'package:cafe_order_system/pages/order_page.dart';
-import 'package:cafe_order_system/pages/other_page.dart';
+import 'package:HERMESCAFE/pages/home_page.dart';
+import 'package:HERMESCAFE/pages/order_page.dart';
+import 'package:HERMESCAFE/pages/other_page.dart';
 import 'package:flutter/material.dart';
 
 class BottomTabBar extends StatefulWidget {

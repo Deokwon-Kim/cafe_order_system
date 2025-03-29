@@ -1,4 +1,4 @@
-import 'package:cafe_order_system/model/cafe.dart';
+import 'package:HERMESCAFE/model/cafe.dart';
 import 'package:flutter/material.dart';
 
 class CafeViewmodel extends ChangeNotifier {

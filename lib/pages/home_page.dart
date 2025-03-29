@@ -1,4 +1,4 @@
-import 'package:cafe_order_system/provider/cart_provider.dart';
+import 'package:HERMESCAFE/provider/cart_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:badges/badges.dart' as badges;
