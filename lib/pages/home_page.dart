@@ -23,13 +23,13 @@ class HomePage extends StatelessWidget {
                   badgeAnimation: const badges.BadgeAnimation.slide(
                     animationDuration: Duration(milliseconds: 300),
                   ),
-                  showBadge: viewModel.cart.isNotEmpty,
+                  showBadge: viewModel.cartItems.isNotEmpty,
                   badgeStyle: const badges.BadgeStyle(
                     badgeColor: Color(0xfff37210),
                     padding: EdgeInsets.all(5),
                   ),
                   badgeContent: Text(
-                    '${viewModel.cart.length}',
+                    '${viewModel.cartItems.length}',
                     style: const TextStyle(color: Colors.white, fontSize: 10),
                   ),
                   child: IconButton(

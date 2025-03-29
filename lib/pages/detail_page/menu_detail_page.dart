@@ -1,5 +1,6 @@
 import 'package:HERMESCAFE/model/cafe.dart';
 import 'package:HERMESCAFE/provider/cart_provider.dart';
+import 'package:HERMESCAFE/provider/menu_detail_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -12,12 +13,23 @@ class MenuDetailPage extends StatefulWidget {
 }
 
 class _MenuDetailPageState extends State<MenuDetailPage> {
-  final viewModel = CartProvider();
+
+  @override
+  void initState() {
+    super.initState();
+    // 페이지가 생성될 때 수량 초기화
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      context.read<MenuDetailProvider>().resetQuantity();
+    });
+  }
 
   void addToCart() {
-    if (viewModel.quantityCount > 0) {
-      final viewModel = context.read<CartProvider>();
-      viewModel.addToCart(widget.cafeMenu, viewModel.quantityCount);
+    final menuDetailProvider = context.read<MenuDetailProvider>();
+    if (menuDetailProvider.quantity > 0) {
+      final cartProvider = context.read<CartProvider>();
+      // Set the quantity from MenuDetailProvider to the cafe menu item
+      widget.cafeMenu.quantity = menuDetailProvider.quantity;
+      cartProvider.addToCart(widget.cafeMenu);
 
       showDialog(
         context: context,
@@ -66,18 +78,9 @@ class _MenuDetailPageState extends State<MenuDetailPage> {
   }
 
   @override
-  void initState() {
-    super.initState();
-    // 페이지가 생성될 때 수량 초기화
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      context.read<CartProvider>().resetQuantity();
-    });
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return Consumer<CartProvider>(
-      builder: (context, viewModel, child) {
+    return Consumer2<MenuDetailProvider, CartProvider>(
+      builder: (context, menuDetailProvider, cartProvider, child) {
         return Scaffold(
           backgroundColor: Colors.white,
           body: Stack(
@@ -162,14 +165,14 @@ class _MenuDetailPageState extends State<MenuDetailPage> {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     IconButton(
-                      onPressed: viewModel.decrementQuantity,
+                      onPressed: () => menuDetailProvider.removeQuantity(),
                       icon: Icon(Icons.remove, color: Colors.black),
                     ),
                     SizedBox(
                       width: 40,
                       child: Center(
                         child: Text(
-                          viewModel.quantityCount.toString(),
+                          menuDetailProvider.quantity.toString(),
                           style: TextStyle(fontSize: 20, color: Colors.black),
                         ),
                       ),
@@ -182,7 +185,7 @@ class _MenuDetailPageState extends State<MenuDetailPage> {
                       ),
 
                       child: IconButton(
-                        onPressed: viewModel.incrementQuantity,
+                        onPressed: () => menuDetailProvider.addQuantity(),
                         icon: Icon(Icons.add, color: Colors.black),
                       ),
                     ),

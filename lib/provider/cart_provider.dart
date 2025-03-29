@@ -2,43 +2,41 @@ import 'package:HERMESCAFE/model/cafe.dart';
 import 'package:flutter/material.dart';
 
 class CartProvider extends ChangeNotifier {
-  final List<Map<String, dynamic>> _cartItems = [];
+  final Map<String, Cafe> _cartItems = {};
 
-  List<Map<String, dynamic>> get cartItems => _cartItems;
+  Map<String, Cafe> get cartItems => _cartItems;
 
-  int _quantityCount = 1;
-
-  int get quantityCount => _quantityCount;
-
-  final List<Cafe> _cart = [];
-  List<Cafe> get cart => _cart;
-
-  void incrementQuantity() {
-    _quantityCount++;
-    notifyListeners();
-  }
-
-  void decrementQuantity() {
-    if (_quantityCount > 0) {
-      _quantityCount--;
+  void incrementQuantity(String id) {
+    if (_cartItems.containsKey(id)) {
+      _cartItems[id]!.quantity++;
       notifyListeners();
     }
   }
 
-  void resetQuantity() {
-    _quantityCount = 1;
-    notifyListeners();
-  }
-
-  void addToCart(Cafe cafeMenu, int quantity) {
-    for (int i = 0; i < quantity; i++) {
-      _cart.add(cafeMenu);
+  void decrementQuantity(String id) {
+    if (_cartItems.containsKey(id)) {
+      if (_cartItems[id]!.quantity > 1) {
+        _cartItems[id]!.quantity--;
+      } else {
+        _cartItems.remove(id);
+      }
+      notifyListeners();
     }
-    notifyListeners();
   }
 
-  void removeFromCart(Cafe cafeMenu) {
-    _cart.remove(cafeMenu);
+  void resetQuantity(String id) {
+    if (_cartItems.containsKey(id)) {
+      _cartItems[id]!.quantity = 1;
+      notifyListeners();
+    }
+  }
+
+  void addToCart(Cafe item) {
+    if (_cartItems.containsKey(item.id)) {
+      incrementQuantity(item.id);
+    } else {
+      _cartItems[item.id] = item;
+    }
     notifyListeners();
   }
 }

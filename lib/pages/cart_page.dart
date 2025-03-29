@@ -1,22 +1,21 @@
 import 'package:HERMESCAFE/Tab/bottom_tab_bar.dart';
-import 'package:HERMESCAFE/model/cafe.dart';
 import 'package:HERMESCAFE/provider/cart_provider.dart';
+import 'package:HERMESCAFE/provider/menu_detail_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class CartPage extends StatelessWidget {
   const CartPage({super.key});
 
-  void removeFromCart(Cafe cafe, BuildContext context) {
-    final viewModel = context.read<CartProvider>();
-    viewModel.removeFromCart(cafe);
-  }
-
   @override
   Widget build(BuildContext context) {
-    return Consumer<CartProvider>(
+    final cart = Provider.of<CartProvider>(context);
+    // final menuDetail = Provider.of<MenuDetailProvider>(context);
+    final items = cart.cartItems.values.toList();
+
+    return Consumer2<CartProvider, MenuDetailProvider>(
       builder:
-          (context, value, child) => Scaffold(
+          (context, cart, menuDetail, child) => Scaffold(
             backgroundColor: Colors.white,
             appBar: AppBar(
               leading: IconButton(
@@ -38,7 +37,7 @@ class CartPage extends StatelessWidget {
             body: Column(
               children: [
                 // 장바구니 비어있을시 비어있음 텍스트 표시
-                value.cart.isEmpty
+                cart.cartItems.isEmpty
                     ? Expanded(
                       child: Center(
                         child: Column(
@@ -64,13 +63,9 @@ class CartPage extends StatelessWidget {
                     )
                     : Expanded(
                       child: ListView.builder(
-                        itemCount: value.cart.length,
+                        itemCount: cart.cartItems.length,
                         itemBuilder: (context, index) {
-                          final Cafe cafe = value.cart[index];
-                          final String image = cafe.imagePath;
-                          final String menuName = cafe.name;
-                          final String engNmae = cafe.engname;
-                          final String menuPrice = cafe.price;
+                          final item = items[index];
 
                           return Container(
                             decoration: BoxDecoration(
@@ -84,7 +79,7 @@ class CartPage extends StatelessWidget {
                             child: ListTile(
                               leading: ClipRRect(
                                 borderRadius: BorderRadius.circular(30),
-                                child: Image.asset(image, height: 300),
+                                child: Image.asset(item.imagePath, height: 300),
                               ),
                               title: Padding(
                                 padding: const EdgeInsets.only(left: 10.0),
@@ -92,7 +87,7 @@ class CartPage extends StatelessWidget {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      menuName,
+                                      item.name,
                                       style: TextStyle(
                                         color: Colors.black,
                                         fontWeight: FontWeight.bold,
@@ -100,7 +95,7 @@ class CartPage extends StatelessWidget {
                                       textAlign: TextAlign.start,
                                     ),
                                     Text(
-                                      engNmae,
+                                      item.engname,
                                       style: TextStyle(
                                         color: Colors.grey,
                                         fontSize: 13,
@@ -108,17 +103,31 @@ class CartPage extends StatelessWidget {
                                       textAlign: TextAlign.start,
                                     ),
                                     Text(
-                                      '$menuPrice원',
+                                      '${item.price}원',
                                       style: TextStyle(fontSize: 16),
                                     ),
                                   ],
                                 ),
                               ),
 
-                              trailing: IconButton(
-                                onPressed: () => removeFromCart(cafe, context),
-                                icon: Icon(Icons.delete),
-                                color: Colors.black,
+                              trailing: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  IconButton(
+                                    onPressed:
+                                        () => cart.decrementQuantity(item.id),
+                                    icon: Icon(Icons.remove),
+                                  ),
+                                  Text(
+                                    '${item.quantity}',
+                                    style: TextStyle(fontSize: 15),
+                                  ),
+                                  IconButton(
+                                    onPressed:
+                                        () => cart.incrementQuantity(item.id),
+                                    icon: Icon(Icons.add),
+                                  ),
+                                ],
                               ),
                             ),
                           );
@@ -139,7 +148,7 @@ class CartPage extends StatelessWidget {
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(30),
                             color:
-                                value.cart.isEmpty
+                                cart.cartItems.isEmpty
                                     ? Colors.grey
                                     : Color(0xfff37210),
                           ),

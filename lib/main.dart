@@ -5,6 +5,7 @@ import 'package:HERMESCAFE/pages/detail_page/espresso_detail_page.dart';
 import 'package:HERMESCAFE/pages/detail_page/frappu_detail_page.dart';
 import 'package:HERMESCAFE/pages/detail_page/teabana_detail_page.dart';
 import 'package:HERMESCAFE/provider/cart_provider.dart';
+import 'package:HERMESCAFE/provider/menu_detail_provider.dart';
 import 'package:HERMESCAFE/viewModel/cafe_viewmodel.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
@@ -15,6 +16,7 @@ void main() {
       providers: [
         ChangeNotifierProvider(create: (context) => CafeViewmodel()),
         ChangeNotifierProvider(create: (context) => CartProvider()),
+        ChangeNotifierProvider(create: (context) => MenuDetailProvider()),
       ],
       child: const MyApp(),
     ),
