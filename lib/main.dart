@@ -1,4 +1,6 @@
+import 'package:HERMESCAFE/firebase_options.dart';
 import 'package:HERMESCAFE/login/login_page.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:HERMESCAFE/notifications/noti_service.dart';
 import 'package:HERMESCAFE/pages/cart_page.dart';
 import 'package:HERMESCAFE/pages/detail_page/coldbrew_detail_page.dart';
@@ -14,7 +16,7 @@ import 'package:flutter/material.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   await NotiService().initNotification();
 
   runApp(
