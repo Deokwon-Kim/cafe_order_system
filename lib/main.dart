@@ -6,6 +6,8 @@ import 'package:HERMESCAFE/pages/detail_page/frappu_detail_page.dart';
 import 'package:HERMESCAFE/pages/detail_page/teabana_detail_page.dart';
 import 'package:HERMESCAFE/provider/cart_provider.dart';
 import 'package:HERMESCAFE/provider/menu_detail_provider.dart';
+import 'package:HERMESCAFE/tosspayments/payments_page.dart';
+import 'package:HERMESCAFE/tosspayments/paysuccess_page.dart';
 import 'package:HERMESCAFE/viewModel/cafe_viewmodel.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
@@ -39,6 +41,8 @@ class MyApp extends StatelessWidget {
         'frappuchino': (context) => const FrappuDetailPage(),
         'teabana': (context) => const TeabanaDetailPage(),
         'cart': (context) => const CartPage(),
+        'payment': (context) => const PaymentsPage(),
+        'paysuccess': (context) => const PaysuccessPage(),
       },
     );
   }
