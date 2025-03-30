@@ -1,19 +1,28 @@
 import 'package:HERMESCAFE/Tab/bottom_tab_bar.dart';
+import 'package:HERMESCAFE/provider/cart_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
 
 class PaysuccessPage extends StatelessWidget {
-  const PaysuccessPage({super.key});
+  final Map<String, dynamic> orderData;
+  const PaysuccessPage({super.key, required this.orderData});
 
   String formatAmount(int amount) {
     final formatter = NumberFormat('#,###');
     return formatter.format(amount);
   }
 
-  // Format amount with commas
-
   @override
   Widget build(BuildContext context) {
+    final items = orderData['items'] as List;
+    final totalAmount = orderData['totalAmount'] as String;
+    final orderId = orderData['orderId'] as String;
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      Provider.of<CartProvider>(context, listen: false).clearCart();
+    });
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: Center(
@@ -24,7 +33,7 @@ class PaysuccessPage extends StatelessWidget {
             children: [
               Container(
                 width: double.infinity,
-                height: 200,
+                height: 450,
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(20),
@@ -38,10 +47,16 @@ class PaysuccessPage extends StatelessWidget {
                   ],
                 ),
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Icon(Icons.check_circle, color: Colors.green, size: 80),
-                    SizedBox(height: 20),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 10.0),
+                      child: Icon(
+                        Icons.check_circle,
+                        color: Colors.green,
+                        size: 60,
+                      ),
+                    ),
+                    SizedBox(height: 10),
                     Text(
                       '결제가 완료되었습니다.',
                       style: TextStyle(
@@ -50,10 +65,130 @@ class PaysuccessPage extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
+                    SizedBox(height: 5),
+                    Text(
+                      '주문번호: $orderId',
+                      style: TextStyle(color: Colors.grey[600], fontSize: 14),
+                    ),
+                    SizedBox(height: 20),
+                    Text(
+                      '주문 내역',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    SizedBox(height: 10),
+                    Expanded(
+                      child: ListView.builder(
+                        shrinkWrap: true,
+                        itemCount: items.length,
+                        itemBuilder: (contex, index) {
+                          final item = items[index];
+                          return Container(
+                            padding: EdgeInsets.symmetric(
+                              vertical: 8,
+                              horizontal: 16,
+                            ),
+                            decoration: BoxDecoration(
+                              border: Border(
+                                bottom: BorderSide(
+                                  color:
+                                      index == items.length - 1
+                                          ? Colors.transparent
+                                          : Colors.grey.withAlpha(20),
+                                ),
+                              ),
+                            ),
+                            child: Row(
+                              children: [
+                                ClipRRect(
+                                  borderRadius: BorderRadius.circular(25),
+                                  child: Image.asset(
+                                    item.imagePath,
+                                    height: 50,
+                                    width: 50,
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                                SizedBox(width: 12),
+                                Expanded(
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            item.name,
+                                            style: TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 16,
+                                            ),
+                                          ),
+                                          Text(
+                                            item.engname,
+                                            style: TextStyle(
+                                              color: Colors.grey[600],
+                                            ),
+                                          ),
+                                          Text('${item.price}원'),
+                                        ],
+                                      ),
+                                      Text(
+                                        '수량: ${item.quantity}개',
+                                        style: TextStyle(
+                                          color: Colors.grey[600],
+                                          fontSize: 16,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+
+                    Container(
+                      margin: EdgeInsets.symmetric(vertical: 10),
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 16,
+                        vertical: 10,
+                      ),
+                      decoration: BoxDecoration(
+                        color: Colors.grey.withAlpha(0),
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            '총 결제 금액',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16,
+                            ),
+                          ),
+                          Text(
+                            totalAmount,
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18,
+                              color: Color(0xfff37210),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                   ],
                 ),
               ),
-              SizedBox(height: 100),
+              SizedBox(height: 20),
               GestureDetector(
                 onTap: () {
                   Navigator.pushReplacement(

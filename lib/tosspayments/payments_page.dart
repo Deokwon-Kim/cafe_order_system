@@ -1,6 +1,7 @@
 import 'dart:math';
 import 'package:HERMESCAFE/notifications/noti_service.dart';
 import 'package:HERMESCAFE/provider/cart_provider.dart';
+import 'package:HERMESCAFE/tosspayments/paysuccess_page.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
@@ -222,15 +223,30 @@ class _PaymentsPageState extends State<PaymentsPage> {
                       );
 
                       if (paymentResult.success != null) {
-                        Provider.of<CartProvider>(
+                        final cart = Provider.of<CartProvider>(
                           context,
                           listen: false,
-                        ).clearCart();
+                        );
+                        final items = cart.cartItems.values.toList();
+
+                        final Map<String, dynamic> orderData = {
+                          'items': items,
+                          'totalAmount': cart.totalAmount,
+                          'orderId': orderId,
+                          'orderDate': DateTime.now().toString(),
+                        };
                         NotiService().showNotification(
                           title: '결제 성공',
                           body: '결제가 완료되었습니다.',
                         );
-                        Navigator.pushNamed(context, 'paysuccess');
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder:
+                                (context) =>
+                                    PaysuccessPage(orderData: orderData),
+                          ),
+                        );
                       }
                     },
                     child: Padding(
