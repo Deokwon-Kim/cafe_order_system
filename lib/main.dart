@@ -1,4 +1,4 @@
-import 'package:HERMESCAFE/Tab/bottom_tab_bar.dart';
+import 'package:HERMESCAFE/login/login_page.dart';
 import 'package:HERMESCAFE/notifications/noti_service.dart';
 import 'package:HERMESCAFE/pages/cart_page.dart';
 import 'package:HERMESCAFE/pages/detail_page/coldbrew_detail_page.dart';
@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo2222',
-      home: const BottomTabBar(),
+      home: LoginPage(),
       routes: {
         'espresso': (context) => const EspressoDetailPage(),
         'coldbrew': (context) => const ColdbrewDetailPage(),
