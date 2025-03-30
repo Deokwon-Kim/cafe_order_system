@@ -42,19 +42,17 @@ class CartProvider extends ChangeNotifier {
     }
   }
 
-  void resetQuantity(String id) {
-    if (_cartItems.containsKey(id)) {
-      _cartItems[id]!.quantity = 1;
-      notifyListeners();
-    }
-  }
-
   void addToCart(Cafe item) {
     if (_cartItems.containsKey(item.id)) {
       incrementQuantity(item.id);
     } else {
       _cartItems[item.id] = item;
     }
+    notifyListeners();
+  }
+
+  void clearCart() {
+    _cartItems.clear();
     notifyListeners();
   }
 }

@@ -1,4 +1,5 @@
 import 'package:HERMESCAFE/Tab/bottom_tab_bar.dart';
+import 'package:HERMESCAFE/notifications/noti_service.dart';
 import 'package:HERMESCAFE/pages/cart_page.dart';
 import 'package:HERMESCAFE/pages/detail_page/coldbrew_detail_page.dart';
 import 'package:HERMESCAFE/pages/detail_page/espresso_detail_page.dart';
@@ -12,7 +13,11 @@ import 'package:HERMESCAFE/viewModel/cafe_viewmodel.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await NotiService().initNotification();
+
   runApp(
     MultiProvider(
       providers: [

@@ -1,4 +1,5 @@
 import 'dart:math';
+import 'package:HERMESCAFE/notifications/noti_service.dart';
 import 'package:HERMESCAFE/provider/cart_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -221,22 +222,15 @@ class _PaymentsPageState extends State<PaymentsPage> {
                       );
 
                       if (paymentResult.success != null) {
+                        Provider.of<CartProvider>(
+                          context,
+                          listen: false,
+                        ).clearCart();
+                        NotiService().showNotification(
+                          title: '결제 성공',
+                          body: '결제가 완료되었습니다.',
+                        );
                         Navigator.pushNamed(context, 'paysuccess');
-                        try {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              content: Text('결제가 진행 중입니다...'),
-                              backgroundColor: Color(0xfff37210),
-                            ),
-                          );
-                        } catch (e) {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              content: Text('결제 처리 중 오류가 발생했습니다: $e'),
-                              backgroundColor: Colors.red,
-                            ),
-                          );
-                        }
                       }
                     },
                     child: Padding(
