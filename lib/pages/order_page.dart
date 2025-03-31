@@ -11,7 +11,7 @@ class OrderPage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Padding(
-            padding: const EdgeInsets.only(top: 100.0, right: 250),
+            padding: const EdgeInsets.only(top: 100.0, right: 300),
             child: Text(
               'Order',
               style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
