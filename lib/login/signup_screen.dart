@@ -1,3 +1,4 @@
+import 'package:HERMESCAFE/Tab/bottom_tab_bar.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -9,11 +10,7 @@ class SignupScreen extends StatelessWidget {
   final TextEditingController _checkpasswordControllet =
       TextEditingController();
 
-  Future<void> _signUp() async {
-    if (_passwordController.text.trim() !=
-        _checkpasswordControllet.text.trim()) {
-      return;
-    }
+  Future<void> _signUp(BuildContext context) async {
     try {
       UserCredential userCredential = await FirebaseAuth.instance
           .createUserWithEmailAndPassword(
@@ -33,9 +30,47 @@ class SignupScreen extends StatelessWidget {
 
       await userCredential.user!.updateDisplayName(_usernameController.text);
 
-      debugPrint('회원가입 성공: ${userCredential.user}');
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text('회원가입 성공')));
+
+      await Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => BottomTabBar()),
+      );
     } catch (e) {
-      debugPrint('회원가입 실패: ${e.toString()}');
+      if (_usernameController.text.trim().isEmpty) {
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(SnackBar(content: Text('사용자 이름을 입력하세요.')));
+      }
+
+      if (_usernameController.text.trim().length > 10) {
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(SnackBar(content: Text('사용자 이름은 10자 이하이어야 합니다.')));
+      }
+
+      if (_emailController.text.trim().isEmpty) {
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(SnackBar(content: Text('이메일을 입력하세요.')));
+      }
+
+      if (_passwordController.text.trim().isEmpty) {
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(SnackBar(content: Text('비밀번호를 입력하세요.')));
+      }
+
+      if (_passwordController.text.trim() !=
+          _checkpasswordControllet.text.trim()) {
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(SnackBar(content: Text('비밀번호가 일치하지 않습니다.')));
+      }
+
+      print('회원가입 실패: $e');
     }
   }
 
@@ -57,98 +92,102 @@ class SignupScreen extends StatelessWidget {
           color: Colors.black,
         ),
       ),
-      body: Center(
-        child: Column(
-          children: [
-            Padding(
-              padding: EdgeInsets.only(top: size.height * 0.10),
-              child: Image.asset('lib/images/logo2.png', height: 240),
-            ),
-            SizedBox(height: 50),
-            Padding(
-              padding: const EdgeInsets.only(left: 20.0, right: 20.0),
-              child: SignUpUserNameTextField(
-                usernameController: _usernameController,
+      body: SingleChildScrollView(
+        child: Center(
+          child: Column(
+            children: [
+              Padding(
+                padding: EdgeInsets.only(top: size.height * 0.10),
+                child: Image.asset('lib/images/logo2.png', height: 240),
               ),
-            ),
-            SizedBox(height: 10),
-            Padding(
-              padding: const EdgeInsets.only(left: 20.0, right: 20.0),
-              child: TextField(
-                controller: _emailController,
-                decoration: InputDecoration(
-                  labelText: "Email",
-                  labelStyle: TextStyle(color: Colors.black),
-                  enabledBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.black),
-                  ),
-                  focusedBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Color(0xfff37210)),
-                  ),
+              SizedBox(height: 50),
+              Padding(
+                padding: const EdgeInsets.only(left: 20.0, right: 20.0),
+                child: SignUpUserNameTextField(
+                  usernameController: _usernameController,
                 ),
               ),
-            ),
-            SizedBox(height: 10),
-            Padding(
-              padding: const EdgeInsets.only(left: 20.0, right: 20.0),
-              child: TextField(
-                controller: _passwordController,
-                obscureText: true,
-                decoration: InputDecoration(
-                  labelText: 'Password',
-                  labelStyle: TextStyle(color: Colors.black),
-                  enabledBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.black),
-                  ),
-                  focusedBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Color(0xfff37210)),
-                  ),
-                ),
-              ),
-            ),
-            SizedBox(height: 10),
-            Padding(
-              padding: const EdgeInsets.only(left: 20.0, right: 20.0),
-              child: TextField(
-                controller: _checkpasswordControllet,
-                obscureText: true,
-                decoration: InputDecoration(
-                  labelText: 'Check Password',
-                  labelStyle: TextStyle(color: Colors.black),
-                  enabledBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.black),
-                  ),
-                  focusedBorder: UnderlineInputBorder(
-                    borderSide: BorderSide(color: Color(0xfff37210)),
-                  ),
-                ),
-              ),
-            ),
-            SizedBox(height: 50),
-            Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: GestureDetector(
-                onTap: _signUp,
-                child: Container(
-                  alignment: Alignment.center,
-                  width: double.infinity,
-                  height: 50,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Color(0xfff37210),
-                  ),
-                  child: Text(
-                    "회원가입",
-                    style: TextStyle(
-                      fontSize: 18,
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
+              SizedBox(height: 10),
+              Padding(
+                padding: const EdgeInsets.only(left: 20.0, right: 20.0),
+                child: TextField(
+                  controller: _emailController,
+                  decoration: InputDecoration(
+                    labelText: "Email",
+                    labelStyle: TextStyle(color: Colors.black),
+                    enabledBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.black),
+                    ),
+                    focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Color(0xfff37210)),
                     ),
                   ),
                 ),
               ),
-            ),
-          ],
+              SizedBox(height: 10),
+              Padding(
+                padding: const EdgeInsets.only(left: 20.0, right: 20.0),
+                child: TextField(
+                  controller: _passwordController,
+                  obscureText: true,
+                  decoration: InputDecoration(
+                    labelText: 'Password',
+                    labelStyle: TextStyle(color: Colors.black),
+                    enabledBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.black),
+                    ),
+                    focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Color(0xfff37210)),
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(height: 10),
+              Padding(
+                padding: const EdgeInsets.only(left: 20.0, right: 20.0),
+                child: TextField(
+                  controller: _checkpasswordControllet,
+                  obscureText: true,
+                  decoration: InputDecoration(
+                    labelText: 'Check Password',
+                    labelStyle: TextStyle(color: Colors.black),
+                    enabledBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.black),
+                    ),
+                    focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Color(0xfff37210)),
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(height: 50),
+              Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: GestureDetector(
+                  onTap: () {
+                    _signUp(context);
+                  },
+                  child: Container(
+                    alignment: Alignment.center,
+                    width: double.infinity,
+                    height: 50,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Color(0xfff37210),
+                    ),
+                    child: Text(
+                      "회원가입",
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -178,8 +217,8 @@ class SignUpUserNameTextField extends StatelessWidget {
         ),
       ),
       validator: (value) {
-        if (value == null || value.isEmpty || value.length > 5) {
-          return '사용자 이름은 5자 이하여야 합니다.';
+        if (value == null || value.isEmpty || value.length > 10) {
+          return '사용자 이름은 10자 이하여야 합니다.';
         }
         return null;
       },
