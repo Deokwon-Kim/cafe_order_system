@@ -132,18 +132,21 @@ class PaysuccessPage extends StatelessWidget {
                                             item.engname,
                                             style: TextStyle(
                                               color: Colors.grey[600],
+                                              fontSize: 13,
                                             ),
                                           ),
-                                          Text('${item.price}원'),
+                                          Text(
+                                            '${item.price}원 ${item.quantity}개',
+                                          ),
                                         ],
                                       ),
-                                      Text(
-                                        '수량: ${item.quantity}개',
-                                        style: TextStyle(
-                                          color: Colors.grey[600],
-                                          fontSize: 16,
-                                        ),
-                                      ),
+                                      // Text(
+                                      //   '수량: ${item.quantity}개',
+                                      //   style: TextStyle(
+                                      //     color: Colors.grey[600],
+                                      //     fontSize: 1,
+                                      //   ),
+                                      // ), // engname이 길어지면 오버플로우 이슈로 가격 옆에 수량 나오게 수정 03/31
                                     ],
                                   ),
                                 ),

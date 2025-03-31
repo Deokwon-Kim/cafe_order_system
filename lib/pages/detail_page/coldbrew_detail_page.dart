@@ -9,7 +9,9 @@ class ColdbrewDetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final cafeMenu = Provider.of<CafeViewmodel>(context).getMenu('coldbrew');
+    final cafeViewModel = Provider.of<CafeViewmodel>(
+      context,
+    ).getMenu('coldbrew');
     return Scaffold(
       backgroundColor: Colors.white,
       body: CustomScrollView(
@@ -59,24 +61,24 @@ class ColdbrewDetailPage extends StatelessWidget {
           SliverList(
             delegate: SliverChildBuilderDelegate((context, index) {
               return CafeTile(
-                cafe: cafeMenu[index],
+                cafe: cafeViewModel[index],
                 onTap: () {
                   Provider.of<CafeViewmodel>(
                     context,
                     listen: false,
-                  ).selectCafe(cafeMenu[index]);
+                  ).selectCafe(cafeViewModel[index]);
 
                   Navigator.push(
                     context,
                     MaterialPageRoute(
                       builder:
                           (context) =>
-                              MenuDetailPage(cafeMenu: cafeMenu[index]),
+                              MenuDetailPage(cafeMenu: cafeViewModel[index]),
                     ),
                   );
                 },
               );
-            }, childCount: cafeMenu.length),
+            }, childCount: cafeViewModel.length),
           ),
         ],
       ),

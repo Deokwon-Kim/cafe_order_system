@@ -1,6 +1,8 @@
 import 'package:HERMESCAFE/components/cafe_tile.dart';
+import 'package:HERMESCAFE/model/cafe.dart';
 import 'package:HERMESCAFE/pages/detail_page/menu_detail_page.dart';
 import 'package:HERMESCAFE/viewModel/cafe_viewmodel.dart';
+import 'package:HERMESCAFE/viewModel/iced_cafe_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -67,13 +69,40 @@ class EspressoDetailPage extends StatelessWidget {
                     listen: false,
                   ).selectCafe(cafeMenu[index]);
 
+                  final icedCafeViewModel = Provider.of<IcedCafeViewmodel>(
+                    context,
+                    listen: false,
+                  );
+
+                  final iceMenus = icedCafeViewModel.getIceMenu('icedespresso');
+                  Cafe? iceMenu;
+
+                  final String hotMenuId = cafeMenu[index].id;
+                  final RegExp regExp = RegExp(r'(\d+)$');
+                  final Match? match = regExp.firstMatch(hotMenuId);
+
+                  if (match != null) {
+                    final String menuNumber = match.group(1)!;
+
+                    // 매칭되는 Ice 메뉴 ID 찾기
+                    try {
+                      iceMenu = iceMenus.firstWhere(
+                        (cafe) => cafe.id == 'icedespresso$menuNumber',
+                      );
+                    } catch (e) {
+                      iceMenu = null;
+                    }
+                  }
+
                   // Navigate to the MenuDetailPage
                   Navigator.push(
                     context,
                     MaterialPageRoute(
                       builder:
-                          (context) =>
-                              MenuDetailPage(cafeMenu: cafeMenu[index]),
+                          (context) => MenuDetailPage(
+                            cafeMenu: cafeMenu[index],
+                            iceMenu: iceMenu, // Ice메뉴 전달(없으면 null),
+                          ),
                     ),
                   );
                 },

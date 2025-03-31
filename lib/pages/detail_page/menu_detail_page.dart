@@ -6,20 +6,34 @@ import 'package:provider/provider.dart';
 
 class MenuDetailPage extends StatefulWidget {
   final Cafe cafeMenu;
-  const MenuDetailPage({super.key, required this.cafeMenu});
+  final Cafe? iceMenu;
+  const MenuDetailPage({super.key, required this.cafeMenu, this.iceMenu});
 
   @override
   State<MenuDetailPage> createState() => _MenuDetailPageState();
 }
 
 class _MenuDetailPageState extends State<MenuDetailPage> {
-
   @override
   void initState() {
     super.initState();
-    // 페이지가 생성될 때 수량 초기화
+    // 페이지가 생성될 때 수량 초기화 및 온도 옵션 설정
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      context.read<MenuDetailProvider>().resetQuantity();
+      final menuDetailProvider = context.read<MenuDetailProvider>();
+      menuDetailProvider.resetQuantity();
+
+      // temperatureOption 값에 따라 isIce 초기화
+      switch (widget.cafeMenu.temperatureOption) {
+        case "hotonly":
+          menuDetailProvider.toggleOption(false);
+          break;
+        case "iceonly":
+          menuDetailProvider.toggleOption(true);
+          break;
+        default:
+          menuDetailProvider.toggleOption(false);
+          break;
+      }
     });
   }
 
@@ -27,9 +41,26 @@ class _MenuDetailPageState extends State<MenuDetailPage> {
     final menuDetailProvider = context.read<MenuDetailProvider>();
     if (menuDetailProvider.quantity > 0) {
       final cartProvider = context.read<CartProvider>();
-      // Set the quantity from MenuDetailProvider to the cafe menu item
-      widget.cafeMenu.quantity = menuDetailProvider.quantity;
-      cartProvider.addToCart(widget.cafeMenu);
+
+      // 현재 선택된 메뉴 결정
+      // temperatureOption 값과 isIce 값에 따라 메뉴 결정
+      Cafe? currentMenu;
+
+      switch (widget.cafeMenu.temperatureOption) {
+        case 'hotonly':
+          currentMenu = widget.cafeMenu;
+          break;
+        case 'iceonly':
+          currentMenu = widget.iceMenu ?? widget.cafeMenu;
+          break;
+        default:
+          currentMenu =
+              menuDetailProvider.isIce ? widget.iceMenu : widget.cafeMenu;
+          break;
+      }
+      // Set the quantity from MenuDetailProvider to the selected menu item
+      currentMenu?.quantity = menuDetailProvider.quantity;
+      cartProvider.addToCart(currentMenu!);
 
       showDialog(
         context: context,
@@ -81,11 +112,27 @@ class _MenuDetailPageState extends State<MenuDetailPage> {
   Widget build(BuildContext context) {
     return Consumer2<MenuDetailProvider, CartProvider>(
       builder: (context, menuDetailProvider, cartProvider, child) {
+        // 현재 표시할 메뉴 결정 (Hot 또는 Ice)
+        Cafe? currentMenu;
+
+        switch (widget.cafeMenu.temperatureOption) {
+          case 'hotonly':
+            currentMenu = widget.cafeMenu;
+            break;
+          case 'iceonly':
+            currentMenu = widget.iceMenu ?? widget.cafeMenu;
+            break;
+          default:
+            currentMenu =
+                menuDetailProvider.isIce ? widget.iceMenu : widget.cafeMenu;
+            break;
+        }
+
         return Scaffold(
           backgroundColor: Colors.white,
           body: Stack(
             children: [
-              Image.asset(widget.cafeMenu.imagePath, fit: BoxFit.cover),
+              Image.asset(currentMenu!.imagePath, fit: BoxFit.cover),
               Positioned(
                 top: 50,
                 child: IconButton(
@@ -101,7 +148,7 @@ class _MenuDetailPageState extends State<MenuDetailPage> {
                   Padding(
                     padding: const EdgeInsets.only(top: 50.0, left: 20),
                     child: Text(
-                      widget.cafeMenu.name,
+                      currentMenu.name,
                       style: TextStyle(
                         fontSize: 25,
                         fontWeight: FontWeight.bold,
@@ -116,7 +163,7 @@ class _MenuDetailPageState extends State<MenuDetailPage> {
                   Padding(
                     padding: const EdgeInsets.only(top: 100.0, left: 20),
                     child: Text(
-                      widget.cafeMenu.engname,
+                      currentMenu.engname,
                       style: TextStyle(color: Colors.grey),
                     ),
                   ),
@@ -132,7 +179,7 @@ class _MenuDetailPageState extends State<MenuDetailPage> {
                       right: 20,
                     ),
                     child: Text(
-                      widget.cafeMenu.discription,
+                      currentMenu.discription,
                       textAlign: TextAlign.start,
                       style: TextStyle(
                         color: Color(0xffa2a2a2),
@@ -149,7 +196,7 @@ class _MenuDetailPageState extends State<MenuDetailPage> {
                   Padding(
                     padding: const EdgeInsets.only(top: 320.0, left: 20),
                     child: Text(
-                      '${widget.cafeMenu.price}원',
+                      '${currentMenu.price}원',
                       style: TextStyle(
                         color: Colors.black,
                         fontSize: 25,
@@ -159,6 +206,172 @@ class _MenuDetailPageState extends State<MenuDetailPage> {
                   ),
                 ],
               ),
+              // HOT/ICE 버튼 선택 UI
+              Padding(
+                padding: const EdgeInsets.only(top: 450, left: 0),
+                child: Builder(
+                  builder: (context) {
+                    // temperatureOption 값에 따라 버튼 표시
+                    switch (widget.cafeMenu.temperatureOption) {
+                      case 'hotonly':
+                        return Center(
+                          child: Container(
+                            padding: EdgeInsets.symmetric(
+                              horizontal: 150,
+                              vertical: 10,
+                            ),
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(20),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: const Color.fromARGB(
+                                    147,
+                                    158,
+                                    158,
+                                    158,
+                                  ),
+                                  blurRadius: 4,
+                                  offset: Offset(1, 2),
+                                ),
+                              ],
+                            ),
+                            child: Text(
+                              'HOT ONLY',
+                              style: TextStyle(
+                                color: Colors.red,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 16,
+                              ),
+                            ),
+                          ),
+                        );
+
+                      case 'iceonly':
+                        return Center(
+                          child: Container(
+                            padding: EdgeInsets.symmetric(
+                              horizontal: 150,
+                              vertical: 10,
+                            ),
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(20),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: const Color.fromARGB(
+                                    147,
+                                    158,
+                                    158,
+                                    158,
+                                  ),
+                                  blurRadius: 4,
+                                  offset: Offset(1, 2),
+                                ),
+                              ],
+                            ),
+                            child: Text(
+                              'ICED ONLY',
+                              style: TextStyle(
+                                color: Colors.blueAccent,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 16,
+                              ),
+                            ),
+                          ),
+                        );
+                      default:
+                        return Padding(
+                          padding: const EdgeInsets.only(top: 170.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              // Hot버튼
+                              GestureDetector(
+                                onTap:
+                                    () =>
+                                        menuDetailProvider.toggleOption(false),
+                                child: Container(
+                                  padding: EdgeInsets.symmetric(
+                                    horizontal: 80,
+                                    vertical: 10,
+                                  ),
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(20),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: const Color.fromARGB(
+                                          147,
+                                          158,
+                                          158,
+                                          158,
+                                        ),
+                                        blurRadius: 4,
+                                        offset: Offset(1, 2),
+                                      ),
+                                    ],
+                                  ),
+                                  child: Text(
+                                    'HOT',
+                                    style: TextStyle(
+                                      color:
+                                          menuDetailProvider.isIce
+                                              ? Colors.grey
+                                              : Colors.red,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 16,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              SizedBox(width: 5),
+                              // Ice버튼
+                              GestureDetector(
+                                onTap:
+                                    () => menuDetailProvider.toggleOption(true),
+                                child: Container(
+                                  padding: EdgeInsets.symmetric(
+                                    horizontal: 80,
+                                    vertical: 10,
+                                  ),
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(20),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: const Color.fromARGB(
+                                          147,
+                                          158,
+                                          158,
+                                          158,
+                                        ),
+                                        blurRadius: 4,
+                                        offset: Offset(1, 2),
+                                      ),
+                                    ],
+                                  ),
+                                  child: Text(
+                                    'ICE',
+                                    style: TextStyle(
+                                      color:
+                                          menuDetailProvider.isIce
+                                              ? Colors.blueAccent
+                                              : Colors.grey,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 16,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        );
+                    }
+                  },
+                ),
+              ),
+
               Padding(
                 padding: const EdgeInsets.only(top: 550.0, right: 20),
                 child: Row(

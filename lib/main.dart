@@ -9,6 +9,7 @@ import 'package:HERMESCAFE/provider/cart_provider.dart';
 import 'package:HERMESCAFE/provider/menu_detail_provider.dart';
 import 'package:HERMESCAFE/tosspayments/payments_page.dart';
 import 'package:HERMESCAFE/viewModel/cafe_viewmodel.dart';
+import 'package:HERMESCAFE/viewModel/iced_cafe_viewmodel.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 
@@ -23,6 +24,7 @@ Future<void> main() async {
         ChangeNotifierProvider(create: (context) => CafeViewmodel()),
         ChangeNotifierProvider(create: (context) => CartProvider()),
         ChangeNotifierProvider(create: (context) => MenuDetailProvider()),
+        ChangeNotifierProvider(create: (context) => IcedCafeViewmodel()),
       ],
       child: const MyApp(),
     ),

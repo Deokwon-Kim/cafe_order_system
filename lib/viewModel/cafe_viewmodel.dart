@@ -84,6 +84,7 @@ class CafeViewmodel extends ChangeNotifier {
         price: '3,900',
         imagePath: 'lib/images/espresso/Espresso.jpg',
         rating: '5.0',
+        temperatureOption: 'hotonly',
       ),
       Cafe(
         id: 'espresso9',
@@ -94,6 +95,7 @@ class CafeViewmodel extends ChangeNotifier {
         price: '3,900',
         imagePath: 'lib/images/espresso/espressomakiatto.jpg',
         rating: '5.0',
+        temperatureOption: 'hotonly',
       ),
       Cafe(
         id: 'espresso10',
@@ -104,6 +106,7 @@ class CafeViewmodel extends ChangeNotifier {
         price: '4,100',
         imagePath: 'lib/images/espresso/espressocon.jpg',
         rating: '5.0',
+        temperatureOption: 'hotonly',
       ),
     ],
 
@@ -117,6 +120,7 @@ class CafeViewmodel extends ChangeNotifier {
         price: '5,100',
         imagePath: 'lib/images/coldbrew/ColdBrew.jpg',
         rating: '5.0',
+        temperatureOption: 'iceonly',
       ),
       Cafe(
         id: 'coldbrew2',
@@ -127,6 +131,7 @@ class CafeViewmodel extends ChangeNotifier {
         price: '6,000',
         imagePath: 'lib/images/coldbrew/DolceColdBrew.jpg',
         rating: '5.0',
+        temperatureOption: 'iceonly',
       ),
       Cafe(
         id: 'coldbrew3',
@@ -136,6 +141,7 @@ class CafeViewmodel extends ChangeNotifier {
         price: '6,000',
         imagePath: 'lib/images/coldbrew/Vanila_Cream_ColdBrew.jpg',
         rating: '5.0',
+        temperatureOption: 'iceonly',
       ),
       Cafe(
         id: 'coldbrew4',
@@ -146,6 +152,7 @@ class CafeViewmodel extends ChangeNotifier {
         price: '6,000',
         imagePath: 'lib/images/coldbrew/Oat_Cold_Brew.jpg',
         rating: '5.0',
+        temperatureOption: 'iceonly',
       ),
     ],
 
@@ -159,6 +166,7 @@ class CafeViewmodel extends ChangeNotifier {
         price: '6,500',
         imagePath: 'lib/images/frappuchino/Double_Espresso_Chip.jpg',
         rating: '5.0',
+        temperatureOption: 'iceonly',
       ),
       Cafe(
         id: 'frappuchino2',
@@ -168,6 +176,7 @@ class CafeViewmodel extends ChangeNotifier {
         price: '6,500',
         imagePath: 'lib/images/frappuchino/Jeju_Malcha_Cream.jpg',
         rating: '5.0',
+        temperatureOption: 'iceonly',
       ),
       Cafe(
         id: 'frappuchino3',
@@ -177,6 +186,7 @@ class CafeViewmodel extends ChangeNotifier {
         price: '6,500',
         imagePath: 'lib/images/frappuchino/Java_Chip.jpg',
         rating: '5.0',
+        temperatureOption: 'iceonly',
       ),
       Cafe(
         id: 'frappuchino4',
@@ -186,6 +196,7 @@ class CafeViewmodel extends ChangeNotifier {
         price: '6,200',
         imagePath: 'lib/images/frappuchino/Chocolate_Cream_Chip.jpg',
         rating: '5.0',
+        temperatureOption: 'iceonly',
       ),
       Cafe(
         id: 'frappuchino5',
@@ -195,6 +206,7 @@ class CafeViewmodel extends ChangeNotifier {
         price: '6,100',
         imagePath: 'lib/images/frappuchino/Caramel_Frappuccino.jpg',
         rating: '5.0',
+        temperatureOption: 'iceonly',
       ),
       Cafe(
         id: 'frappuchino6',
@@ -204,6 +216,7 @@ class CafeViewmodel extends ChangeNotifier {
         price: '5,700',
         imagePath: 'lib/images/frappuchino/Espresso_Frappuccino.jpg',
         rating: '5.0',
+        temperatureOption: 'iceonly',
       ),
     ],
 
@@ -220,12 +233,12 @@ class CafeViewmodel extends ChangeNotifier {
       ),
       Cafe(
         id: 'teabana2',
-        name: '복숭아 아이스 티',
-        engname: 'Iced Peach Black Tea',
+        name: '복숭아 핫 티',
+        engname: 'Peach Black Tea',
         discription:
-            '찻잎을 직접 우려 만든 상큼하고 청량한 아이스 티로, 복숭아의 진한 맛과 홍차의 조화가 매력적인 음료\n*Hot Tea로도 즐기실 수 있습니다.',
+            '찻잎을 직접 우려 만든 상큼하고 청량한 아이스 티로, 복숭아의 진한 맛과 홍차의 풍미를 느낄 수 있는 음료',
         price: '6,100',
-        imagePath: 'lib/images/tea/IceTea.jpg',
+        imagePath: 'lib/images/tea/PeachHotTea.jpg',
         rating: '5.0',
       ),
       Cafe(
