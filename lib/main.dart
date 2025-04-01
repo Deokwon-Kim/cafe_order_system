@@ -10,9 +10,9 @@ import 'package:HERMESCAFE/pages/detail_page/teabana_detail_page.dart';
 import 'package:HERMESCAFE/provider/cart_provider.dart';
 import 'package:HERMESCAFE/provider/menu_detail_provider.dart';
 import 'package:HERMESCAFE/tosspayments/payments_page.dart';
-import 'package:HERMESCAFE/viewModel/cafe_viewmodel.dart';
-import 'package:HERMESCAFE/viewModel/desert_viewmodel.dart';
-import 'package:HERMESCAFE/viewModel/iced_cafe_viewmodel.dart';
+import 'package:HERMESCAFE/provider/cafe_provider.dart';
+import 'package:HERMESCAFE/provider/desert_provider.dart';
+import 'package:HERMESCAFE/provider/iced_cafe_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 
