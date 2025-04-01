@@ -222,7 +222,7 @@ class OrderPage extends StatelessWidget {
                   padding: const EdgeInsets.only(left: 30.0),
                   child: GestureDetector(
                     onTap: () {
-                      Navigator.pushNamed(context, 'teabana');
+                      Navigator.pushNamed(context, 'cake');
                     },
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(50),
@@ -239,7 +239,7 @@ class OrderPage extends StatelessWidget {
                       padding: const EdgeInsets.only(left: 30.0),
                       child: TextButton(
                         onPressed: () {
-                          Navigator.pushNamed(context, 'teabana');
+                          Navigator.pushNamed(context, 'cake');
                         },
                         child: Text(
                           '케이크',
@@ -272,7 +272,7 @@ class OrderPage extends StatelessWidget {
                   padding: const EdgeInsets.only(left: 30.0),
                   child: GestureDetector(
                     onTap: () {
-                      Navigator.pushNamed(context, 'teabana');
+                      Navigator.pushNamed(context, 'icecream');
                     },
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(50),
@@ -290,7 +290,7 @@ class OrderPage extends StatelessWidget {
                       padding: const EdgeInsets.only(left: 30.0),
                       child: TextButton(
                         onPressed: () {
-                          Navigator.pushNamed(context, 'teabana');
+                          Navigator.pushNamed(context, 'icecream');
                         },
                         child: Text(
                           '아이스크림',

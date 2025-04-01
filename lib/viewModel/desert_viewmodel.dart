@@ -43,11 +43,11 @@ class DesertViewmodel extends ChangeNotifier {
       Cafe(
         id: 'cake5',
         name: '초코 품은 부생카',
-        engname: 'Choco & Fresh Cream Castella',
+        engname: 'Choco Fresh Cream Castella',
         discription:
             '초코가 더해진 촉촉한 투톤 컬러의 카스텔라에 부드러운 생크림, 초코 생크림 두 가지 매력을 한번에 즐길 수 있어 더욱 매력적인 부생카입니다.',
         price: '5,500',
-        imagePath: 'lib/images/ckae/Choco & Fresh Cream Castella.jpg',
+        imagePath: 'lib/images/cake/Choco Fresh Cream Castella.jpg',
       ),
       Cafe(
         id: 'cake6',
@@ -180,8 +180,24 @@ class DesertViewmodel extends ChangeNotifier {
       ),
     ],
   };
+  Cafe? _selectedCafe;
 
   List<Cafe> getDesertMenu(String category) {
     return _cafeDesertMenu[category] ?? [];
+  }
+
+  // 현재 선택된 카페 아이템 가져오기
+  Cafe? get selectedCafe => _selectedCafe;
+
+  // 카페 아이템 선택하기
+  void selectCafe(Cafe cafe) {
+    _selectedCafe = cafe;
+    notifyListeners(); // 리스너들에게 상태 변경 알림
+  }
+
+  // 선택된 카페 아이템 초기화
+  void clearSelectedCafe() {
+    _selectedCafe = null;
+    notifyListeners();
   }
 }

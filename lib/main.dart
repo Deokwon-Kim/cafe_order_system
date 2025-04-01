@@ -1,14 +1,17 @@
 import 'package:HERMESCAFE/Tab/bottom_tab_bar.dart';
 import 'package:HERMESCAFE/notifications/noti_service.dart';
 import 'package:HERMESCAFE/pages/cart_page.dart';
+import 'package:HERMESCAFE/pages/detail_page/cake_detail_page.dart';
 import 'package:HERMESCAFE/pages/detail_page/coldbrew_detail_page.dart';
 import 'package:HERMESCAFE/pages/detail_page/espresso_detail_page.dart';
 import 'package:HERMESCAFE/pages/detail_page/frappu_detail_page.dart';
+import 'package:HERMESCAFE/pages/detail_page/icecream_detail_page.dart';
 import 'package:HERMESCAFE/pages/detail_page/teabana_detail_page.dart';
 import 'package:HERMESCAFE/provider/cart_provider.dart';
 import 'package:HERMESCAFE/provider/menu_detail_provider.dart';
 import 'package:HERMESCAFE/tosspayments/payments_page.dart';
 import 'package:HERMESCAFE/viewModel/cafe_viewmodel.dart';
+import 'package:HERMESCAFE/viewModel/desert_viewmodel.dart';
 import 'package:HERMESCAFE/viewModel/iced_cafe_viewmodel.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
@@ -25,6 +28,7 @@ Future<void> main() async {
         ChangeNotifierProvider(create: (context) => CartProvider()),
         ChangeNotifierProvider(create: (context) => MenuDetailProvider()),
         ChangeNotifierProvider(create: (context) => IcedCafeViewmodel()),
+        ChangeNotifierProvider(create: (context) => DesertViewmodel()),
       ],
       child: const MyApp(),
     ),
@@ -46,6 +50,8 @@ class MyApp extends StatelessWidget {
         'coldbrew': (context) => const ColdbrewDetailPage(),
         'frappuchino': (context) => const FrappuDetailPage(),
         'teabana': (context) => const TeabanaDetailPage(),
+        'cake': (context) => const CakeDetailPage(),
+        'icecream': (context) => const IceCreamDetailPage(),
         'cart': (context) => const CartPage(),
         'payment': (context) => const PaymentsPage(),
       },
