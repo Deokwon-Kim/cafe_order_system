@@ -293,7 +293,7 @@ class _MenuDetailPageState extends State<MenuDetailPage> {
                                         menuDetailProvider.toggleOption(false),
                                 child: Container(
                                   padding: EdgeInsets.symmetric(
-                                    horizontal: 80,
+                                    horizontal: 65,
                                     vertical: 10,
                                   ),
                                   decoration: BoxDecoration(
@@ -332,7 +332,7 @@ class _MenuDetailPageState extends State<MenuDetailPage> {
                                     () => menuDetailProvider.toggleOption(true),
                                 child: Container(
                                   padding: EdgeInsets.symmetric(
-                                    horizontal: 80,
+                                    horizontal: 65,
                                     vertical: 10,
                                   ),
                                   decoration: BoxDecoration(
