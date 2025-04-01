@@ -73,7 +73,12 @@ class CartPage extends StatelessWidget {
                               color: Colors.white,
                               boxShadow: [
                                 BoxShadow(
-                                  color: Colors.grey.withOpacity(0.1),
+                                  color: const Color.fromARGB(
+                                    70,
+                                    158,
+                                    158,
+                                    158,
+                                  ),
                                   blurRadius: 4,
                                   offset: Offset(0, 2),
                                 ),
@@ -199,9 +204,9 @@ class CartPage extends StatelessWidget {
                     margin: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
                     padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
                     decoration: BoxDecoration(
-                      color: Colors.grey.withOpacity(0.1),
+                      color: Colors.grey.withAlpha(10),
                       borderRadius: BorderRadius.circular(12),
-                      border: Border.all(color: Colors.grey.withOpacity(0.2)),
+                      border: Border.all(color: Colors.grey.withAlpha(20)),
                     ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,

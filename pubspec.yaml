@@ -70,6 +70,9 @@ flutter:
     - lib/images/coldbrew/
     - lib/images/frappuchino/
     - lib/images/tea/
+    - lib/images/cake/
+    - lib/images/icecream/
+
     
 
   # An image asset can refer to one or more resolution-specific "variants", see

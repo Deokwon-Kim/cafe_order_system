@@ -224,6 +224,7 @@ class _PaymentsPageState extends State<PaymentsPage> {
 
                       if (paymentResult.success != null) {
                         final cart = Provider.of<CartProvider>(
+                          // ignore: use_build_context_synchronously
                           context,
                           listen: false,
                         );
@@ -236,10 +237,11 @@ class _PaymentsPageState extends State<PaymentsPage> {
                           'orderDate': DateTime.now().toString(),
                         };
                         NotiService().showNotification(
-                          title: '결제 성공',
+                          title: '결제 완료',
                           body: '결제가 완료되었습니다.',
                         );
                         Navigator.pushReplacement(
+                          // ignore: use_build_context_synchronously
                           context,
                           MaterialPageRoute(
                             builder:

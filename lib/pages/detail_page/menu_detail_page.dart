@@ -352,7 +352,7 @@ class _MenuDetailPageState extends State<MenuDetailPage> {
                                     ],
                                   ),
                                   child: Text(
-                                    'ICE',
+                                    'ICED',
                                     style: TextStyle(
                                       color:
                                           menuDetailProvider.isIce

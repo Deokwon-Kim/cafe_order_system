@@ -7,208 +7,317 @@ class OrderPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(top: 100.0, right: 250),
-            child: Text(
-              'Order',
-              style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(top: 100.0, right: 250),
+              child: Text(
+                'Order',
+                style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+              ),
             ),
-          ),
-          SizedBox(height: 10),
-          Divider(height: 1, color: Colors.grey),
-          SizedBox(height: 50),
-          Row(
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 30.0),
-                child: GestureDetector(
-                  onTap: () {
-                    Navigator.pushNamed(context, 'espresso');
-                  },
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(50),
-                    child: Image.asset('lib/images/americano.jpg', height: 100),
-                  ),
-                ),
-              ),
-              Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 30.0),
-                    child: TextButton(
-                      onPressed: () {
-                        Navigator.pushNamed(context, 'espresso');
-                      },
-                      child: Text(
-                        '에스프레소',
-                        style: TextStyle(
-                          fontSize: 22,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black,
-                        ),
+            SizedBox(height: 10),
+            Divider(height: 1, color: Colors.grey),
+            SizedBox(height: 50),
+            Row(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 30.0),
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.pushNamed(context, 'espresso');
+                    },
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(50),
+                      child: Image.asset(
+                        'lib/images/americano.jpg',
+                        height: 100,
                       ),
                     ),
                   ),
-                  Transform.translate(
-                    offset: Offset(0, -10),
-                    child: Text(
-                      'Espresso',
-                      style: TextStyle(color: Colors.grey),
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          ),
-          SizedBox(height: 20),
-          Row(
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 30.0),
-                child: GestureDetector(
-                  onTap: () {
-                    Navigator.pushNamed(context, 'coldbrew');
-                  },
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(50),
-                    child: Image.asset('lib/images/coldbrew.jpg', height: 100),
-                  ),
                 ),
-              ),
-              Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 30.0),
-                    child: TextButton(
-                      onPressed: () {
-                        Navigator.pushNamed(context, 'coldbrew');
-                      },
-                      child: Text(
-                        '콜드브루',
-                        style: TextStyle(
-                          fontSize: 22,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black,
+                Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 30.0),
+                      child: TextButton(
+                        onPressed: () {
+                          Navigator.pushNamed(context, 'espresso');
+                        },
+                        child: Text(
+                          '에스프레소',
+                          style: TextStyle(
+                            fontSize: 22,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 25.0),
-                    child: Transform.translate(
+                    Transform.translate(
                       offset: Offset(0, -10),
                       child: Text(
-                        'Cold Brew',
+                        'Espresso',
                         style: TextStyle(color: Colors.grey),
                       ),
                     ),
-                  ),
-                ],
-              ),
-            ],
-          ),
-          SizedBox(height: 20),
-          Row(
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 30.0),
-                child: GestureDetector(
-                  onTap: () {
-                    Navigator.pushNamed(context, 'frappuchino');
-                  },
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(50),
-                    child: Image.asset(
-                      'lib/images/frappuchino.jpg',
-                      height: 100,
+                  ],
+                ),
+              ],
+            ),
+            SizedBox(height: 20),
+            Row(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 30.0),
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.pushNamed(context, 'coldbrew');
+                    },
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(50),
+                      child: Image.asset(
+                        'lib/images/coldbrew.jpg',
+                        height: 100,
+                      ),
                     ),
                   ),
                 ),
-              ),
-              Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 30.0),
-                    child: TextButton(
-                      onPressed: () {
-                        Navigator.pushNamed(context, 'frappuchino');
-                      },
-                      child: Text(
-                        '프라푸치노',
-                        style: TextStyle(
-                          fontSize: 22,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black,
+                Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 30.0),
+                      child: TextButton(
+                        onPressed: () {
+                          Navigator.pushNamed(context, 'coldbrew');
+                        },
+                        child: Text(
+                          '콜드브루',
+                          style: TextStyle(
+                            fontSize: 22,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 20.0),
-                    child: Transform.translate(
-                      offset: Offset(0, -10),
-                      child: Text(
-                        'Frappuchino',
-                        style: TextStyle(color: Colors.grey),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 25.0),
+                      child: Transform.translate(
+                        offset: Offset(0, -10),
+                        child: Text(
+                          'Cold Brew',
+                          style: TextStyle(color: Colors.grey),
+                        ),
                       ),
                     ),
-                  ),
-                ],
-              ),
-            ],
-          ),
-          SizedBox(height: 20),
-          Row(
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 30.0),
-                child: GestureDetector(
-                  onTap: () {
-                    Navigator.pushNamed(context, 'teabana');
-                  },
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(50),
-                    child: Image.asset('lib/images/tea.jpg', height: 100),
+                  ],
+                ),
+              ],
+            ),
+            SizedBox(height: 20),
+            Row(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 30.0),
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.pushNamed(context, 'frappuchino');
+                    },
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(50),
+                      child: Image.asset(
+                        'lib/images/frappuchino.jpg',
+                        height: 100,
+                      ),
+                    ),
                   ),
                 ),
-              ),
-              Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 30.0),
-                    child: TextButton(
-                      onPressed: () {
-                        Navigator.pushNamed(context, 'teabana');
-                      },
-                      child: Text(
-                        '티바나',
-                        style: TextStyle(
-                          fontSize: 22,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black,
+                Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 30.0),
+                      child: TextButton(
+                        onPressed: () {
+                          Navigator.pushNamed(context, 'frappuchino');
+                        },
+                        child: Text(
+                          '프라푸치노',
+                          style: TextStyle(
+                            fontSize: 22,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                          ),
                         ),
                       ),
                     ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 20.0),
+                      child: Transform.translate(
+                        offset: Offset(0, -10),
+                        child: Text(
+                          'Frappuchino',
+                          style: TextStyle(color: Colors.grey),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            SizedBox(height: 20),
+            Row(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 30.0),
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.pushNamed(context, 'teabana');
+                    },
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(50),
+                      child: Image.asset('lib/images/tea.jpg', height: 100),
+                    ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 30.0),
-                    child: Transform.translate(
-                      offset: Offset(0, -10),
-                      child: Text(
-                        'TeaBana',
-                        style: TextStyle(color: Colors.grey),
+                ),
+                Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 30.0),
+                      child: TextButton(
+                        onPressed: () {
+                          Navigator.pushNamed(context, 'teabana');
+                        },
+                        child: Text(
+                          '티바나',
+                          style: TextStyle(
+                            fontSize: 22,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 30.0),
+                      child: Transform.translate(
+                        offset: Offset(0, -10),
+                        child: Text(
+                          'TeaBana',
+                          style: TextStyle(color: Colors.grey),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            SizedBox(height: 20),
+            Row(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 30.0),
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.pushNamed(context, 'teabana');
+                    },
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(50),
+                      child: Image.asset(
+                        'lib/images/cake/Mugwor_RedBean_Roll_Cake.jpg',
+                        height: 100,
                       ),
                     ),
                   ),
-                ],
-              ),
-            ],
-          ),
-        ],
+                ),
+                Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 30.0),
+                      child: TextButton(
+                        onPressed: () {
+                          Navigator.pushNamed(context, 'teabana');
+                        },
+                        child: Text(
+                          '케이크',
+                          style: TextStyle(
+                            fontSize: 22,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10.0),
+                      child: Transform.translate(
+                        offset: Offset(0, -10),
+                        child: Text(
+                          'Cake',
+                          style: TextStyle(color: Colors.grey),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            SizedBox(height: 20),
+            Row(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 30.0),
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.pushNamed(context, 'teabana');
+                    },
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(50),
+                      child: Image.asset(
+                        'lib/images/icecream/Yogurt Gelato.jpg',
+                        height: 100,
+                      ),
+                    ),
+                  ),
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 30.0),
+                      child: TextButton(
+                        onPressed: () {
+                          Navigator.pushNamed(context, 'teabana');
+                        },
+                        child: Text(
+                          '아이스크림',
+                          style: TextStyle(
+                            fontSize: 22,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 45.0),
+                      child: Transform.translate(
+                        offset: Offset(0, -10),
+                        child: Text(
+                          'Ice Cream',
+                          style: TextStyle(color: Colors.grey),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
