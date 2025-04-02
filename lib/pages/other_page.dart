@@ -1,53 +1,76 @@
+import 'package:HERMESCAFE/provider/user_provider.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class OtherPage extends StatelessWidget {
   const OtherPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final username = Provider.of<UserProvider>(context).username;
+    final size = MediaQuery.of(context).size;
+
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
         title: Text('Other'),
-        foregroundColor: Colors.white,
-        backgroundColor: Color(0xfff37210),
-      ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 20.0, right: 20),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                  width: 100,
-                  height: 100,
-                  decoration: BoxDecoration(
-                    color: Colors.red,
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                ),
-                Container(
-                  width: 100,
-                  height: 100,
-                  decoration: BoxDecoration(
-                    color: Colors.red,
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                ),
-                Container(
-                  width: 100,
-                  height: 100,
-                  decoration: BoxDecoration(
-                    color: Colors.red,
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                ),
-              ],
-            ),
+
+        actions: [
+          IconButton(
+            onPressed: () async {
+              await FirebaseAuth.instance.signOut();
+            },
+            icon: Icon(Icons.logout),
           ),
         ],
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Center(
+          child: Column(
+            children: [
+              Text(
+                "$username님 \n환영합니다!",
+                style: TextStyle(
+                  fontSize: 20,
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              SizedBox(height: 30),
+              Container(
+                color: Colors.grey,
+                width: size.width * 0.9,
+                height: size.height * 0.4,
+                child: GridView(
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 3,
+                  ),
+                  children: [
+                    Container(
+                      width: size.width * 0.8,
+                      height: size.height * 0.9,
+                      color: Colors.red,
+                    ),
+                    SizedBox(width: 50),
+                    Container(
+                      width: size.width * 0.5,
+                      height: size.height * 0.5,
+                      color: Colors.blue,
+                    ),
+                    SizedBox(height: 30),
+                    Container(
+                      width: size.width * 0.5,
+                      height: size.height * 0.5,
+                      color: Colors.blue,
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
