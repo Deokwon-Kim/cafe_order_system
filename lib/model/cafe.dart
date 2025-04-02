@@ -7,7 +7,6 @@ class Cafe {
   String discription;
   String price;
   String imagePath;
-  String rating;
   int quantity;
 
   Cafe({
@@ -17,7 +16,6 @@ class Cafe {
     required this.discription,
     required this.price,
     required this.imagePath,
-    required this.rating,
     this.quantity = 1,
   });
 
@@ -27,6 +25,5 @@ class Cafe {
   String get _discription => discription;
   String get _price => price;
   String get _imagePath => imagePath;
-  String get _rating => rating;
   int get _quantity => quantity;
 }

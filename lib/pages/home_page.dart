@@ -1,4 +1,5 @@
 import 'package:HERMESCAFE/provider/cart_provider.dart';
+import 'package:HERMESCAFE/provider/user_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:badges/badges.dart' as badges;
@@ -8,6 +9,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final username = Provider.of<UserProvider>(context).username;
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 237, 236, 236),
       appBar: AppBar(
@@ -53,7 +55,7 @@ class HomePage extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 20),
                 child: Text.rich(
                   TextSpan(
-                    text: '닉네임 님\n환영합니다 ',
+                    text: '$username 님\n환영합니다 ',
                     style: TextStyle(fontSize: 20),
                     children: <TextSpan>[
                       TextSpan(
