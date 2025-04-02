@@ -135,11 +135,22 @@ class _MenuDetailPageState extends State<MenuDetailPage> {
               Image.asset(currentMenu!.imagePath, fit: BoxFit.cover),
               Positioned(
                 top: 50,
-                child: IconButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  icon: Icon(Icons.arrow_back_ios_new, color: Colors.white),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    width: 40,
+                    height: 40,
+                    decoration: BoxDecoration(
+                      color: Colors.grey.withAlpha(20),
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                    child: IconButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      icon: Icon(Icons.arrow_back_ios_new, color: Colors.white),
+                    ),
+                  ),
                 ),
               ),
               Column(
@@ -371,15 +382,21 @@ class _MenuDetailPageState extends State<MenuDetailPage> {
                   },
                 ),
               ),
-
+              // 수량선택 버튼
               Padding(
                 padding: const EdgeInsets.only(top: 550.0, right: 20),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    IconButton(
-                      onPressed: () => menuDetailProvider.removeQuantity(),
-                      icon: Icon(Icons.remove, color: Colors.black),
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Colors.grey.withAlpha(20),
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      child: IconButton(
+                        onPressed: () => menuDetailProvider.removeQuantity(),
+                        icon: Icon(Icons.remove, color: Colors.black),
+                      ),
                     ),
                     SizedBox(
                       width: 40,
@@ -397,9 +414,15 @@ class _MenuDetailPageState extends State<MenuDetailPage> {
                         shape: BoxShape.circle,
                       ),
 
-                      child: IconButton(
-                        onPressed: () => menuDetailProvider.addQuantity(),
-                        icon: Icon(Icons.add, color: Colors.black),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: Colors.grey.withAlpha(20),
+                          borderRadius: BorderRadius.circular(30),
+                        ),
+                        child: IconButton(
+                          onPressed: () => menuDetailProvider.addQuantity(),
+                          icon: Icon(Icons.add, color: Colors.black),
+                        ),
                       ),
                     ),
                   ],

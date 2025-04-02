@@ -87,10 +87,6 @@ class _PaymentsPageState extends State<PaymentsPage> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        leading: IconButton(
-          onPressed: () {},
-          icon: Icon(Icons.arrow_back_ios_new),
-        ),
         backgroundColor: Color(0xfff37210),
         foregroundColor: Colors.white,
         title: Text(
@@ -104,71 +100,106 @@ class _PaymentsPageState extends State<PaymentsPage> {
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  ListView.builder(
-                    shrinkWrap: true,
-                    physics: NeverScrollableScrollPhysics(),
-                    itemCount: items.length,
-                    itemBuilder: (context, index) {
-                      final item = items[index];
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(20),
+                        border: Border.all(color: Colors.black.withAlpha(70)),
+                        boxShadow: [
+                          BoxShadow(
+                            color: const Color.fromARGB(147, 158, 158, 158),
+                            blurRadius: 4,
 
-                      return Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(8),
-                          color: Colors.white,
-                          boxShadow: [
-                            BoxShadow(
-                              color: const Color.fromARGB(42, 158, 158, 158),
-                              blurRadius: 4,
-                              offset: Offset(0, 2),
-                            ),
-                          ],
-                        ),
-                        margin: EdgeInsets.only(left: 10, top: 20, right: 10),
-                        padding: EdgeInsets.symmetric(
-                          vertical: 12,
-                          horizontal: 10,
-                        ),
-                        child: Row(
-                          children: [
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(30),
-                              child: Image.asset(
-                                item.imagePath,
-                                height: 70,
-                                width: 70,
-                                fit: BoxFit.cover,
+                            offset: Offset(1, 2),
+                          ),
+                          BoxShadow(color: Colors.grey.withAlpha(20)),
+                        ],
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(top: 20.0, left: 20),
+                            child: Text(
+                              '주문내역',
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
                               ),
                             ),
-                            Expanded(
-                              child: Padding(
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: 16.0,
+                          ),
+                          ListView.builder(
+                            shrinkWrap: true,
+                            physics: NeverScrollableScrollPhysics(),
+                            itemCount: items.length,
+                            itemBuilder: (context, index) {
+                              final item = items[index];
+
+                              return Padding(
+                                padding: const EdgeInsets.only(
+                                  top: 10.0,
+                                  left: 20,
                                 ),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                child: Row(
                                   children: [
-                                    Text(
-                                      item.name,
-                                      style: TextStyle(
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 16,
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.circular(50),
+                                      child: Image.asset(
+                                        item.imagePath,
+                                        height: 70,
+                                        width: 70,
+                                        fit: BoxFit.cover,
                                       ),
-                                      textAlign: TextAlign.start,
                                     ),
-                                    SizedBox(height: 4),
-                                    Text(
-                                      '${item.price}원 x ${item.quantity}',
-                                      style: TextStyle(fontSize: 16),
+                                    Expanded(
+                                      child: Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                          horizontal: 15.0,
+                                        ),
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              item.name,
+                                              style: TextStyle(
+                                                color: Colors.black,
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 16,
+                                              ),
+                                              textAlign: TextAlign.start,
+                                            ),
+                                            Text(
+                                              '수량:${item.quantity}개',
+                                              style: TextStyle(
+                                                color: Colors.grey[600],
+                                                fontWeight: FontWeight.w500,
+                                                fontSize: 14,
+                                              ),
+                                              textAlign: TextAlign.start,
+                                            ),
+                                            SizedBox(height: 4),
+                                            Text(
+                                              '${item.price}원',
+                                              style: TextStyle(
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.w500,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
                                     ),
                                   ],
                                 ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      );
-                    },
+                              );
+                            },
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
                   // 총 결제 금액
                   Container(
@@ -266,7 +297,7 @@ class _PaymentsPageState extends State<PaymentsPage> {
                           color: Color(0xfff37210),
                         ),
                         child: Text(
-                          '결제하기',
+                          ' ${cart.totalAmount} 결제하기',
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 18,
