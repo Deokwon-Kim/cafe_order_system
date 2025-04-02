@@ -9,6 +9,7 @@ class UserProvider extends ChangeNotifier {
   // Firestore에서 username 가져오기
   Future<void> fetchUsername() async {
     final uid = FirebaseAuth.instance.currentUser?.uid;
+
     if (uid == null) return;
 
     try {

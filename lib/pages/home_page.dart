@@ -10,6 +10,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final username = Provider.of<UserProvider>(context).username;
+
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 237, 236, 236),
       appBar: AppBar(

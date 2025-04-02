@@ -78,6 +78,9 @@ class AuthWrapper extends StatelessWidget {
         } else if (snapshot.hasError) {
           return const Center(child: Text('에러가 발생하였습니다.'));
         } else if (snapshot.hasData) {
+          Future.microtask(() {
+            Provider.of<UserProvider>(context, listen: false).fetchUsername();
+          });
           return const BottomTabBar(); // 로그인된 경우
         } else {
           return const LoginPage(); // 로그인되지 않은 경우
