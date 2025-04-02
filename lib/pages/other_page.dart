@@ -9,7 +9,15 @@ class OtherPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final username = Provider.of<UserProvider>(context).username;
-    final size = MediaQuery.of(context).size;
+
+    final List<Widget> gridItems = [
+      menuItem('별 히스토리', Color(0xfff37210), Icon(Icons.star_border)),
+      menuItem('전자 내역', Color(0xfff37210), Icon(Icons.receipt_long)),
+      menuItem('주문 내역', Color(0xfff37210), Icon(Icons.receipt_long)),
+      menuItem('개인정보 관리', Color(0xfff37210), Icon(Icons.receipt_long)),
+      menuItem('계정정보', Color(0xfff37210), Icon(Icons.person)),
+      menuItem('나만의 메뉴', Color(0xfff37210), Icon(Icons.notifications)),
+    ];
 
     return Scaffold(
       appBar: AppBar(
@@ -39,33 +47,13 @@ class OtherPage extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 30),
-              Container(
-                color: Colors.grey,
-                width: size.width * 0.9,
-                height: size.height * 0.4,
-                child: GridView(
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 3,
-                  ),
-                  children: [
-                    Container(
-                      width: size.width * 0.8,
-                      height: size.height * 0.9,
-                      color: Colors.red,
-                    ),
-                    SizedBox(width: 50),
-                    Container(
-                      width: size.width * 0.5,
-                      height: size.height * 0.5,
-                      color: Colors.blue,
-                    ),
-                    SizedBox(height: 30),
-                    Container(
-                      width: size.width * 0.5,
-                      height: size.height * 0.5,
-                      color: Colors.blue,
-                    ),
-                  ],
+              SizedBox(
+                height: 300,
+                child: GridView.count(
+                  crossAxisCount: 3,
+                  crossAxisSpacing: 10,
+                  mainAxisSpacing: 10,
+                  children: gridItems,
                 ),
               ),
             ],
@@ -74,4 +62,25 @@ class OtherPage extends StatelessWidget {
       ),
     );
   }
+}
+
+Widget menuItem(String title, Color color, Icon icon) {
+  return GestureDetector(
+    onTap: () {},
+    child: Container(
+      decoration: BoxDecoration(color: Colors.white),
+      padding: EdgeInsets.all(10),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Icon(icon.icon, color: color, size: 50),
+          Text(
+            title,
+            style: TextStyle(fontSize: 13, color: Color(0xfff37210)),
+            textAlign: TextAlign.center,
+          ),
+        ],
+      ),
+    ),
+  );
 }
