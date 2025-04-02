@@ -1,5 +1,5 @@
 import 'package:HERMESCAFE/components/cafe_tile.dart';
-import 'package:HERMESCAFE/pages/detail_page/menu_detail_page.dart';
+import 'package:HERMESCAFE/pages/detail_page/desert_detail_page.dart';
 import 'package:HERMESCAFE/provider/desert_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -72,8 +72,9 @@ class CakeDetailPage extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                       builder:
-                          (context) =>
-                              MenuDetailPage(cafeMenu: desertViewModel[index]),
+                          (context) => DesertDetailPage(
+                            cafeMenu: desertViewModel[index],
+                          ),
                     ),
                   );
                 },
