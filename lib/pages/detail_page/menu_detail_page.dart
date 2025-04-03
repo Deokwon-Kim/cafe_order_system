@@ -163,6 +163,7 @@ class _MenuDetailPageState extends State<MenuDetailPage> {
                       style: TextStyle(
                         fontSize: 25,
                         fontWeight: FontWeight.bold,
+                        fontFamily: 'BMJUA',
                       ),
                     ),
                   ),
@@ -175,7 +176,11 @@ class _MenuDetailPageState extends State<MenuDetailPage> {
                     padding: const EdgeInsets.only(top: 100.0, left: 20),
                     child: Text(
                       currentMenu.engname,
-                      style: TextStyle(color: Colors.grey),
+                      style: TextStyle(
+                        color: Colors.grey,
+                        // fontFamily: 'BMJUA',
+                        fontFamily: 'BMHANNA',
+                      ),
                     ),
                   ),
                 ],
@@ -196,6 +201,8 @@ class _MenuDetailPageState extends State<MenuDetailPage> {
                         color: Color(0xffa2a2a2),
                         fontSize: 16,
                         fontWeight: FontWeight.w600,
+                        // fontFamily: 'BMJUA',
+                        fontFamily: 'BMHANNA',
                       ),
                     ),
                   ),
@@ -212,6 +219,8 @@ class _MenuDetailPageState extends State<MenuDetailPage> {
                         color: Colors.black,
                         fontSize: 25,
                         fontWeight: FontWeight.w600,
+                        // fontFamily: 'BMJUA',
+                        fontFamily: 'BMHANNA',
                       ),
                     ),
                   ),
@@ -253,6 +262,7 @@ class _MenuDetailPageState extends State<MenuDetailPage> {
                                 color: Colors.red,
                                 fontWeight: FontWeight.bold,
                                 fontSize: 16,
+                                fontFamily: 'BMHANNA',
                               ),
                             ),
                           ),
@@ -287,6 +297,7 @@ class _MenuDetailPageState extends State<MenuDetailPage> {
                                 color: Colors.blueAccent,
                                 fontWeight: FontWeight.bold,
                                 fontSize: 16,
+                                fontFamily: 'BMHANNA',
                               ),
                             ),
                           ),
@@ -304,7 +315,7 @@ class _MenuDetailPageState extends State<MenuDetailPage> {
                                         menuDetailProvider.toggleOption(false),
                                 child: Container(
                                   padding: EdgeInsets.symmetric(
-                                    horizontal: 65,
+                                    horizontal: 70,
                                     vertical: 10,
                                   ),
                                   decoration: BoxDecoration(
@@ -332,6 +343,7 @@ class _MenuDetailPageState extends State<MenuDetailPage> {
                                               : Colors.red,
                                       fontWeight: FontWeight.bold,
                                       fontSize: 16,
+                                      fontFamily: 'BMHANNA',
                                     ),
                                   ),
                                 ),
@@ -343,7 +355,7 @@ class _MenuDetailPageState extends State<MenuDetailPage> {
                                     () => menuDetailProvider.toggleOption(true),
                                 child: Container(
                                   padding: EdgeInsets.symmetric(
-                                    horizontal: 65,
+                                    horizontal: 70,
                                     vertical: 10,
                                   ),
                                   decoration: BoxDecoration(
@@ -371,6 +383,7 @@ class _MenuDetailPageState extends State<MenuDetailPage> {
                                               : Colors.grey,
                                       fontWeight: FontWeight.bold,
                                       fontSize: 16,
+                                      fontFamily: 'BMHANNA',
                                     ),
                                   ),
                                 ),
@@ -389,9 +402,10 @@ class _MenuDetailPageState extends State<MenuDetailPage> {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Container(
+                      height: 50,
                       decoration: BoxDecoration(
-                        color: Colors.grey.withAlpha(20),
                         borderRadius: BorderRadius.circular(30),
+                        color: Colors.grey.withAlpha(20),
                       ),
                       child: IconButton(
                         onPressed: () => menuDetailProvider.removeQuantity(),
@@ -403,7 +417,11 @@ class _MenuDetailPageState extends State<MenuDetailPage> {
                       child: Center(
                         child: Text(
                           menuDetailProvider.quantity.toString(),
-                          style: TextStyle(fontSize: 20, color: Colors.black),
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.black,
+                            fontFamily: 'BMHANNA',
+                          ),
                         ),
                       ),
                     ),
@@ -455,6 +473,7 @@ class _MenuDetailPageState extends State<MenuDetailPage> {
                             color: Colors.white,
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
+                            fontFamily: 'BMHANNA',
                           ),
                         ),
                       ),

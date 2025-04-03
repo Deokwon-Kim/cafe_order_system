@@ -91,7 +91,11 @@ class _PaymentsPageState extends State<PaymentsPage> {
         foregroundColor: Colors.white,
         title: Text(
           '결제하기',
-          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+            fontFamily: 'BMHANNA',
+          ),
         ),
       ),
       body: Column(
@@ -128,6 +132,7 @@ class _PaymentsPageState extends State<PaymentsPage> {
                               style: TextStyle(
                                 fontSize: 18,
                                 fontWeight: FontWeight.bold,
+                                fontFamily: 'BMHANNA',
                               ),
                             ),
                           ),
@@ -169,6 +174,7 @@ class _PaymentsPageState extends State<PaymentsPage> {
                                                 color: Colors.black,
                                                 fontWeight: FontWeight.bold,
                                                 fontSize: 16,
+                                                fontFamily: 'BMJUA',
                                               ),
                                               textAlign: TextAlign.start,
                                             ),
@@ -178,6 +184,7 @@ class _PaymentsPageState extends State<PaymentsPage> {
                                                 color: Colors.grey[600],
                                                 fontWeight: FontWeight.w500,
                                                 fontSize: 14,
+                                                fontFamily: 'BMHANNA',
                                               ),
                                               textAlign: TextAlign.start,
                                             ),
@@ -187,6 +194,7 @@ class _PaymentsPageState extends State<PaymentsPage> {
                                               style: TextStyle(
                                                 fontSize: 16,
                                                 fontWeight: FontWeight.w500,
+                                                fontFamily: 'BMHANNA',
                                               ),
                                             ),
                                           ],
@@ -220,14 +228,16 @@ class _PaymentsPageState extends State<PaymentsPage> {
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
                             color: Colors.black87,
+                            fontFamily: 'BMHANNA',
                           ),
                         ),
                         Text(
                           cart.totalAmount,
                           style: TextStyle(
                             fontSize: 20,
-                            fontWeight: FontWeight.bold,
+                            fontWeight: FontWeight.w500,
                             color: Color(0xfff37210),
+                            fontFamily: 'BMHANNA',
                           ),
                         ),
                       ],
@@ -303,6 +313,7 @@ class _PaymentsPageState extends State<PaymentsPage> {
                             color: Colors.white,
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
+                            fontFamily: 'BMHANNA',
                           ),
                         ),
                       ),

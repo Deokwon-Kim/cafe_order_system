@@ -34,7 +34,8 @@ class CafeTile extends StatelessWidget {
                       style: TextStyle(
                         color: Colors.black,
                         fontSize: 18,
-                        fontWeight: FontWeight.bold,
+                        fontWeight: FontWeight.w500,
+                        fontFamily: 'BMHANNA',
                       ),
                     ),
                   ),
@@ -44,7 +45,11 @@ class CafeTile extends StatelessWidget {
                       offset: Offset(0, -13),
                       child: Text(
                         cafe.engname,
-                        style: TextStyle(color: Colors.grey, fontSize: 13),
+                        style: TextStyle(
+                          color: Colors.grey,
+                          fontSize: 13,
+                          fontFamily: 'BMHANNA',
+                        ),
                       ),
                     ),
                   ),
@@ -58,7 +63,8 @@ class CafeTile extends StatelessWidget {
                         style: TextStyle(
                           color: Colors.black,
                           fontSize: 18,
-                          fontWeight: FontWeight.bold,
+                          fontWeight: FontWeight.w500,
+                          fontFamily: 'BMHANNA',
                         ),
                       ),
                     ),

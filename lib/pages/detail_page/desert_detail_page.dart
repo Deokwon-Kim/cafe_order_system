@@ -51,6 +51,7 @@ class _DesertDetailPageState extends State<DesertDetailPage> {
                           color: Colors.black,
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
+                          fontFamily: 'BMHANNA',
                         ),
                       ),
                     ),
@@ -68,6 +69,7 @@ class _DesertDetailPageState extends State<DesertDetailPage> {
                       color: Color(0xfff37210),
                       fontSize: 15,
                       fontWeight: FontWeight.bold,
+                      fontFamily: 'BMHANNA',
                     ),
                   ),
                 ),
@@ -105,6 +107,7 @@ class _DesertDetailPageState extends State<DesertDetailPage> {
                       style: TextStyle(
                         fontSize: 25,
                         fontWeight: FontWeight.bold,
+                        fontFamily: 'BMJUA',
                       ),
                     ),
                   ),
@@ -117,7 +120,10 @@ class _DesertDetailPageState extends State<DesertDetailPage> {
                     padding: const EdgeInsets.only(top: 100.0, left: 20),
                     child: Text(
                       widget.cafeMenu.engname,
-                      style: TextStyle(color: Colors.grey),
+                      style: TextStyle(
+                        color: Colors.grey,
+                        fontFamily: 'BMHANNA',
+                      ),
                     ),
                   ),
                 ],
@@ -137,7 +143,8 @@ class _DesertDetailPageState extends State<DesertDetailPage> {
                       style: TextStyle(
                         color: Color(0xffa2a2a2),
                         fontSize: 16,
-                        fontWeight: FontWeight.w600,
+                        fontWeight: FontWeight.w500,
+                        fontFamily: 'BMHANNA',
                       ),
                     ),
                   ),
@@ -154,6 +161,7 @@ class _DesertDetailPageState extends State<DesertDetailPage> {
                         color: Colors.black,
                         fontSize: 25,
                         fontWeight: FontWeight.w600,
+                        fontFamily: 'BMHANNA',
                       ),
                     ),
                   ),
@@ -164,24 +172,34 @@ class _DesertDetailPageState extends State<DesertDetailPage> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    IconButton(
-                      onPressed: () => menuDetailProvider.removeQuantity(),
-                      icon: Icon(Icons.remove, color: Colors.black),
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Colors.grey.withAlpha(30),
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      child: IconButton(
+                        onPressed: () => menuDetailProvider.removeQuantity(),
+                        icon: Icon(Icons.remove, color: Colors.black),
+                      ),
                     ),
                     SizedBox(
                       width: 40,
                       child: Center(
                         child: Text(
                           menuDetailProvider.quantity.toString(),
-                          style: TextStyle(fontSize: 20, color: Colors.black),
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.black,
+                            fontFamily: 'BMHANNA',
+                          ),
                         ),
                       ),
                     ),
 
                     Container(
                       decoration: BoxDecoration(
-                        color: Colors.white,
-                        shape: BoxShape.circle,
+                        color: Colors.grey.withAlpha(30),
+                        borderRadius: BorderRadius.circular(30),
                       ),
 
                       child: IconButton(
@@ -219,6 +237,7 @@ class _DesertDetailPageState extends State<DesertDetailPage> {
                             color: Colors.white,
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
+                            fontFamily: 'BMHANNA',
                           ),
                         ),
                       ),

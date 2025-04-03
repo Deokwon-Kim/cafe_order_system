@@ -31,7 +31,11 @@ class CartPage extends StatelessWidget {
               foregroundColor: Colors.white,
               title: Text(
                 '장바구니',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: 'BMHANNA',
+                ),
               ),
             ),
             body: Column(
@@ -55,6 +59,7 @@ class CartPage extends StatelessWidget {
                                 fontSize: 18,
                                 fontWeight: FontWeight.bold,
                                 color: Colors.grey[700],
+                                fontFamily: 'BMHANNA',
                               ),
                             ),
                           ],
@@ -122,6 +127,7 @@ class CartPage extends StatelessWidget {
                                             color: Colors.black,
                                             fontWeight: FontWeight.bold,
                                             fontSize: 16,
+                                            fontFamily: 'BMJUA',
                                           ),
                                           textAlign: TextAlign.start,
                                         ),
@@ -131,13 +137,17 @@ class CartPage extends StatelessWidget {
                                           style: TextStyle(
                                             color: Colors.grey,
                                             fontSize: 13,
+                                            fontFamily: 'BMHANNA',
                                           ),
                                           textAlign: TextAlign.start,
                                         ),
                                         SizedBox(height: 4),
                                         Text(
                                           '${item.price}원',
-                                          style: TextStyle(fontSize: 16),
+                                          style: TextStyle(
+                                            fontSize: 16,
+                                            fontFamily: 'BMHANNA',
+                                          ),
                                         ),
                                       ],
                                     ),
@@ -217,6 +227,7 @@ class CartPage extends StatelessWidget {
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
                             color: Colors.black87,
+                            fontFamily: 'BMHANNA',
                           ),
                         ),
                         Text(
@@ -224,6 +235,7 @@ class CartPage extends StatelessWidget {
                           style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
+                            fontFamily: 'BMHANNA',
                             color: Color(0xfff37210),
                           ),
                         ),
@@ -255,7 +267,8 @@ class CartPage extends StatelessWidget {
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 18,
-                              fontWeight: FontWeight.bold,
+                              fontWeight: FontWeight.w500,
+                              fontFamily: 'BMHANNA',
                             ),
                           ),
                         ),

@@ -43,6 +43,7 @@ class _LoginPageState extends State<LoginPage> {
               Padding(
                 padding: const EdgeInsets.only(left: 20.0, right: 20.0),
                 child: TextFormField(
+                  keyboardType: TextInputType.emailAddress,
                   controller: _emailController,
                   decoration: InputDecoration(
                     labelText: "Email",

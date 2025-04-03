@@ -41,6 +41,7 @@ class ColdbrewDetailPage extends StatelessWidget {
                               color: Colors.black,
                               fontWeight: FontWeight.bold,
                               fontSize: 18,
+                              fontFamily: 'BMHANNA',
                             ),
                           )
                           : null, // 초기에는 타이틀 숨김
@@ -54,7 +55,11 @@ class ColdbrewDetailPage extends StatelessWidget {
               padding: const EdgeInsets.only(left: 20),
               child: Text(
                 '콜드브루',
-                style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.w500,
+                  fontFamily: 'BMJUA',
+                ),
               ),
             ),
           ),
