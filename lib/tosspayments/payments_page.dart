@@ -103,6 +103,7 @@ class _PaymentsPageState extends State<PaymentsPage> {
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Container(
+                      width: 360,
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(20),

@@ -7,7 +7,7 @@ class IcedCafeViewmodel extends ChangeNotifier {
       Cafe(
         id: 'icedespresso1',
         name: '아이스 슈크림라떼',
-        engname: 'Icde Choux Cream Latte',
+        engname: 'Iced Choux Cream Latte',
         discription:
             '우리가 봄을 기다리는 이유!\n봄 하면 떠오르는 노란색 슈크림과 에스프레소의\n완벽한 조화가 돋보이는 음료입니다.',
         price: '6,500',
@@ -66,6 +66,32 @@ class IcedCafeViewmodel extends ChangeNotifier {
             '풍부하고 진한 에스프레소에 따뜻한 우유와 벨벳 같은\n우유거품이 1:1 비율로 어우러져 마무리된 커피 음료',
         price: '5,200',
         imagePath: 'lib/images/espresso/IcedCappuchino.jpg',
+      ),
+      Cafe(
+        id: 'icedespresso8',
+        name: '아이스 카라멜 마키아또',
+        engname: 'Iced Caramel Macchiato',
+        discription:
+            '향긋한 바닐라 시럽과 따뜻한 스팀 밀크 위에 풍성한 우유 거품을 얹고 점을 찍듯이 에스프레소를 부은 후 벌집 모양으로 카라멜 드리즐을 올린 달콤한 커피 음료',
+        price: '6,100',
+        imagePath: 'lib/images/espresso/Iced Caramel Macchiato.jpg',
+      ),
+      Cafe(
+        id: 'icedespresso9',
+        name: '아이스 화이트 초콜릿 모카',
+        engname: 'Iced White Chocolate Mocha',
+        discription:
+            '달콤하고 부드러운 화이트 초콜릿 시럽과 에스프레소를 스팀 밀크와 섞어 휘핑크림으로 마무리한 음료로 달콤함과 강렬한 에스프레소가 부드럽게 어우러진 커피',
+        price: '6,100',
+        imagePath: 'lib/images/espresso/Iced White Chocolate Mocha.jpg',
+      ),
+      Cafe(
+        id: 'icedespresso10',
+        name: '아이스 바닐라 빈 라떼',
+        engname: 'Iced Vanilla Bean Latte',
+        discription: '바닐라 빈 시럽이 부드럽게 어우러진 카페 라떼',
+        price: '7,000',
+        imagePath: 'lib/images/espresso/Iced Vanilla Bean Latte.jpg',
       ),
     ],
     'icedteabana': [

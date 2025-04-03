@@ -70,35 +70,58 @@ class CafeViewmodel extends ChangeNotifier {
       ),
       Cafe(
         id: 'espresso8',
+        name: '카라멜 마키아또',
+        engname: 'Caramel Macchiato',
+        discription:
+            '향긋한 바닐라 시럽과 따뜻한 스팀 밀크 위에 풍성한 우유 거품을 얹고 점을 찍듯이 에스프레소를 부은 후 벌집 모양으로 카라멜 드리즐을 올린 달콤한 커피 음료',
+        price: '6,100',
+        imagePath: 'lib/images/espresso/Caramel Macchiato.jpg',
+      ),
+      Cafe(
+        id: 'espresso9',
+        name: '화이트 초콜릿 모카',
+        engname: 'White Chocolate Mocha',
+        discription:
+            '달콤하고 부드러운 화이트 초콜릿 시럽과 에스프레소를 스팀 밀크와 섞어 휘핑크림으로 마무리한 음료로 달콤함과 강렬한 에스프레소가 부드럽게 어우러진 커피',
+        price: '6,100',
+        imagePath: 'lib/images/espresso/White Chocolate Mocha.jpg',
+      ),
+      Cafe(
+        id: 'espresso10',
+        name: '바닐라 빈 라떼',
+        engname: 'Vanilla Bean Latte',
+        discription: '바닐라 빈 시럽이 부드럽게 어우러진 카페 라떼',
+        price: '7,000',
+        imagePath: 'lib/images/espresso/Vanilla Bean Latte.jpg',
+      ),
+      Cafe(
+        id: 'espresso11',
         name: '에스프레소',
         engname: 'Espresso',
         discription:
             '향기로운 크레마 층과 바디 층, 하트 층으로\n이루어져 있으며, 입안 가득히 커피와 달콤한 카라멜 향이\n느껴지는 커피 음료',
         price: '3,900',
         imagePath: 'lib/images/espresso/Espresso.jpg',
-
         temperatureOption: 'hotonly',
       ),
       Cafe(
-        id: 'espresso9',
+        id: 'espresso12',
         name: '에스프레소 마키아또',
         engname: 'Espresso Macchiato',
         discription:
             '신선한 에스프레소 샷에 우유 거품을 살짝 얹은 커피 음료로, 강렬한 에스프레소의 맛과 우유의 부드러움을 같이 즐길 수 있는 커피 음료',
         price: '3,900',
         imagePath: 'lib/images/espresso/espressomakiatto.jpg',
-
         temperatureOption: 'hotonly',
       ),
       Cafe(
-        id: 'espresso10',
+        id: 'espresso13',
         name: '에스프레소 콘 파나',
         engname: 'Espresso Con Panna',
         discription:
             '신선한 에스프레소 샷에 풍부한 휘핑크림을 얹은 커피 음료로서, 뜨거운 커피의 맛과 차갑고 달콤한 생크림의 맛을 같이 즐길 수 있는 커피 음료',
         price: '4,100',
         imagePath: 'lib/images/espresso/espressocon.jpg',
-
         temperatureOption: 'hotonly',
       ),
     ],
