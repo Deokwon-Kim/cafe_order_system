@@ -1,6 +1,9 @@
 import 'package:HERMESCAFE/Tab/bottom_tab_bar.dart';
 import 'package:HERMESCAFE/firebase_options.dart';
 import 'package:HERMESCAFE/login/login_page.dart';
+import 'package:HERMESCAFE/pages/detail_page/star_detail_page.dart';
+import 'package:HERMESCAFE/pages/order_history_page.dart';
+import 'package:HERMESCAFE/pages/personal_info_page.dart';
 import 'package:HERMESCAFE/provider/user_provider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -60,6 +63,9 @@ class MyApp extends StatelessWidget {
         'icecream': (context) => const IceCreamDetailPage(),
         'cart': (context) => const CartPage(),
         'payment': (context) => const PaymentsPage(),
+        'star': (context) => const StarDetailPage(),
+        '주문내역': (context) => const OrderHistoryPage(),
+        '개인정보': (context) => const PersonalInfoPage(),
       },
     );
   }
