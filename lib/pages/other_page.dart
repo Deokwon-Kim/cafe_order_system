@@ -1,3 +1,4 @@
+import 'package:HERMESCAFE/login/login_page.dart';
 import 'package:HERMESCAFE/provider/user_provider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -20,6 +21,10 @@ class OtherPage extends StatelessWidget {
           IconButton(
             onPressed: () async {
               await FirebaseAuth.instance.signOut();
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => LoginPage()),
+              );
             },
             icon: Icon(Icons.logout),
           ),

@@ -40,7 +40,6 @@ class _LoginPageState extends State<LoginPage> {
                 padding: EdgeInsets.only(top: size.height * 0.2),
                 child: Image.asset('lib/images/logo2.png', height: 240),
               ),
-              SizedBox(height: 50),
               Padding(
                 padding: const EdgeInsets.only(left: 20.0, right: 20.0),
                 child: TextFormField(
@@ -76,7 +75,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
 
-              SizedBox(height: 60),
+              SizedBox(height: 30),
               Padding(
                 padding: const EdgeInsets.all(20.0),
                 child: GestureDetector(
@@ -103,10 +102,12 @@ class _LoginPageState extends State<LoginPage> {
               Padding(
                 padding: const EdgeInsets.all(35.0),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     GestureDetector(onTap: () {}, child: Text("아이디 찾기")),
+                    SizedBox(width: 20),
                     GestureDetector(onTap: () {}, child: Text("비밀번호 찾기")),
+                    SizedBox(width: 20),
                     GestureDetector(
                       onTap: () {
                         Navigator.push(

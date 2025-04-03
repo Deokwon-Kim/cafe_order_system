@@ -1,4 +1,5 @@
 import 'package:HERMESCAFE/Tab/bottom_tab_bar.dart';
+import 'package:HERMESCAFE/login/login_page.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -82,16 +83,6 @@ class SignupScreen extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          icon: Icon(Icons.arrow_back),
-          color: Colors.black,
-        ),
-      ),
       body: SingleChildScrollView(
         child: Center(
           child: Column(
@@ -160,7 +151,7 @@ class SignupScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 50),
+              SizedBox(height: 30),
               Padding(
                 padding: const EdgeInsets.all(20.0),
                 child: GestureDetector(
@@ -185,6 +176,32 @@ class SignupScreen extends StatelessWidget {
                     ),
                   ),
                 ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    '이미 회원이신가요?',
+                    style: TextStyle(color: Colors.grey, fontSize: 15),
+                  ),
+                  SizedBox(width: 10),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(builder: (context) => LoginPage()),
+                      );
+                    },
+                    child: Text(
+                      '로그인',
+                      style: TextStyle(
+                        color: Color(0xfff37210),
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ],
           ),
