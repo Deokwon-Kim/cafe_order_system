@@ -16,7 +16,7 @@ class OtherPage extends StatelessWidget {
         '별 히스토리',
         Color(0xfff37210),
         Icon(Icons.star_border),
-        'star_detail',
+        'star',
       ),
       //menuItem('전자 내역', Color(0xfff37210), Icon(Icons.receipt_long)),
       menuItem(
@@ -24,16 +24,10 @@ class OtherPage extends StatelessWidget {
         '주문 내역',
         Color(0xfff37210),
         Icon(Icons.receipt_long),
-        'order_history',
+        '주문내역',
       ),
       // menuItem('개인정보 관리', Color(0xfff37210), Icon(Icons.receipt_long)),
-      menuItem(
-        context,
-        '계정정보',
-        Color(0xfff37210),
-        Icon(Icons.person),
-        'personal_info',
-      ),
+      menuItem(context, '계정정보', Color(0xfff37210), Icon(Icons.person), '개인정보'),
       //menuItem('나만의 메뉴', Color(0xfff37210), Icon(Icons.notifications)),
     ];
 
