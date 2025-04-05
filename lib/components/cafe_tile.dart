@@ -17,7 +17,7 @@ class CafeTile extends StatelessWidget {
           children: [
             ClipRRect(
               borderRadius: BorderRadius.circular(50),
-              child: Image.asset(cafe.imagePath, height: 100),
+              child: Image.asset(cafe.imagePath, height: 95),
             ),
             SizedBox(width: 20),
             Padding(

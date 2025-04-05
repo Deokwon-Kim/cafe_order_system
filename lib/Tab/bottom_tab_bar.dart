@@ -1,6 +1,7 @@
 import 'package:HERMESCAFE/pages/home_page.dart';
 import 'package:HERMESCAFE/pages/order_page.dart';
 import 'package:HERMESCAFE/pages/other_page.dart';
+import 'package:HERMESCAFE/pages/ticket_page.dart';
 import 'package:flutter/material.dart';
 
 class BottomTabBar extends StatefulWidget {
@@ -11,7 +12,12 @@ class BottomTabBar extends StatefulWidget {
 }
 
 class _BottomTabBarState extends State<BottomTabBar> {
-  final List<Widget> _pages = [HomePage(), OrderPage(), OtherPage()];
+  final List<Widget> _pages = [
+    HomePage(),
+    TicketPage(),
+    OrderPage(),
+    OtherPage(),
+  ];
   int _selectedIndex = 0;
 
   void _onItemTapped(int index) {
@@ -28,7 +34,7 @@ class _BottomTabBarState extends State<BottomTabBar> {
         mainAxisSize: MainAxisSize.min,
         children: [
           Container(
-            height: 110,
+            height: 115,
             decoration: BoxDecoration(
               boxShadow: [
                 BoxShadow(
@@ -48,18 +54,18 @@ class _BottomTabBarState extends State<BottomTabBar> {
                 backgroundColor: Colors.white,
                 items: [
                   BottomNavigationBarItem(
-                    icon: _selectedImageTabItem(
-                      'lib/images/home.png',
-                      'Home',
-                      0,
-                    ),
+                    icon: _selectedTabItem(Icons.home_filled, 'Home', 0),
+                    label: '',
+                  ),
+                  BottomNavigationBarItem(
+                    icon: _selectedTabItem(Icons.payment, 'Pay', 1),
                     label: '',
                   ),
                   BottomNavigationBarItem(
                     icon: _selectedImageTabItem(
                       'lib/images/coffee-cup3.png',
                       'Order',
-                      1,
+                      2,
                     ),
                     label: '',
                   ),
@@ -67,7 +73,7 @@ class _BottomTabBarState extends State<BottomTabBar> {
                     icon: _selectedTabItem(
                       Icons.more_horiz_outlined,
                       'Other',
-                      2,
+                      3,
                     ),
                     label: '',
                   ),

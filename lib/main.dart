@@ -4,6 +4,7 @@ import 'package:HERMESCAFE/login/login_page.dart';
 import 'package:HERMESCAFE/pages/detail_page/star_detail_page.dart';
 import 'package:HERMESCAFE/pages/order_history_page.dart';
 import 'package:HERMESCAFE/pages/personal_info_page.dart';
+import 'package:HERMESCAFE/provider/ticket_provider.dart';
 import 'package:HERMESCAFE/provider/user_provider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -17,7 +18,6 @@ import 'package:HERMESCAFE/pages/detail_page/icecream_detail_page.dart';
 import 'package:HERMESCAFE/pages/detail_page/teabana_detail_page.dart';
 import 'package:HERMESCAFE/provider/cart_provider.dart';
 import 'package:HERMESCAFE/provider/menu_detail_provider.dart';
-import 'package:HERMESCAFE/tosspayments/payments_page.dart';
 import 'package:HERMESCAFE/provider/cafe_provider.dart';
 import 'package:HERMESCAFE/provider/desert_provider.dart';
 import 'package:HERMESCAFE/provider/iced_cafe_provider.dart';
@@ -38,6 +38,7 @@ Future<void> main() async {
         ChangeNotifierProvider(create: (context) => UserProvider()),
         ChangeNotifierProvider(create: (context) => IcedCafeViewmodel()),
         ChangeNotifierProvider(create: (context) => DesertViewmodel()),
+        ChangeNotifierProvider(create: (context) => TicketProvider()),
       ],
       child: const MyApp(),
     ),
@@ -62,7 +63,6 @@ class MyApp extends StatelessWidget {
         'cake': (context) => const CakeDetailPage(),
         'icecream': (context) => const IceCreamDetailPage(),
         'cart': (context) => const CartPage(),
-        'payment': (context) => const PaymentsPage(),
         'star': (context) => const StarDetailPage(),
         '주문내역': (context) => const OrderHistoryPage(),
         '개인정보': (context) => const PersonalInfoPage(),

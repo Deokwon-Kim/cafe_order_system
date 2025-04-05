@@ -1,4 +1,5 @@
 import 'package:HERMESCAFE/model/cafe.dart';
+import 'package:HERMESCAFE/pages/cart_page.dart';
 import 'package:HERMESCAFE/provider/cart_provider.dart';
 import 'package:HERMESCAFE/provider/menu_detail_provider.dart';
 import 'package:flutter/material.dart';
@@ -91,7 +92,10 @@ class _MenuDetailPageState extends State<MenuDetailPage> {
               actions: [
                 TextButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, 'cart');
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(builder: (context) => CartPage()),
+                    );
                   },
                   child: Text(
                     '장바구니로 이동',
@@ -455,7 +459,7 @@ class _MenuDetailPageState extends State<MenuDetailPage> {
                     },
                     child: Padding(
                       padding: const EdgeInsets.only(
-                        top: 750.0,
+                        top: 740.0,
                         left: 20,
                         right: 20,
                       ),

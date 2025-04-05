@@ -13,13 +13,11 @@ import 'package:tosspayments_widget_sdk_flutter/widgets/payment_method.dart';
 
 class PaymentsPage extends StatefulWidget {
   const PaymentsPage({super.key});
-
   @override
   State<PaymentsPage> createState() => _PaymentsPageState();
 }
 
 class _PaymentsPageState extends State<PaymentsPage> {
-  // late PaymentWidget _paymentWidget;
   late PaymentWidget paymentWidget;
   PaymentMethodWidgetControl? paymentMethodWidgetControl;
   AgreementWidgetControl? agreementWidgetControl;
