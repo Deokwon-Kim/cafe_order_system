@@ -54,11 +54,11 @@ class TicketPage extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.only(left: 20),
               child: Text(
-                '금액권',
+                '모바일 금액권',
                 style: TextStyle(
                   fontSize: 30,
                   fontWeight: FontWeight.w500,
-                  fontFamily: 'BMHANA',
+                  fontFamily: 'BMHANNA',
                 ),
               ),
             ),
