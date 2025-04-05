@@ -41,6 +41,7 @@ class CakeDetailPage extends StatelessWidget {
                               color: Colors.black,
                               fontWeight: FontWeight.bold,
                               fontSize: 18,
+                              fontFamily: 'BMHANNA',
                             ),
                           )
                           : null,

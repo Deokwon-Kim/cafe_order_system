@@ -29,13 +29,15 @@ class _BottomTabBarState extends State<BottomTabBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: _pages[_selectedIndex],
       bottomNavigationBar: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           Container(
-            height: 115,
+            height: 122,
             decoration: BoxDecoration(
+              color: Colors.white,
               boxShadow: [
                 BoxShadow(
                   color: Colors.black.withAlpha(80),
@@ -46,30 +48,43 @@ class _BottomTabBarState extends State<BottomTabBar> {
               ],
             ),
             child: IconTheme(
-              data: IconThemeData(size: 40.0),
+              data: IconThemeData(size: 44.0),
               child: BottomNavigationBar(
                 onTap: _onItemTapped,
-                selectedIconTheme: IconThemeData(size: 24),
-                unselectedIconTheme: IconThemeData(size: 24),
+                selectedIconTheme: IconThemeData(size: 23),
+                unselectedIconTheme: IconThemeData(size: 23),
                 selectedLabelStyle: TextStyle(fontSize: 12),
                 unselectedLabelStyle: TextStyle(fontSize: 12),
                 unselectedItemColor: Colors.grey,
-                backgroundColor: Colors.white,
                 items: [
                   BottomNavigationBarItem(
-                    icon: _selectedTabItem(
-                      Padding(
-                        padding: const EdgeInsets.only(top: 8.0),
-                        child: Icon(
-                          Icons.home,
-                          color:
-                              _selectedIndex == 0
-                                  ? Color(0xfff37210)
-                                  : Colors.grey,
-                        ),
+                    icon: Padding(
+                      padding: const EdgeInsets.only(top: 13.0),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          ImageIcon(
+                            AssetImage('lib/images/home.png'),
+                            color:
+                                _selectedIndex == 0
+                                    ? Color(0xfff37210)
+                                    : Colors.grey,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 5.0),
+                            child: Text(
+                              'Home',
+                              style: TextStyle(
+                                fontSize: 12,
+                                color:
+                                    _selectedIndex == 0
+                                        ? Color(0xfff37210)
+                                        : Colors.grey,
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
-                      'Home',
-                      0,
                     ),
                     label: '',
                   ),
@@ -136,32 +151,6 @@ class _BottomTabBarState extends State<BottomTabBar> {
           label,
           style: TextStyle(
             color: isSelected ? Color(0xfff37210) : Colors.grey,
-            fontSize: 12,
-          ),
-        ),
-      ],
-    );
-  }
-
-  Widget _selectedImageTabItem(
-    String imagePath,
-    String label,
-    int index, {
-    // ignore: unused_element_parameter
-    bool isActive = false,
-  }) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        ImageIcon(
-          AssetImage(imagePath),
-          color: _selectedIndex == index ? Color(0xfff37210) : Colors.grey,
-          size: 20,
-        ),
-        Text(
-          label,
-          style: TextStyle(
-            color: _selectedIndex == index ? Color(0xfff37210) : Colors.grey,
             fontSize: 12,
           ),
         ),

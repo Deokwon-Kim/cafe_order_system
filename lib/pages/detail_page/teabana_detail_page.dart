@@ -41,6 +41,7 @@ class TeabanaDetailPage extends StatelessWidget {
                               color: Colors.black,
                               fontWeight: FontWeight.bold,
                               fontSize: 18,
+                              fontFamily: 'BMHANNA',
                             ),
                           )
                           : null, // 초기에는 타이틀 숨김
