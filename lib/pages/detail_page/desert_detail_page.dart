@@ -158,7 +158,7 @@ class _DesertDetailPageState extends State<DesertDetailPage> {
                     child: Text(
                       '${widget.cafeMenu.price}원',
                       style: TextStyle(
-                        color: Colors.black,
+                        color: Color(0xfff37210),
                         fontSize: 25,
                         fontWeight: FontWeight.w600,
                         fontFamily: 'BMHANNA',

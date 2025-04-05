@@ -1,3 +1,4 @@
+import 'package:HERMESCAFE/Tab/bottom_tab_bar.dart';
 import 'package:HERMESCAFE/login/signup_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -21,6 +22,10 @@ class _LoginPageState extends State<LoginPage> {
             password: _passwordController.text,
           );
       debugPrint('로그인 성공: ${userCredential.user}');
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => BottomTabBar()),
+      );
     } catch (e) {
       debugPrint('로그인 실패: ${e.toString()}');
     }
@@ -61,6 +66,7 @@ class _LoginPageState extends State<LoginPage> {
               Padding(
                 padding: const EdgeInsets.only(left: 20.0, right: 20.0),
                 child: TextField(
+                  keyboardType: TextInputType.visiblePassword,
                   controller: _passwordController,
                   obscureText: true,
                   decoration: InputDecoration(
@@ -81,6 +87,7 @@ class _LoginPageState extends State<LoginPage> {
                 padding: const EdgeInsets.all(20.0),
                 child: GestureDetector(
                   onTap: _signIn,
+
                   child: Container(
                     alignment: Alignment.center,
                     width: double.infinity,

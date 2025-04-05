@@ -220,7 +220,7 @@ class _MenuDetailPageState extends State<MenuDetailPage> {
                     child: Text(
                       '${currentMenu.price}원',
                       style: TextStyle(
-                        color: Colors.black,
+                        color: Color(0xfff37210),
                         fontSize: 25,
                         fontWeight: FontWeight.w600,
                         // fontFamily: 'BMJUA',
