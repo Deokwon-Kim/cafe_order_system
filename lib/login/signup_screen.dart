@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously, avoid_print
+
 import 'package:HERMESCAFE/Tab/bottom_tab_bar.dart';
 import 'package:HERMESCAFE/login/login_page.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';

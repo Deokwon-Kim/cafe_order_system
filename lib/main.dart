@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:HERMESCAFE/Tab/bottom_tab_bar.dart';
 import 'package:HERMESCAFE/firebase_options.dart';
 import 'package:HERMESCAFE/login/login_page.dart';
@@ -5,6 +7,7 @@ import 'package:HERMESCAFE/pages/detail_page/edit_username_detail_page.dart';
 import 'package:HERMESCAFE/pages/detail_page/star_detail_page.dart';
 import 'package:HERMESCAFE/pages/order_history_page.dart';
 import 'package:HERMESCAFE/pages/personal_info_page.dart';
+import 'package:HERMESCAFE/provider/suggest_menu_provider.dart';
 import 'package:HERMESCAFE/provider/ticket_provider.dart';
 import 'package:HERMESCAFE/provider/user_provider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -40,6 +43,7 @@ Future<void> main() async {
         ChangeNotifierProvider(create: (context) => IcedCafeViewmodel()),
         ChangeNotifierProvider(create: (context) => DesertViewmodel()),
         ChangeNotifierProvider(create: (context) => TicketProvider()),
+        ChangeNotifierProvider(create: (context) => SuggestMenuProvider()),
       ],
       child: const MyApp(),
     ),

@@ -140,13 +140,6 @@ class PaysuccessPage extends StatelessWidget {
                                           ),
                                         ],
                                       ),
-                                      // Text(
-                                      //   '수량: ${item.quantity}개',
-                                      //   style: TextStyle(
-                                      //     color: Colors.grey[600],
-                                      //     fontSize: 1,
-                                      //   ),
-                                      // ), // engname이 길어지면 오버플로우 이슈로 가격 옆에 수량 나오게 수정 03/31
                                     ],
                                   ),
                                 ),
@@ -199,23 +192,20 @@ class PaysuccessPage extends StatelessWidget {
                     MaterialPageRoute(builder: (context) => BottomTabBar()),
                   );
                 },
-                child: Padding(
-                  padding: const EdgeInsets.all(20.0),
-                  child: Container(
-                    alignment: Alignment.center,
-                    width: double.infinity,
-                    height: 58,
-                    decoration: BoxDecoration(
-                      color: Color(0xfff37210),
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: Text(
-                      '홈 으로',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                      ),
+                child: Container(
+                  alignment: Alignment.center,
+                  width: double.infinity,
+                  height: 58,
+                  decoration: BoxDecoration(
+                    color: Color(0xfff37210),
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Text(
+                    '홈 으로',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),

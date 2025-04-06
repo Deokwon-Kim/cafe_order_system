@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:HERMESCAFE/login/login_page.dart';
 import 'package:HERMESCAFE/provider/user_provider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -33,7 +35,9 @@ class OtherPage extends StatelessWidget {
     ];
 
     return Scaffold(
+      backgroundColor: const Color.fromARGB(255, 242, 241, 241),
       appBar: AppBar(
+        backgroundColor: Colors.white,
         automaticallyImplyLeading: false,
         title: Text('Other'),
 
@@ -53,27 +57,44 @@ class OtherPage extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Center(
-          child: Column(
-            children: [
-              Text(
-                "$username님 \n환영합니다!",
-                style: TextStyle(
-                  fontSize: 20,
-                  color: Colors.black,
-                  fontWeight: FontWeight.bold,
+          child: Padding(
+            padding: const EdgeInsets.only(top: 10.0),
+            child: Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text.rich(
+                      TextSpan(
+                        text: username,
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: Color(0xfff37210),
+                          fontWeight: FontWeight.bold,
+                        ),
+                        children: <TextSpan>[
+                          TextSpan(
+                            text: '님',
+                            style: TextStyle(color: Colors.black, fontSize: 20),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
-              ),
-              SizedBox(height: 30),
-              SizedBox(
-                height: 300,
-                child: GridView.count(
-                  crossAxisCount: 3,
-                  crossAxisSpacing: 10,
-                  mainAxisSpacing: 10,
-                  children: gridItems,
+                Text('환영합니다!', style: TextStyle(fontSize: 20)),
+                SizedBox(height: 30),
+                SizedBox(
+                  height: 300,
+                  child: GridView.count(
+                    crossAxisCount: 3,
+                    crossAxisSpacing: 10,
+                    mainAxisSpacing: 10,
+                    children: gridItems,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
@@ -93,7 +114,10 @@ Widget menuItem(
       Navigator.pushNamed(context, routeName);
     },
     child: Container(
-      decoration: BoxDecoration(color: Colors.white),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(10),
+      ),
       padding: EdgeInsets.all(10),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
