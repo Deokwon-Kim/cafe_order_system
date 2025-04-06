@@ -16,7 +16,7 @@ class OtherPage extends StatelessWidget {
     final List<Widget> gridItems = [
       menuItem(
         context,
-        '별 히스토리',
+        '즐겨찾는 메뉴',
         Color(0xfff37210),
         Icon(Icons.star_border),
         'star',
