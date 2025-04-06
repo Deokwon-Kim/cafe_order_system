@@ -2,6 +2,7 @@
 
 import 'package:HERMESCAFE/Tab/bottom_tab_bar.dart';
 import 'package:HERMESCAFE/login/signup_screen.dart';
+import 'package:HERMESCAFE/pages/find_password_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -116,7 +117,17 @@ class _LoginPageState extends State<LoginPage> {
                   children: [
                     GestureDetector(onTap: () {}, child: Text("아이디 찾기")),
                     SizedBox(width: 20),
-                    GestureDetector(onTap: () {}, child: Text("비밀번호 찾기")),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => FindPasswordPage(),
+                          ),
+                        );
+                      },
+                      child: Text("비밀번호 찾기"),
+                    ),
                     SizedBox(width: 20),
                     GestureDetector(
                       onTap: () {
