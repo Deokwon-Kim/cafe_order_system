@@ -40,6 +40,13 @@ class _EditPasswordPageState extends State<EditPasswordPage> {
       return;
     }
 
+    if (newPassword != newPasswordConfirm) {
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(const SnackBar(content: Text("비밀번호가 일치하지 않습니다.")));
+      return;
+    }
+
     try {
       // 현재 비밀번호로 재인증
       final credential = EmailAuthProvider.credential(
