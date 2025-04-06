@@ -242,72 +242,84 @@ class _MenuDetailPageState extends State<MenuDetailPage> {
                     // temperatureOption 값에 따라 버튼 표시
                     switch (widget.cafeMenu.temperatureOption) {
                       case 'hotonly':
-                        return Center(
-                          child: Container(
-                            padding: EdgeInsets.symmetric(
-                              horizontal: 150,
-                              vertical: 10,
-                            ),
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(20),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: const Color.fromARGB(
-                                    147,
-                                    158,
-                                    158,
-                                    158,
-                                  ),
-                                  blurRadius: 4,
-                                  offset: Offset(1, 2),
+                        return Padding(
+                          padding: EdgeInsets.only(top: 170),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Container(
+                                padding: EdgeInsets.symmetric(
+                                  horizontal: 130,
+                                  vertical: 10,
                                 ),
-                              ],
-                            ),
-                            child: Text(
-                              'HOT ONLY',
-                              style: TextStyle(
-                                color: Colors.red,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 16,
-                                fontFamily: 'BMHANNA',
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(20),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: const Color.fromARGB(
+                                        147,
+                                        158,
+                                        158,
+                                        158,
+                                      ),
+                                      blurRadius: 4,
+                                      offset: Offset(1, 2),
+                                    ),
+                                  ],
+                                ),
+                                child: Text(
+                                  'HOT ONLY',
+                                  style: TextStyle(
+                                    color: Colors.red,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 16,
+                                    fontFamily: 'BMHANNA',
+                                  ),
+                                ),
                               ),
-                            ),
+                            ],
                           ),
                         );
 
                       case 'iceonly':
-                        return Center(
-                          child: Container(
-                            padding: EdgeInsets.symmetric(
-                              horizontal: 150,
-                              vertical: 10,
-                            ),
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(20),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: const Color.fromARGB(
-                                    147,
-                                    158,
-                                    158,
-                                    158,
-                                  ),
-                                  blurRadius: 4,
-                                  offset: Offset(1, 2),
+                        return Padding(
+                          padding: const EdgeInsets.only(top: 170.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Container(
+                                padding: EdgeInsets.symmetric(
+                                  horizontal: 130,
+                                  vertical: 10,
                                 ),
-                              ],
-                            ),
-                            child: Text(
-                              'ICED ONLY',
-                              style: TextStyle(
-                                color: Colors.blueAccent,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 16,
-                                fontFamily: 'BMHANNA',
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(20),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: const Color.fromARGB(
+                                        147,
+                                        158,
+                                        158,
+                                        158,
+                                      ),
+                                      blurRadius: 4,
+                                      offset: Offset(1, 2),
+                                    ),
+                                  ],
+                                ),
+                                child: Text(
+                                  'ICED ONLY',
+                                  style: TextStyle(
+                                    color: Colors.blueAccent,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 16,
+                                    fontFamily: 'BMHANNA',
+                                  ),
+                                ),
                               ),
-                            ),
+                            ],
                           ),
                         );
                       default:
