@@ -18,6 +18,7 @@ class HomePage extends StatelessWidget {
     final suggestMenu = Provider.of<SuggestMenuProvider>(
       context,
     ).getSuggestMenu('suggest');
+    final size = MediaQuery.of(context).size;
 
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 237, 236, 236),
@@ -88,8 +89,8 @@ class HomePage extends StatelessWidget {
           ),
           SizedBox(height: 10),
           Container(
-            width: 370,
-            height: 132,
+            width: size.width * 0.9,
+            height: size.height * 0.12,
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(10),
