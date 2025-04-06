@@ -28,4 +28,14 @@ class UserProvider extends ChangeNotifier {
     //   print('유저네임 가져오기 실패: $e');
     // }
   }
+
+  void clearUserData() {
+    _username = '';
+    notifyListeners();
+  }
+
+  void signOut() async {
+    await FirebaseAuth.instance.signOut();
+    notifyListeners();
+  }
 }
