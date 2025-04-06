@@ -1,10 +1,13 @@
 import 'package:HERMESCAFE/Tab/bottom_tab_bar.dart';
 import 'package:HERMESCAFE/provider/cart_provider.dart';
 import 'package:HERMESCAFE/provider/menu_detail_provider.dart';
+import 'package:HERMESCAFE/provider/ticket_provider.dart';
+import 'package:HERMESCAFE/tosspayments/payments_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class CartPage extends StatelessWidget {
+  // Make the ticket parameter optional - it's not directly used in the page
   const CartPage({super.key});
 
   @override
@@ -13,9 +16,9 @@ class CartPage extends StatelessWidget {
     // final menuDetail = Provider.of<MenuDetailProvider>(context);
     final items = cart.cartItems.values.toList();
 
-    return Consumer2<CartProvider, MenuDetailProvider>(
+    return Consumer3<CartProvider, MenuDetailProvider, TicketProvider>(
       builder:
-          (context, cart, menuDetail, child) => Scaffold(
+          (context, cart, menuDetail, ticketProvider, child) => Scaffold(
             backgroundColor: Colors.white,
             appBar: AppBar(
               leading: IconButton(
@@ -31,7 +34,11 @@ class CartPage extends StatelessWidget {
               foregroundColor: Colors.white,
               title: Text(
                 '장바구니',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: 'BMHANNA',
+                ),
               ),
             ),
             body: Column(
@@ -55,6 +62,7 @@ class CartPage extends StatelessWidget {
                                 fontSize: 18,
                                 fontWeight: FontWeight.bold,
                                 color: Colors.grey[700],
+                                fontFamily: 'BMHANNA',
                               ),
                             ),
                           ],
@@ -97,7 +105,7 @@ class CartPage extends StatelessWidget {
                               children: [
                                 // Product image
                                 ClipRRect(
-                                  borderRadius: BorderRadius.circular(30),
+                                  borderRadius: BorderRadius.circular(50),
                                   child: Image.asset(
                                     item.imagePath,
                                     height: 70,
@@ -122,6 +130,7 @@ class CartPage extends StatelessWidget {
                                             color: Colors.black,
                                             fontWeight: FontWeight.bold,
                                             fontSize: 16,
+                                            fontFamily: 'BMJUA',
                                           ),
                                           textAlign: TextAlign.start,
                                         ),
@@ -131,13 +140,17 @@ class CartPage extends StatelessWidget {
                                           style: TextStyle(
                                             color: Colors.grey,
                                             fontSize: 13,
+                                            fontFamily: 'BMHANNA',
                                           ),
                                           textAlign: TextAlign.start,
                                         ),
                                         SizedBox(height: 4),
                                         Text(
                                           '${item.price}원',
-                                          style: TextStyle(fontSize: 16),
+                                          style: TextStyle(
+                                            fontSize: 16,
+                                            fontFamily: 'BMHANNA',
+                                          ),
                                         ),
                                       ],
                                     ),
@@ -217,6 +230,7 @@ class CartPage extends StatelessWidget {
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
                             color: Colors.black87,
+                            fontFamily: 'BMHANNA',
                           ),
                         ),
                         Text(
@@ -224,6 +238,7 @@ class CartPage extends StatelessWidget {
                           style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
+                            fontFamily: 'BMHANNA',
                             color: Color(0xfff37210),
                           ),
                         ),
@@ -237,7 +252,12 @@ class CartPage extends StatelessWidget {
                       padding: const EdgeInsets.only(bottom: 50.0),
                       child: GestureDetector(
                         onTap: () {
-                          Navigator.pushNamed(context, 'payment');
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => PaymentsPage(),
+                            ),
+                          );
                         },
                         child: Container(
                           width: 350,
@@ -255,7 +275,8 @@ class CartPage extends StatelessWidget {
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 18,
-                              fontWeight: FontWeight.bold,
+                              fontWeight: FontWeight.w500,
+                              fontFamily: 'BMHANNA',
                             ),
                           ),
                         ),

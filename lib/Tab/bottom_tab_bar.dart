@@ -1,6 +1,7 @@
 import 'package:HERMESCAFE/pages/home_page.dart';
 import 'package:HERMESCAFE/pages/order_page.dart';
 import 'package:HERMESCAFE/pages/other_page.dart';
+import 'package:HERMESCAFE/pages/ticket_page.dart';
 import 'package:flutter/material.dart';
 
 class BottomTabBar extends StatefulWidget {
@@ -11,7 +12,12 @@ class BottomTabBar extends StatefulWidget {
 }
 
 class _BottomTabBarState extends State<BottomTabBar> {
-  final List<Widget> _pages = [HomePage(), OrderPage(), OtherPage()];
+  final List<Widget> _pages = [
+    HomePage(),
+    TicketPage(),
+    OrderPage(),
+    OtherPage(),
+  ];
   int _selectedIndex = 0;
 
   void _onItemTapped(int index) {
@@ -28,7 +34,7 @@ class _BottomTabBarState extends State<BottomTabBar> {
         mainAxisSize: MainAxisSize.min,
         children: [
           Container(
-            height: 110,
+            height: 115,
             decoration: BoxDecoration(
               boxShadow: [
                 BoxShadow(
@@ -43,31 +49,69 @@ class _BottomTabBarState extends State<BottomTabBar> {
               data: IconThemeData(size: 40.0),
               child: BottomNavigationBar(
                 onTap: _onItemTapped,
-                selectedItemColor: Color(0xffd84040),
+                selectedIconTheme: IconThemeData(size: 24),
+                unselectedIconTheme: IconThemeData(size: 24),
+                selectedLabelStyle: TextStyle(fontSize: 12),
+                unselectedLabelStyle: TextStyle(fontSize: 12),
                 unselectedItemColor: Colors.grey,
                 backgroundColor: Colors.white,
                 items: [
                   BottomNavigationBarItem(
-                    icon: _selectedImageTabItem(
-                      'lib/images/home.png',
+                    icon: _selectedTabItem(
+                      Padding(
+                        padding: const EdgeInsets.only(top: 8.0),
+                        child: Icon(
+                          Icons.home,
+                          color:
+                              _selectedIndex == 0
+                                  ? Color(0xfff37210)
+                                  : Colors.grey,
+                        ),
+                      ),
                       'Home',
                       0,
                     ),
                     label: '',
                   ),
                   BottomNavigationBarItem(
-                    icon: _selectedImageTabItem(
-                      'lib/images/coffee-cup3.png',
-                      'Order',
+                    icon: _selectedTabItem(
+                      Icon(
+                        Icons.payment,
+                        color:
+                            _selectedIndex == 1
+                                ? Color(0xfff37210)
+                                : Colors.grey,
+                      ),
+                      'Pay',
                       1,
                     ),
                     label: '',
                   ),
                   BottomNavigationBarItem(
                     icon: _selectedTabItem(
-                      Icons.more_horiz_outlined,
-                      'Other',
+                      ImageIcon(
+                        AssetImage('lib/images/coffee-cup3.png'),
+                        color:
+                            _selectedIndex == 2
+                                ? Color(0xfff37210)
+                                : Colors.grey,
+                      ),
+                      'Order',
                       2,
+                    ),
+                    label: '',
+                  ),
+                  BottomNavigationBarItem(
+                    icon: _selectedTabItem(
+                      Icon(
+                        Icons.more_horiz_outlined,
+                        color:
+                            _selectedIndex == 3
+                                ? Color(0xfff37210)
+                                : Colors.grey,
+                      ),
+                      'Other',
+                      3,
                     ),
                     label: '',
                   ),
@@ -80,33 +124,21 @@ class _BottomTabBarState extends State<BottomTabBar> {
     );
   }
 
-  Widget _selectedTabItem(
-    IconData icon,
-    String label,
-    int index, {
-    // ignore: unused_element_parameter
-    bool isActive = false,
-  }) {
+  Widget _selectedTabItem(Widget iconWidget, String label, int index) {
+    final isSelected = _selectedIndex == index;
+
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        Icon(
-          icon,
-          color: _selectedIndex == index ? Color(0xfff37210) : Colors.grey,
-          size: 20,
-        ),
+        SizedBox(height: 24, width: 24, child: Center(child: iconWidget)),
+        const SizedBox(height: 4),
         Text(
           label,
           style: TextStyle(
-            color: _selectedIndex == index ? Color(0xfff37210) : Colors.grey,
+            color: isSelected ? Color(0xfff37210) : Colors.grey,
             fontSize: 12,
           ),
         ),
-        // SizedBox(height: 4),
-        // if (_selectedIndex == index)
-        //   Container(width: 45, height: 2, color: Color(0xfff37210))
-        // else
-        //   SizedBox(height: 2),
       ],
     );
   }
@@ -118,25 +150,22 @@ class _BottomTabBarState extends State<BottomTabBar> {
     // ignore: unused_element_parameter
     bool isActive = false,
   }) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 5),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          ImageIcon(
-            AssetImage(imagePath),
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        ImageIcon(
+          AssetImage(imagePath),
+          color: _selectedIndex == index ? Color(0xfff37210) : Colors.grey,
+          size: 20,
+        ),
+        Text(
+          label,
+          style: TextStyle(
             color: _selectedIndex == index ? Color(0xfff37210) : Colors.grey,
-            size: 20,
+            fontSize: 12,
           ),
-          Text(
-            label,
-            style: TextStyle(
-              color: _selectedIndex == index ? Color(0xfff37210) : Colors.grey,
-              fontSize: 12,
-            ),
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

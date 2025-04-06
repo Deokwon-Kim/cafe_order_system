@@ -54,7 +54,11 @@ class IceCreamDetailPage extends StatelessWidget {
               padding: const EdgeInsets.only(left: 20),
               child: Text(
                 '아이스크림',
-                style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.w500,
+                  fontFamily: 'BMJUA',
+                ),
               ),
             ),
           ),

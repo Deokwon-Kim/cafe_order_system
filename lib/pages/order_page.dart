@@ -35,6 +35,7 @@ class OrderPage extends StatelessWidget {
                               color: Colors.black,
                               fontWeight: FontWeight.bold,
                               fontSize: 18,
+                              fontFamily: 'BMHANNA',
                             ),
                           )
                           : null,
@@ -50,7 +51,11 @@ class OrderPage extends StatelessWidget {
                   padding: const EdgeInsets.only(left: 20, bottom: 20),
                   child: Text(
                     'Order',
-                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'BMHANNA',
+                    ),
                   ),
                 ),
                 Divider(height: 1),
@@ -83,9 +88,10 @@ class OrderPage extends StatelessWidget {
                               child: Text(
                                 '에스프레소',
                                 style: TextStyle(
-                                  fontSize: 25,
+                                  fontSize: 22,
                                   color: Colors.black,
-                                  fontWeight: FontWeight.bold,
+                                  fontWeight: FontWeight.w500,
+                                  fontFamily: 'BMHANNA',
                                 ),
                               ),
                             ),
@@ -101,7 +107,8 @@ class OrderPage extends StatelessWidget {
                                 child: Text(
                                   'Espresso',
                                   style: TextStyle(
-                                    fontSize: 18,
+                                    fontSize: 15,
+                                    fontFamily: 'BMHANNA',
                                     color: Colors.grey[400],
                                   ),
                                 ),
@@ -141,9 +148,10 @@ class OrderPage extends StatelessWidget {
                               child: Text(
                                 '콜드브루',
                                 style: TextStyle(
-                                  fontSize: 25,
+                                  fontSize: 22,
                                   color: Colors.black,
-                                  fontWeight: FontWeight.bold,
+                                  fontWeight: FontWeight.w500,
+                                  fontFamily: 'BMHANNA',
                                 ),
                               ),
                             ),
@@ -159,7 +167,8 @@ class OrderPage extends StatelessWidget {
                                 child: Text(
                                   'Cold Brew',
                                   style: TextStyle(
-                                    fontSize: 18,
+                                    fontSize: 15,
+                                    fontFamily: 'BMHANNA',
                                     color: Colors.grey[400],
                                   ),
                                 ),
@@ -199,9 +208,10 @@ class OrderPage extends StatelessWidget {
                               child: Text(
                                 '프라푸치노',
                                 style: TextStyle(
-                                  fontSize: 25,
+                                  fontSize: 22,
                                   color: Colors.black,
-                                  fontWeight: FontWeight.bold,
+                                  fontWeight: FontWeight.w500,
+                                  fontFamily: 'BMHANNA',
                                 ),
                               ),
                             ),
@@ -217,7 +227,8 @@ class OrderPage extends StatelessWidget {
                                 child: Text(
                                   'Frappuchino',
                                   style: TextStyle(
-                                    fontSize: 18,
+                                    fontSize: 15,
+                                    fontFamily: 'BMHANNA',
                                     color: Colors.grey[400],
                                   ),
                                 ),
@@ -257,9 +268,10 @@ class OrderPage extends StatelessWidget {
                               child: Text(
                                 '티바나',
                                 style: TextStyle(
-                                  fontSize: 25,
+                                  fontSize: 22,
                                   color: Colors.black,
-                                  fontWeight: FontWeight.bold,
+                                  fontWeight: FontWeight.w500,
+                                  fontFamily: 'BMHANNA',
                                 ),
                               ),
                             ),
@@ -276,6 +288,7 @@ class OrderPage extends StatelessWidget {
                                   'Teabana',
                                   style: TextStyle(
                                     fontSize: 18,
+                                    fontFamily: 'BMHANNA',
                                     color: Colors.grey[400],
                                   ),
                                 ),
@@ -315,9 +328,10 @@ class OrderPage extends StatelessWidget {
                               child: Text(
                                 '케이크',
                                 style: TextStyle(
-                                  fontSize: 25,
+                                  fontSize: 22,
                                   color: Colors.black,
                                   fontWeight: FontWeight.bold,
+                                  fontFamily: 'BMHANNA',
                                 ),
                               ),
                             ),
@@ -334,6 +348,7 @@ class OrderPage extends StatelessWidget {
                                   'Cake',
                                   style: TextStyle(
                                     fontSize: 18,
+                                    fontFamily: 'BMHANNA',
                                     color: Colors.grey[400],
                                   ),
                                 ),
@@ -373,9 +388,10 @@ class OrderPage extends StatelessWidget {
                               child: Text(
                                 '아이스크림',
                                 style: TextStyle(
-                                  fontSize: 25,
+                                  fontSize: 22,
                                   color: Colors.black,
                                   fontWeight: FontWeight.bold,
+                                  fontFamily: 'BMHANNA',
                                 ),
                               ),
                             ),
@@ -392,6 +408,7 @@ class OrderPage extends StatelessWidget {
                                   'IceCream',
                                   style: TextStyle(
                                     fontSize: 18,
+                                    fontFamily: 'BMHANNA',
                                     color: Colors.grey[400],
                                   ),
                                 ),

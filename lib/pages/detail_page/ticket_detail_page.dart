@@ -4,15 +4,15 @@ import 'package:HERMESCAFE/provider/menu_detail_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class DesertDetailPage extends StatefulWidget {
+class TicketDetailPage extends StatefulWidget {
   final Cafe cafeMenu;
-  const DesertDetailPage({super.key, required this.cafeMenu});
+  const TicketDetailPage({super.key, required this.cafeMenu});
 
   @override
-  State<DesertDetailPage> createState() => _DesertDetailPageState();
+  State<TicketDetailPage> createState() => _TicketDetailPageState();
 }
 
-class _DesertDetailPageState extends State<DesertDetailPage> {
+class _TicketDetailPageState extends State<TicketDetailPage> {
   @override
   void initState() {
     super.initState();
@@ -30,32 +30,21 @@ class _DesertDetailPageState extends State<DesertDetailPage> {
       // Set the quantity from MenuDetailProvider to the cafe menu item
       widget.cafeMenu.quantity = menuDetailProvider.quantity;
       cartProvider.addToCart(widget.cafeMenu);
-
       showDialog(
         context: context,
         builder:
             (context) => AlertDialog(
-              backgroundColor: Colors.white,
-              content: Container(
-                alignment: Alignment.center,
-                width: 200,
-                height: 50,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(top: 23.0),
-                      child: Text(
-                        '장바구니 추가완료',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                          fontFamily: 'BMHANNA',
-                        ),
-                      ),
-                    ),
-                  ],
+              title: Padding(
+                padding: const EdgeInsets.only(top: 23.0),
+                child: Text(
+                  '장바구니 추가완료',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'BMHANNA',
+                  ),
+                  textAlign: TextAlign.center,
                 ),
               ),
               actions: [
@@ -87,26 +76,29 @@ class _DesertDetailPageState extends State<DesertDetailPage> {
           backgroundColor: Colors.white,
           body: Stack(
             children: [
-              Image.asset(widget.cafeMenu.imagePath, fit: BoxFit.cover),
+              Padding(
+                padding: const EdgeInsets.only(left: 20.0, right: 20.0),
+                child: Image.asset(widget.cafeMenu.imagePath, height: 500),
+              ),
               Positioned(
                 top: 50,
                 child: IconButton(
                   onPressed: () {
                     Navigator.pop(context);
                   },
-                  icon: Icon(Icons.arrow_back_ios_new, color: Colors.white),
+                  icon: Icon(Icons.arrow_back_ios_new, color: Colors.black),
                 ),
               ),
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(top: 50.0, left: 20),
+                    padding: const EdgeInsets.only(top: 20.0, left: 20),
                     child: Text(
                       widget.cafeMenu.name,
                       style: TextStyle(
                         fontSize: 25,
-                        fontWeight: FontWeight.bold,
+                        fontWeight: FontWeight.w500,
                         fontFamily: 'BMJUA',
                       ),
                     ),
@@ -117,7 +109,7 @@ class _DesertDetailPageState extends State<DesertDetailPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(top: 100.0, left: 20),
+                    padding: const EdgeInsets.only(top: 80.0, left: 20),
                     child: Text(
                       widget.cafeMenu.engname,
                       style: TextStyle(
@@ -133,7 +125,7 @@ class _DesertDetailPageState extends State<DesertDetailPage> {
                 children: [
                   Padding(
                     padding: const EdgeInsets.only(
-                      top: 200.0,
+                      top: 150.0,
                       left: 20,
                       right: 20,
                     ),
@@ -150,11 +142,12 @@ class _DesertDetailPageState extends State<DesertDetailPage> {
                   ),
                 ],
               ),
+
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(top: 320.0, left: 20),
+                    padding: const EdgeInsets.only(top: 230.0, left: 20),
                     child: Text(
                       '${widget.cafeMenu.price}원',
                       style: TextStyle(
