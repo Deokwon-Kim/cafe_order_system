@@ -5,6 +5,8 @@ import 'package:HERMESCAFE/firebase_options.dart';
 import 'package:HERMESCAFE/login/login_page.dart';
 import 'package:HERMESCAFE/pages/detail_page/edit_username_detail_page.dart';
 import 'package:HERMESCAFE/pages/detail_page/star_detail_page.dart';
+import 'package:HERMESCAFE/pages/edit_password_page.dart';
+import 'package:HERMESCAFE/pages/find_password_page.dart';
 import 'package:HERMESCAFE/pages/order_history_page.dart';
 import 'package:HERMESCAFE/pages/personal_info_page.dart';
 import 'package:HERMESCAFE/provider/suggest_menu_provider.dart';
@@ -72,6 +74,8 @@ class MyApp extends StatelessWidget {
         '주문내역': (context) => const OrderHistoryPage(),
         '개인정보': (context) => const PersonalInfoPage(),
         '닉네임 설정': (context) => const EditUsernameDetailPage(),
+        '비밀번호 변경': (context) => const EditPasswordPage(),
+        '비밀번호 찾기': (context) => const FindPasswordPage(),
       },
     );
   }

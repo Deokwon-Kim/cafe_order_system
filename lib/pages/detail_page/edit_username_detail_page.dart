@@ -66,7 +66,12 @@ class _EditUsernameDetailPageState extends State<EditUsernameDetailPage> {
                   child: TextField(
                     controller: _usernameController,
                     decoration: InputDecoration(
-                      border: OutlineInputBorder(),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Color(0xfff37210)),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.grey),
+                      ),
                       hintText: "$username",
                     ),
                   ),

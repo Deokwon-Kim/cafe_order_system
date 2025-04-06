@@ -29,7 +29,7 @@ class PersonalInfoPage extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text("닉네임 설정", style: TextStyle(fontSize: 17)),
+                        Text("닉네임 변경", style: TextStyle(fontSize: 17)),
                         Row(
                           children: [
                             Text(
@@ -48,7 +48,9 @@ class PersonalInfoPage extends StatelessWidget {
                   ),
                 ),
                 GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.pushNamed(context, '비밀번호 변경');
+                  },
                   child: Padding(
                     padding: const EdgeInsets.all(20.0),
                     child: Row(
