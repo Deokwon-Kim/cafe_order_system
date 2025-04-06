@@ -114,6 +114,7 @@ class _MenuDetailPageState extends State<MenuDetailPage> {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Consumer2<MenuDetailProvider, CartProvider>(
       builder: (context, menuDetailProvider, cartProvider, child) {
         // 현재 표시할 메뉴 결정 (Hot 또는 Ice)
@@ -232,7 +233,10 @@ class _MenuDetailPageState extends State<MenuDetailPage> {
               ),
               // HOT/ICE 버튼 선택 UI
               Padding(
-                padding: const EdgeInsets.only(top: 450, left: 0),
+                padding: EdgeInsets.only(
+                  top: size.height * 0.52,
+                  left: size.width * 0.007,
+                ),
                 child: Builder(
                   builder: (context) {
                     // temperatureOption 값에 따라 버튼 표시
