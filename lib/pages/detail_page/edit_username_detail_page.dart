@@ -71,18 +71,30 @@ class _EditUsernameDetailPageState extends State<EditUsernameDetailPage> {
                     ),
                   ),
                 ),
-                TextButton(
-                  onPressed: () {
+                GestureDetector(
+                  onTap: () {
                     _updateUsername();
                     Navigator.pop(context);
                   },
-                  style: TextButton.styleFrom(
-                    backgroundColor: Color(0xFFF37210),
-                    foregroundColor: Colors.white,
-                  ),
-                  child: Text(
-                    "저장하기",
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 10, right: 10),
+                    child: Container(
+                      alignment: Alignment.center,
+                      width: 80,
+                      height: 57,
+                      decoration: BoxDecoration(
+                        color: Color(0xfff37210),
+                        borderRadius: BorderRadius.circular(5),
+                      ),
+                      child: Text(
+                        "저장하기",
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
                   ),
                 ),
               ],
