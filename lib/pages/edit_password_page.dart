@@ -20,31 +20,31 @@ class _EditPasswordPageState extends State<EditPasswordPage> {
     final user = FirebaseAuth.instance.currentUser;
   }
 
-  if (currentPassword.isEmpty || newPas || user == null) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text("모든 필드를 입력하세요.")),
-    );
-    return;
-  }
+  // if (currentPassword.isEmpty || newPas || user == null) {
+  //   ScaffoldMessenger.of(context).showSnackBar(
+  //     const SnackBar(content: Text("모든 필드를 입력하세요.")),
+  //   );
+  //   return;
+  // }
 
-  try {
-    // 현재 비밀번호로 재인증
-    final credential = EmailAuthProvider.credential(
-      email: user.email!,
-      password: currentPassword,
-    );
-    await user.reauthenticateWithCredential(credential);
+  // try {
+  //   // 현재 비밀번호로 재인증
+  //   final credential = EmailAuthProvider.credential(
+  //     email: user.email!,
+  //     password: currentPassword,
+  //   );
+  //   await user.reauthenticateWithCredential(credential);
 
-    // 비밀번호 변경
-    await user.updatePassword(newPassword);
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text("비밀번호가 변경되었습니다.")),
-    );
-  } catch (e) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text("비밀번호 변경 실패")),
-    );
-  }
+  //   // 비밀번호 변경
+  //   await user.updatePassword(newPassword);
+  //   ScaffoldMessenger.of(context).showSnackBar(
+  //     const SnackBar(content: Text("비밀번호가 변경되었습니다.")),
+  //   );
+  // } catch (e) {
+  //   ScaffoldMessenger.of(context).showSnackBar(
+  //     const SnackBar(content: Text("비밀번호 변경 실패")),
+  //   );
+  // }
 
   @override
   Widget build(BuildContext context) {
