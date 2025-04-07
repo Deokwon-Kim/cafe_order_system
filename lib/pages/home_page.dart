@@ -5,6 +5,7 @@ import 'package:HERMESCAFE/provider/cafe_provider.dart';
 import 'package:HERMESCAFE/provider/cart_provider.dart';
 import 'package:HERMESCAFE/provider/suggest_menu_provider.dart';
 import 'package:HERMESCAFE/provider/user_provider.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:badges/badges.dart' as badges;
@@ -14,7 +15,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final username = Provider.of<UserProvider>(context).username;
+    User? user = FirebaseAuth.instance.currentUser;
     final suggestMenu = Provider.of<SuggestMenuProvider>(
       context,
     ).getSuggestMenu('suggest');
@@ -63,26 +64,30 @@ class HomePage extends StatelessWidget {
             children: [
               Padding(
                 padding: const EdgeInsets.only(left: 20),
-                child: Text.rich(
-                  TextSpan(
-                    text: '$username 님\n환영합니다 ',
-                    style: TextStyle(fontSize: 20),
-                    children: <TextSpan>[
+                child: Consumer<UserProvider>(
+                  builder: (context, userProvider, child) {
+                    return Text.rich(
                       TextSpan(
-                        text: 'HERMES COFFEE',
-                        style: TextStyle(
-                          color: Color(0xfff37210),
-                          fontFamily: 'HERMES',
-                        ),
+                        text: '${user?.displayName} 님 \n환영합니다',
+                        style: TextStyle(fontSize: 20),
                         children: <TextSpan>[
                           TextSpan(
-                            text: ' 입니다.',
-                            style: TextStyle(color: Colors.black),
+                            text: 'HERMES COFFEE',
+                            style: TextStyle(
+                              color: Color(0xfff37210),
+                              fontFamily: 'HERMES',
+                            ),
+                            children: <TextSpan>[
+                              TextSpan(
+                                text: ' 입니다.',
+                                style: TextStyle(color: Colors.black),
+                              ),
+                            ],
                           ),
                         ],
                       ),
-                    ],
-                  ),
+                    );
+                  },
                 ),
               ),
             ],
@@ -90,7 +95,7 @@ class HomePage extends StatelessWidget {
           SizedBox(height: 10),
           Container(
             width: size.width * 0.9,
-            height: size.height * 0.12,
+            height: size.height * 0.16,
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(10),

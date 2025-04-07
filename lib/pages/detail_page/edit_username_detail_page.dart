@@ -30,7 +30,7 @@ class _EditUsernameDetailPageState extends State<EditUsernameDetailPage> {
         'username': newUsername,
       });
 
-      Provider.of<UserProvider>(context, listen: false).fetchUsername();
+      Provider.of<UserProvider>(context, listen: false);
 
       if (mounted) {
         ScaffoldMessenger.of(
@@ -49,7 +49,7 @@ class _EditUsernameDetailPageState extends State<EditUsernameDetailPage> {
 
   @override
   Widget build(BuildContext context) {
-    final username = Provider.of<UserProvider>(context).username;
+    final username = Provider.of<UserProvider>(context);
 
     return Scaffold(
       appBar: AppBar(title: Text('닉네임 설정'), centerTitle: true),
@@ -72,7 +72,7 @@ class _EditUsernameDetailPageState extends State<EditUsernameDetailPage> {
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(color: Colors.grey),
                       ),
-                      hintText: "$username",
+                      hintText: 'username',
                     ),
                   ),
                 ),

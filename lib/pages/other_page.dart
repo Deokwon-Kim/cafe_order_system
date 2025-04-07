@@ -11,6 +11,7 @@ class OtherPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    User? user = FirebaseAuth.instance.currentUser;
     final username = Provider.of<UserProvider>(context, listen: false);
 
     final List<Widget> gridItems = [
@@ -66,7 +67,7 @@ class OtherPage extends StatelessWidget {
                   children: [
                     Text.rich(
                       TextSpan(
-                        text: username.username,
+                        text: user?.displayName,
                         style: TextStyle(
                           fontSize: 20,
                           color: Color(0xfff37210),

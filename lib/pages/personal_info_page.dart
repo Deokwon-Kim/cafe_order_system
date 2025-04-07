@@ -7,7 +7,7 @@ class PersonalInfoPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final username = Provider.of<UserProvider>(context).username;
+    final username = Provider.of<UserProvider>(context);
 
     return Scaffold(
       body: CustomScrollView(
