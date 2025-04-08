@@ -1,13 +1,12 @@
-import 'package:HERMESCAFE/provider/user_provider.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class PersonalInfoPage extends StatelessWidget {
   const PersonalInfoPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final username = Provider.of<UserProvider>(context);
+    User? user = FirebaseAuth.instance.currentUser;
 
     return Scaffold(
       body: CustomScrollView(
@@ -33,7 +32,7 @@ class PersonalInfoPage extends StatelessWidget {
                         Row(
                           children: [
                             Text(
-                              "$username",
+                              '${user?.displayName}',
                               style: TextStyle(
                                 fontSize: 17,
                                 color: Colors.grey,

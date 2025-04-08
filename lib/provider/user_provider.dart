@@ -114,4 +114,18 @@ class UserProvider extends ChangeNotifier {
     _currentUser = null;
     notifyListeners();
   }
+
+  Future<void> updateDisplayName(String newName) async {
+    try {
+      final user = FirebaseAuth.instance.currentUser;
+      if (user != null) {
+        await user.updateDisplayName(newName);
+        await user.reload();
+        _currentUser = FirebaseAuth.instance.currentUser;
+        notifyListeners();
+      }
+    } catch (e) {
+      print('이름 변경 실패');
+    }
+  }
 }
