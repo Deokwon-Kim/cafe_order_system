@@ -1,5 +1,7 @@
 import 'package:HERMESCAFE/Tab/bottom_tab_bar.dart';
 import 'package:HERMESCAFE/provider/cart_provider.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
@@ -21,6 +23,7 @@ class PaysuccessPage extends StatelessWidget {
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
       Provider.of<CartProvider>(context, listen: false).clearCart();
+      savePaymentDataToFirestore();
     });
 
     return Scaffold(
@@ -215,5 +218,43 @@ class PaysuccessPage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Future<void> savePaymentDataToFirestore() async {
+    final user = FirebaseAuth.instance.currentUser;
+
+    if (user == null) return;
+
+    final userId = user.uid;
+    final orderId = orderData['orderId'];
+    final totalAmount = orderData['totalAmount'];
+    final items = orderData['items'];
+
+    final timestamp = Timestamp.now();
+
+    try {
+      await FirebaseFirestore.instance.collection('payments').add({
+        'userId': userId,
+        'orderId': orderId,
+        'totalAmount': totalAmount,
+        'timestamp': timestamp,
+        'items':
+            items
+                .map(
+                  (item) => {
+                    'name': item.name,
+                    'engname': item.engname,
+                    'price': item.price,
+                    'quantity': item.quantity,
+                    'imagePath': item.imagePath,
+                  },
+                )
+                .toList(),
+      });
+
+      print('✅ 결제 정보 저장 완료!');
+    } catch (e) {
+      print('❌ 결제 정보 저장 실패: $e');
+    }
   }
 }
