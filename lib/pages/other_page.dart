@@ -11,7 +11,8 @@ class OtherPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final username = Provider.of<UserProvider>(context).username;
+    User? user = FirebaseAuth.instance.currentUser;
+    final username = Provider.of<UserProvider>(context, listen: false);
 
     final List<Widget> gridItems = [
       menuItem(
@@ -49,8 +50,8 @@ class OtherPage extends StatelessWidget {
 
         actions: [
           IconButton(
-            onPressed: () async {
-              await FirebaseAuth.instance.signOut();
+            onPressed: () {
+              username.signOut();
               Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(builder: (context) => LoginPage()),
@@ -72,7 +73,7 @@ class OtherPage extends StatelessWidget {
                   children: [
                     Text.rich(
                       TextSpan(
-                        text: username,
+                        text: user?.displayName,
                         style: TextStyle(
                           fontSize: 20,
                           color: Color(0xfff37210),
