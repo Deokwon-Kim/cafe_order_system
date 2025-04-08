@@ -31,7 +31,13 @@ class OtherPage extends StatelessWidget {
       ),
       // menuItem('개인정보 관리', Color(0xfff37210), Icon(Icons.receipt_long)),
       menuItem(context, '계정정보', Color(0xfff37210), Icon(Icons.person), '개인정보'),
-      //menuItem('나만의 메뉴', Color(0xfff37210), Icon(Icons.notifications)),
+      menuItem(
+        context,
+        '나의 쿠폰',
+        Color(0xfff37210),
+        Icon(Icons.airplane_ticket),
+        '나의 쿠폰',
+      ),
     ];
 
     return Scaffold(

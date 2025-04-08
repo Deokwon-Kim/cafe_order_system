@@ -3,6 +3,7 @@
 import 'package:HERMESCAFE/Tab/bottom_tab_bar.dart';
 import 'package:HERMESCAFE/firebase_options.dart';
 import 'package:HERMESCAFE/login/login_page.dart';
+import 'package:HERMESCAFE/pages/detail_page/coupon_detail_page.dart';
 import 'package:HERMESCAFE/pages/detail_page/edit_username_detail_page.dart';
 import 'package:HERMESCAFE/pages/detail_page/star_detail_page.dart';
 import 'package:HERMESCAFE/pages/edit_password_page.dart';
@@ -76,6 +77,7 @@ class MyApp extends StatelessWidget {
         '닉네임 설정': (context) => const EditUsernameDetailPage(),
         '비밀번호 변경': (context) => const EditPasswordPage(),
         '비밀번호 찾기': (context) => const FindPasswordPage(),
+        '나의 쿠폰': (context) => const CouponDetailPage(),
       },
     );
   }
