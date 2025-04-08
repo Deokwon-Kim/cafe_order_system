@@ -10,8 +10,8 @@ class SignupProvider extends ChangeNotifier {
 
   void updateUserName(String value) {
     _username = value;
-    if (_username.length > 5) {
-      usernameError = '사용자 명은 5자 이하여야 합니다';
+    if (_username.length > 10) {
+      usernameError = '사용자 명은 10자 이하여야 합니다';
     } else {
       usernameError = null;
     }
