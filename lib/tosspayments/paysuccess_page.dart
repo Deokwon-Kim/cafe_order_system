@@ -1,4 +1,5 @@
 import 'package:HERMESCAFE/Tab/bottom_tab_bar.dart';
+import 'package:HERMESCAFE/pages/order_history_page.dart';
 import 'package:HERMESCAFE/provider/cart_provider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -223,7 +224,10 @@ class PaysuccessPage extends StatelessWidget {
   Future<void> savePaymentDataToFirestore() async {
     final user = FirebaseAuth.instance.currentUser;
 
-    if (user == null) return;
+    if (user == null) {
+      print('사용자가 로그인하지 않았습니다.');
+      return;
+    }
 
     final userId = user.uid;
     final orderId = orderData['orderId'];
@@ -252,9 +256,9 @@ class PaysuccessPage extends StatelessWidget {
                 .toList(),
       });
 
-      print('✅ 결제 정보 저장 완료!');
+      print('결제 정보 저장 완료');
     } catch (e) {
-      print('❌ 결제 정보 저장 실패: $e');
+      print('결제 정보 저장 실패');
     }
   }
 }

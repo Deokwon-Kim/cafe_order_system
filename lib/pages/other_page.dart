@@ -25,7 +25,7 @@ class OtherPage extends StatelessWidget {
       //menuItem('전자 내역', Color(0xfff37210), Icon(Icons.receipt_long)),
       menuItem(
         context,
-        '주문 내역',
+        '결제내역',
         Color(0xfff37210),
         Icon(Icons.receipt_long),
         '주문내역',
