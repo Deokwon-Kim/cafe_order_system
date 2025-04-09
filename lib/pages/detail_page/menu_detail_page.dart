@@ -1,5 +1,6 @@
+import 'package:HERMESCAFE/devicetype/device_type_helper.dart';
 import 'package:HERMESCAFE/model/cafe.dart';
-import 'package:HERMESCAFE/pages/cart_page.dart';
+import 'package:HERMESCAFE/pages/cart/cart_page.dart';
 import 'package:HERMESCAFE/provider/cart_provider.dart';
 import 'package:HERMESCAFE/provider/menu_detail_provider.dart';
 import 'package:flutter/material.dart';
@@ -162,7 +163,10 @@ class _MenuDetailPageState extends State<MenuDetailPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(top: 50.0, left: 20),
+                    padding: EdgeInsets.only(
+                      top: size.height * 0.25,
+                      left: size.width * 0.050,
+                    ),
                     child: Text(
                       currentMenu.name,
                       style: TextStyle(
