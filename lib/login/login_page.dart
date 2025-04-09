@@ -24,13 +24,25 @@ class _LoginPageState extends State<LoginPage> {
             email: _emailController.text,
             password: _passwordController.text,
           );
-      debugPrint('로그인 성공: ${userCredential.user}');
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => BottomTabBar()),
-      );
+
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('로그인 성공: ${userCredential.user?.email}')),
+        );
+
+        debugPrint('로그인 성공: ${userCredential.user}');
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => BottomTabBar()),
+        );
+      }
     } catch (e) {
-      debugPrint('로그인 실패: ${e.toString()}');
+      if (mounted) {
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(SnackBar(content: Text('로그인 실패: ${e.toString()}')));
+        debugPrint('로그인 실패: ${e.toString()}');
+      }
     }
   }
 
