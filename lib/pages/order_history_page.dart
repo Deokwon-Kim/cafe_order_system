@@ -49,10 +49,12 @@ class OrderHistoryPage extends StatelessWidget {
                   "${timestamp.year}-${timestamp.month}-${timestamp.day}";
               final items = data['items'] as List<dynamic>;
 
+              final itemNames = items.map((item) => item['name']).join(', ');
+
               return Card(
                 margin: EdgeInsets.all(10),
                 child: ListTile(
-                  title: Text("주문번호: ${data['orderId']}"),
+                  title: Text("상품명: ${data['$itemNames']}"),
                   subtitle: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [

@@ -21,6 +21,19 @@ class Cafe {
     this.temperatureOption = "both",
   });
 
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'name': name,
+      'engname': engname,
+      'discription': discription,
+      'price': price,
+      'imagePath': imagePath,
+      'quantity': quantity,
+      'temperatureOption': temperatureOption,
+    };
+  }
+
   String get _id => id;
   String get _name => name;
   String get _engname => engname;
