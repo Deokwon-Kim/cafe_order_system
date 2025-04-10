@@ -1,4 +1,5 @@
 import 'package:HERMESCAFE/components/cafe_tile.dart';
+import 'package:HERMESCAFE/components/giftcard_tile.dart';
 import 'package:HERMESCAFE/pages/detail_page/ticket_detail_page.dart';
 import 'package:HERMESCAFE/provider/ticket_provider.dart';
 import 'package:flutter/material.dart';
@@ -65,7 +66,7 @@ class TicketPage extends StatelessWidget {
           ),
           SliverList(
             delegate: SliverChildBuilderDelegate((context, index) {
-              return CafeTile(
+              return GiftcardTile(
                 cafe: ticket[index],
                 onTap: () {
                   Navigator.push(

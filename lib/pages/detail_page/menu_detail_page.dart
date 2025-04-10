@@ -1,7 +1,9 @@
+import 'package:HERMESCAFE/devicetype/device_type_helper.dart';
 import 'package:HERMESCAFE/model/cafe.dart';
-import 'package:HERMESCAFE/pages/cart_page.dart';
+import 'package:HERMESCAFE/pages/cart/cart_page.dart';
 import 'package:HERMESCAFE/provider/cart_provider.dart';
 import 'package:HERMESCAFE/provider/menu_detail_provider.dart';
+import 'package:HERMESCAFE/utils/responsive_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -114,7 +116,7 @@ class _MenuDetailPageState extends State<MenuDetailPage> {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
+    final deviceType = DeviceTypeHelper.getDeviceType(context);
     return Consumer2<MenuDetailProvider, CartProvider>(
       builder: (context, menuDetailProvider, cartProvider, child) {
         // 현재 표시할 메뉴 결정 (Hot 또는 Ice)
@@ -162,11 +164,18 @@ class _MenuDetailPageState extends State<MenuDetailPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(top: 50.0, left: 20),
+                    padding: EdgeInsets.only(
+                      left: 20,
+                      top: ResponsiveStyles.detailPageFontNameLocation(
+                        deviceType,
+                      ),
+                    ),
                     child: Text(
                       currentMenu.name,
                       style: TextStyle(
-                        fontSize: 25,
+                        fontSize: ResponsiveStyles.detailPageNameFontSize(
+                          deviceType,
+                        ),
                         fontWeight: FontWeight.bold,
                         fontFamily: 'BMJUA',
                       ),
@@ -178,12 +187,19 @@ class _MenuDetailPageState extends State<MenuDetailPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(top: 100.0, left: 20),
+                    padding: EdgeInsets.only(
+                      left: 20,
+                      top: ResponsiveStyles.detailPageFontEngNameLocation(
+                        deviceType,
+                      ),
+                    ),
                     child: Text(
                       currentMenu.engname,
                       style: TextStyle(
                         color: Colors.grey,
-                        // fontFamily: 'BMJUA',
+                        fontSize: ResponsiveStyles.detailPageEngNameFontSize(
+                          deviceType,
+                        ),
                         fontFamily: 'BMHANNA',
                       ),
                     ),
@@ -194,17 +210,20 @@ class _MenuDetailPageState extends State<MenuDetailPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(
-                      top: 200.0,
+                    padding: EdgeInsets.only(
+                      top: ResponsiveStyles.detailPageFontDescLocation(
+                        deviceType,
+                      ),
                       left: 20,
-                      right: 20,
                     ),
                     child: Text(
                       currentMenu.discription,
                       textAlign: TextAlign.start,
                       style: TextStyle(
                         color: Color(0xffa2a2a2),
-                        fontSize: 16,
+                        fontSize: ResponsiveStyles.detailPageenDescFontSize(
+                          deviceType,
+                        ),
                         fontWeight: FontWeight.w600,
                         // fontFamily: 'BMJUA',
                         fontFamily: 'BMHANNA',
@@ -217,12 +236,19 @@ class _MenuDetailPageState extends State<MenuDetailPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(top: 320.0, left: 20),
+                    padding: EdgeInsets.only(
+                      top: ResponsiveStyles.detailPageFontPriceLocation(
+                        deviceType,
+                      ),
+                      left: 20,
+                    ),
                     child: Text(
                       '${currentMenu.price}원',
                       style: TextStyle(
                         color: Color(0xfff37210),
-                        fontSize: 25,
+                        fontSize: ResponsiveStyles.detailPagePriceFontSize(
+                          deviceType,
+                        ),
                         fontWeight: FontWeight.w600,
                         // fontFamily: 'BMJUA',
                         fontFamily: 'BMHANNA',
@@ -233,17 +259,18 @@ class _MenuDetailPageState extends State<MenuDetailPage> {
               ),
               // HOT/ICE 버튼 선택 UI
               Padding(
-                padding: EdgeInsets.only(
-                  top: size.height * 0.52,
-                  left: size.width * 0.007,
-                ),
+                padding: EdgeInsets.only(),
                 child: Builder(
                   builder: (context) {
                     // temperatureOption 값에 따라 버튼 표시
                     switch (widget.cafeMenu.temperatureOption) {
                       case 'hotonly':
                         return Padding(
-                          padding: EdgeInsets.only(top: 170),
+                          padding: EdgeInsets.only(
+                            top: ResponsiveStyles.detailPageTempLocation(
+                              deviceType,
+                            ),
+                          ),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
@@ -284,7 +311,11 @@ class _MenuDetailPageState extends State<MenuDetailPage> {
 
                       case 'iceonly':
                         return Padding(
-                          padding: const EdgeInsets.only(top: 170.0),
+                          padding: EdgeInsets.only(
+                            top: ResponsiveStyles.detailPageTempLocation(
+                              deviceType,
+                            ),
+                          ),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
@@ -324,7 +355,11 @@ class _MenuDetailPageState extends State<MenuDetailPage> {
                         );
                       default:
                         return Padding(
-                          padding: const EdgeInsets.only(top: 170.0),
+                          padding: EdgeInsets.only(
+                            top: ResponsiveStyles.detailPageTempLocation(
+                              deviceType,
+                            ),
+                          ),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
@@ -335,7 +370,10 @@ class _MenuDetailPageState extends State<MenuDetailPage> {
                                         menuDetailProvider.toggleOption(false),
                                 child: Container(
                                   padding: EdgeInsets.symmetric(
-                                    horizontal: 70,
+                                    horizontal:
+                                        ResponsiveStyles.detailPageTempContainerSize(
+                                          deviceType,
+                                        ),
                                     vertical: 10,
                                   ),
                                   decoration: BoxDecoration(
@@ -375,8 +413,11 @@ class _MenuDetailPageState extends State<MenuDetailPage> {
                                     () => menuDetailProvider.toggleOption(true),
                                 child: Container(
                                   padding: EdgeInsets.symmetric(
-                                    horizontal: 70,
-                                    vertical: 10,
+                                    horizontal:
+                                        ResponsiveStyles.detailPageTempContainerSize(
+                                          deviceType,
+                                        ),
+                                    vertical: 8,
                                   ),
                                   decoration: BoxDecoration(
                                     color: Colors.white,
@@ -417,7 +458,10 @@ class _MenuDetailPageState extends State<MenuDetailPage> {
               ),
               // 수량선택 버튼
               Padding(
-                padding: const EdgeInsets.only(top: 550.0, right: 20),
+                padding: EdgeInsets.only(
+                  top: ResponsiveStyles.detailPageQuantityLocation(deviceType),
+                  right: 20,
+                ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
@@ -429,7 +473,13 @@ class _MenuDetailPageState extends State<MenuDetailPage> {
                       ),
                       child: IconButton(
                         onPressed: () => menuDetailProvider.removeQuantity(),
-                        icon: Icon(Icons.remove, color: Colors.black),
+                        icon: Icon(
+                          Icons.remove,
+                          color: Colors.black,
+                          size: ResponsiveStyles.detailPageQuantityIconSize(
+                            deviceType,
+                          ),
+                        ),
                       ),
                     ),
                     SizedBox(
@@ -438,7 +488,10 @@ class _MenuDetailPageState extends State<MenuDetailPage> {
                         child: Text(
                           menuDetailProvider.quantity.toString(),
                           style: TextStyle(
-                            fontSize: 20,
+                            fontSize:
+                                ResponsiveStyles.detailPageQuantityfontSize(
+                                  deviceType,
+                                ),
                             color: Colors.black,
                             fontFamily: 'BMHANNA',
                           ),
@@ -459,7 +512,13 @@ class _MenuDetailPageState extends State<MenuDetailPage> {
                         ),
                         child: IconButton(
                           onPressed: () => menuDetailProvider.addQuantity(),
-                          icon: Icon(Icons.add, color: Colors.black),
+                          icon: Icon(
+                            Icons.add,
+                            color: Colors.black,
+                            size: ResponsiveStyles.detailPageQuantityIconSize(
+                              deviceType,
+                            ),
+                          ),
                         ),
                       ),
                     ),
@@ -474,15 +533,19 @@ class _MenuDetailPageState extends State<MenuDetailPage> {
                       addToCart();
                     },
                     child: Padding(
-                      padding: const EdgeInsets.only(
-                        top: 740.0,
-                        left: 20,
-                        right: 20,
+                      padding: EdgeInsets.only(
+                        top: ResponsiveStyles.detailPagePriceButtonLocation(
+                          deviceType,
+                        ),
+                        left: 30,
+                        right: 30,
                       ),
                       child: Container(
                         alignment: Alignment.center,
                         width: double.infinity,
-                        height: 58,
+                        height: ResponsiveStyles.detailPageButtonHeight(
+                          deviceType,
+                        ),
                         decoration: BoxDecoration(
                           color: Color(0xfff37210),
                           borderRadius: BorderRadius.circular(30),

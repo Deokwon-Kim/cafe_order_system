@@ -1,6 +1,8 @@
+import 'package:HERMESCAFE/devicetype/device_type_helper.dart';
 import 'package:HERMESCAFE/model/cafe.dart';
 import 'package:HERMESCAFE/provider/cart_provider.dart';
 import 'package:HERMESCAFE/provider/menu_detail_provider.dart';
+import 'package:HERMESCAFE/utils/responsive_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -70,6 +72,8 @@ class _TicketDetailPageState extends State<TicketDetailPage> {
 
   @override
   Widget build(BuildContext context) {
+    final deviceType = DeviceTypeHelper.getDeviceType(context);
+
     return Consumer2<MenuDetailProvider, CartProvider>(
       builder: (context, menuDetailProvider, cartProvider, child) {
         return Scaffold(
@@ -77,8 +81,11 @@ class _TicketDetailPageState extends State<TicketDetailPage> {
           body: Stack(
             children: [
               Padding(
-                padding: const EdgeInsets.only(left: 20.0, right: 20.0),
-                child: Image.asset(widget.cafeMenu.imagePath, height: 500),
+                padding: const EdgeInsets.only(left: 30.0, right: 30.0),
+                child: Image.asset(
+                  widget.cafeMenu.imagePath,
+                  height: ResponsiveStyles.gitcardPageImageHeight(deviceType),
+                ),
               ),
               Positioned(
                 top: 50,
@@ -161,7 +168,10 @@ class _TicketDetailPageState extends State<TicketDetailPage> {
                 ],
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 550.0, right: 20),
+                padding: EdgeInsets.only(
+                  top: ResponsiveStyles.detailPageQuantityLocation(deviceType),
+                  right: 20,
+                ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
@@ -172,7 +182,13 @@ class _TicketDetailPageState extends State<TicketDetailPage> {
                       ),
                       child: IconButton(
                         onPressed: () => menuDetailProvider.removeQuantity(),
-                        icon: Icon(Icons.remove, color: Colors.black),
+                        icon: Icon(
+                          Icons.remove,
+                          color: Colors.black,
+                          size: ResponsiveStyles.detailPageQuantityIconSize(
+                            deviceType,
+                          ),
+                        ),
                       ),
                     ),
                     SizedBox(
@@ -197,7 +213,13 @@ class _TicketDetailPageState extends State<TicketDetailPage> {
 
                       child: IconButton(
                         onPressed: () => menuDetailProvider.addQuantity(),
-                        icon: Icon(Icons.add, color: Colors.black),
+                        icon: Icon(
+                          Icons.add,
+                          color: Colors.black,
+                          size: ResponsiveStyles.detailPageQuantityIconSize(
+                            deviceType,
+                          ),
+                        ),
                       ),
                     ),
                   ],
@@ -211,8 +233,10 @@ class _TicketDetailPageState extends State<TicketDetailPage> {
                       addToCart();
                     },
                     child: Padding(
-                      padding: const EdgeInsets.only(
-                        top: 750.0,
+                      padding: EdgeInsets.only(
+                        top: ResponsiveStyles.detailPagePriceButtonLocation(
+                          deviceType,
+                        ),
                         left: 20,
                         right: 20,
                       ),

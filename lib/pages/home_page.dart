@@ -1,10 +1,12 @@
 import 'package:HERMESCAFE/components/suggest_tile.dart';
+import 'package:HERMESCAFE/devicetype/device_type_helper.dart';
 import 'package:HERMESCAFE/model/cafe.dart';
 import 'package:HERMESCAFE/pages/detail_page/menu_detail_page.dart';
 import 'package:HERMESCAFE/provider/cafe_provider.dart';
 import 'package:HERMESCAFE/provider/cart_provider.dart';
 import 'package:HERMESCAFE/provider/suggest_menu_provider.dart';
 import 'package:HERMESCAFE/provider/user_provider.dart';
+import 'package:HERMESCAFE/utils/responsive_styles.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -19,7 +21,8 @@ class HomePage extends StatelessWidget {
     final suggestMenu = Provider.of<SuggestMenuProvider>(
       context,
     ).getSuggestMenu('suggest');
-    final size = MediaQuery.of(context).size;
+
+    final deviceType = DeviceTypeHelper.getDeviceType(context);
 
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 237, 236, 236),
@@ -93,106 +96,100 @@ class HomePage extends StatelessWidget {
             ],
           ),
           SizedBox(height: 10),
-          Container(
-            width: size.width * 0.9,
-            height: size.height * 0.16,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(top: 5.0, left: 20),
-                  child: Text(
-                    '추천메뉴',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 15,
-                      fontWeight: FontWeight.w500,
-                      fontFamily: 'BMHANNA',
+          Padding(
+            padding: const EdgeInsets.only(left: 20.0, right: 20),
+            child: Container(
+              width: double.infinity,
+              height: ResponsiveStyles.suggestTileHeight(deviceType),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Expanded(
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: suggestMenu.length,
+                      itemBuilder:
+                          (context, index) => SuggestTile(
+                            cafe: suggestMenu[index],
+                            onTap: () {
+                              Provider.of<CafeViewmodel>(
+                                context,
+                                listen: false,
+                              ).selectCafe(suggestMenu[index]);
+
+                              final suggestMenuProvider =
+                                  Provider.of<SuggestMenuProvider>(
+                                    context,
+                                    listen: false,
+                                  );
+
+                              final iceMenus = suggestMenuProvider.getIceMenu(
+                                'icedsuggest',
+                              );
+                              Cafe? iceMenu;
+
+                              final String hotMenuId = suggestMenu[index].id;
+                              final RegExp regExp = RegExp(r'(\d+)$');
+                              final Match? match = regExp.firstMatch(hotMenuId);
+
+                              if (match != null) {
+                                final String menuNumber = match.group(1)!;
+
+                                // 매칭되는 Ice 메뉴 ID 찾기
+                                try {
+                                  iceMenu = iceMenus.firstWhere(
+                                    (cafe) =>
+                                        cafe.id == 'icedsuggest$menuNumber',
+                                  );
+                                } catch (e) {
+                                  iceMenu = null;
+                                }
+                              }
+
+                              // Navigate to the MenuDetailPage
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder:
+                                      (context) => MenuDetailPage(
+                                        cafeMenu: suggestMenu[index],
+                                        iceMenu: iceMenu, // Ice메뉴 전달(없으면 null),
+                                      ),
+                                ),
+                              );
+                            },
+                          ),
                     ),
                   ),
-                ),
-                Expanded(
-                  child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: suggestMenu.length,
-                    itemBuilder:
-                        (context, index) => SuggestTile(
-                          cafe: suggestMenu[index],
-                          onTap: () {
-                            Provider.of<CafeViewmodel>(
-                              context,
-                              listen: false,
-                            ).selectCafe(suggestMenu[index]);
-
-                            final suggestMenuProvider =
-                                Provider.of<SuggestMenuProvider>(
-                                  context,
-                                  listen: false,
-                                );
-
-                            final iceMenus = suggestMenuProvider.getIceMenu(
-                              'icedsuggest',
-                            );
-                            Cafe? iceMenu;
-
-                            final String hotMenuId = suggestMenu[index].id;
-                            final RegExp regExp = RegExp(r'(\d+)$');
-                            final Match? match = regExp.firstMatch(hotMenuId);
-
-                            if (match != null) {
-                              final String menuNumber = match.group(1)!;
-
-                              // 매칭되는 Ice 메뉴 ID 찾기
-                              try {
-                                iceMenu = iceMenus.firstWhere(
-                                  (cafe) => cafe.id == 'icedsuggest$menuNumber',
-                                );
-                              } catch (e) {
-                                iceMenu = null;
-                              }
-                            }
-
-                            // Navigate to the MenuDetailPage
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder:
-                                    (context) => MenuDetailPage(
-                                      cafeMenu: suggestMenu[index],
-                                      iceMenu: iceMenu, // Ice메뉴 전달(없으면 null),
-                                    ),
-                              ),
-                            );
-                          },
-                        ),
-                  ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
           SizedBox(height: 10),
-          Container(
-            width: 320,
-            height: 410,
-            color: Color(0xfff37210),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Image.asset('lib/images/coffee-cup2.png'),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      '사용가능 카드 없음',
-                      style: TextStyle(color: Colors.black, fontSize: 18),
-                    ),
-                  ],
-                ),
-              ],
+          Padding(
+            padding: const EdgeInsets.only(left: 20.0, right: 20),
+            child: Container(
+              height: ResponsiveStyles.cardHeight(deviceType),
+              color: Color(0xfff37210),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.asset('lib/images/coffee-cup2.png'),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        '사용가능 카드 없음',
+                        style: TextStyle(color: Colors.black, fontSize: 18),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         ],

@@ -2,7 +2,7 @@
 
 import 'package:HERMESCAFE/Tab/bottom_tab_bar.dart';
 import 'package:HERMESCAFE/login/signup_page.dart';
-import 'package:HERMESCAFE/pages/find_password_page.dart';
+import 'package:HERMESCAFE/login/find_password_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
