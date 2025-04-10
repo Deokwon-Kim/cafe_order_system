@@ -1,7 +1,9 @@
+import 'package:HERMESCAFE/devicetype/device_type_helper.dart';
 import 'package:HERMESCAFE/pages/home_page.dart';
 import 'package:HERMESCAFE/pages/order_page.dart';
 import 'package:HERMESCAFE/pages/other_page.dart';
 import 'package:HERMESCAFE/pages/ticket_page.dart';
+import 'package:HERMESCAFE/utils/responsive_styles.dart';
 import 'package:flutter/material.dart';
 
 class BottomTabBar extends StatefulWidget {
@@ -28,6 +30,8 @@ class _BottomTabBarState extends State<BottomTabBar> {
 
   @override
   Widget build(BuildContext context) {
+    final deviceType = DeviceTypeHelper.getDeviceType(context);
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: _pages[_selectedIndex],
@@ -35,7 +39,7 @@ class _BottomTabBarState extends State<BottomTabBar> {
         mainAxisSize: MainAxisSize.min,
         children: [
           Container(
-            height: 122,
+            height: ResponsiveStyles.bottomTapBarHeight(deviceType),
             decoration: BoxDecoration(
               color: Colors.white,
               boxShadow: [

@@ -6,6 +6,7 @@ import 'package:HERMESCAFE/provider/cafe_provider.dart';
 import 'package:HERMESCAFE/provider/cart_provider.dart';
 import 'package:HERMESCAFE/provider/suggest_menu_provider.dart';
 import 'package:HERMESCAFE/provider/user_provider.dart';
+import 'package:HERMESCAFE/utils/responsive_styles.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -20,28 +21,9 @@ class HomePage extends StatelessWidget {
     final suggestMenu = Provider.of<SuggestMenuProvider>(
       context,
     ).getSuggestMenu('suggest');
-    final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
 
     final deviceType = DeviceTypeHelper.getDeviceType(context);
 
-    double cardHeight;
-    switch (deviceType) {
-      case DeviceType.small:
-        cardHeight = 106;
-        break;
-      case DeviceType.medium:
-        cardHeight = 120;
-        break;
-      case DeviceType.large:
-        cardHeight = 160;
-        break;
-    }
-
-    double card2Height; 
-    switch (deviceType) {
-      case DeviceType
-    }
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 237, 236, 236),
       appBar: AppBar(
@@ -118,7 +100,7 @@ class HomePage extends StatelessWidget {
             padding: const EdgeInsets.only(left: 20.0, right: 20),
             child: Container(
               width: double.infinity,
-              height: cardHeight,
+              height: ResponsiveStyles.suggestTileHeight(deviceType),
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(10),
@@ -188,24 +170,26 @@ class HomePage extends StatelessWidget {
             ),
           ),
           SizedBox(height: 10),
-          Container(
-            width: screenWidth * 0.9,
-            height: screenHeight * 0.40,
-            color: Color(0xfff37210),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Image.asset('lib/images/coffee-cup2.png'),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      '사용가능 카드 없음',
-                      style: TextStyle(color: Colors.black, fontSize: 18),
-                    ),
-                  ],
-                ),
-              ],
+          Padding(
+            padding: const EdgeInsets.only(left: 20.0, right: 20),
+            child: Container(
+              height: ResponsiveStyles.cardHeight(deviceType),
+              color: Color(0xfff37210),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.asset('lib/images/coffee-cup2.png'),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        '사용가능 카드 없음',
+                        style: TextStyle(color: Colors.black, fontSize: 18),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         ],

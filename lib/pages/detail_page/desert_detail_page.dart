@@ -1,6 +1,8 @@
+import 'package:HERMESCAFE/devicetype/device_type_helper.dart';
 import 'package:HERMESCAFE/model/cafe.dart';
 import 'package:HERMESCAFE/provider/cart_provider.dart';
 import 'package:HERMESCAFE/provider/menu_detail_provider.dart';
+import 'package:HERMESCAFE/utils/responsive_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -81,6 +83,8 @@ class _DesertDetailPageState extends State<DesertDetailPage> {
 
   @override
   Widget build(BuildContext context) {
+    final deviceType = DeviceTypeHelper.getDeviceType(context);
+
     return Consumer2<MenuDetailProvider, CartProvider>(
       builder: (context, menuDetailProvider, cartProvider, child) {
         return Scaffold(
@@ -101,11 +105,18 @@ class _DesertDetailPageState extends State<DesertDetailPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(top: 50.0, left: 20),
+                    padding: EdgeInsets.only(
+                      top: ResponsiveStyles.detailPageFontNameLocation(
+                        deviceType,
+                      ),
+                      left: 20,
+                    ),
                     child: Text(
                       widget.cafeMenu.name,
                       style: TextStyle(
-                        fontSize: 25,
+                        fontSize: ResponsiveStyles.detailPageNameFontSize(
+                          deviceType,
+                        ),
                         fontWeight: FontWeight.bold,
                         fontFamily: 'BMJUA',
                       ),
@@ -117,7 +128,12 @@ class _DesertDetailPageState extends State<DesertDetailPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(top: 100.0, left: 20),
+                    padding: EdgeInsets.only(
+                      top: ResponsiveStyles.detailPageFontEngNameLocation(
+                        deviceType,
+                      ),
+                      left: 20,
+                    ),
                     child: Text(
                       widget.cafeMenu.engname,
                       style: TextStyle(
@@ -132,8 +148,10 @@ class _DesertDetailPageState extends State<DesertDetailPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(
-                      top: 200.0,
+                    padding: EdgeInsets.only(
+                      top: ResponsiveStyles.detailPageFontDescLocation(
+                        deviceType,
+                      ),
                       left: 20,
                       right: 20,
                     ),
@@ -142,7 +160,9 @@ class _DesertDetailPageState extends State<DesertDetailPage> {
                       textAlign: TextAlign.start,
                       style: TextStyle(
                         color: Color(0xffa2a2a2),
-                        fontSize: 16,
+                        fontSize: ResponsiveStyles.detailPageenDescFontSize(
+                          deviceType,
+                        ),
                         fontWeight: FontWeight.w500,
                         fontFamily: 'BMHANNA',
                       ),
@@ -154,12 +174,19 @@ class _DesertDetailPageState extends State<DesertDetailPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(top: 320.0, left: 20),
+                    padding: EdgeInsets.only(
+                      top: ResponsiveStyles.detailPageFontPriceLocation(
+                        deviceType,
+                      ),
+                      left: 20,
+                    ),
                     child: Text(
                       '${widget.cafeMenu.price}원',
                       style: TextStyle(
                         color: Color(0xfff37210),
-                        fontSize: 25,
+                        fontSize: ResponsiveStyles.detailPagePriceFontSize(
+                          deviceType,
+                        ),
                         fontWeight: FontWeight.w600,
                         fontFamily: 'BMHANNA',
                       ),
@@ -168,18 +195,21 @@ class _DesertDetailPageState extends State<DesertDetailPage> {
                 ],
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 550.0, right: 20),
+                padding: EdgeInsets.only(
+                  top: ResponsiveStyles.detailPageQuantityLocation(deviceType),
+                  right: 20,
+                ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Colors.grey.withAlpha(30),
-                        borderRadius: BorderRadius.circular(30),
-                      ),
-                      child: IconButton(
-                        onPressed: () => menuDetailProvider.removeQuantity(),
-                        icon: Icon(Icons.remove, color: Colors.black),
+                    IconButton(
+                      onPressed: () => menuDetailProvider.removeQuantity(),
+                      icon: Icon(
+                        Icons.remove,
+                        color: Colors.black,
+                        size: ResponsiveStyles.detailPageQuantityIconSize(
+                          deviceType,
+                        ),
                       ),
                     ),
                     SizedBox(
@@ -188,7 +218,10 @@ class _DesertDetailPageState extends State<DesertDetailPage> {
                         child: Text(
                           menuDetailProvider.quantity.toString(),
                           style: TextStyle(
-                            fontSize: 20,
+                            fontSize:
+                                ResponsiveStyles.detailPageQuantityfontSize(
+                                  deviceType,
+                                ),
                             color: Colors.black,
                             fontFamily: 'BMHANNA',
                           ),
@@ -196,15 +229,14 @@ class _DesertDetailPageState extends State<DesertDetailPage> {
                       ),
                     ),
 
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Colors.grey.withAlpha(30),
-                        borderRadius: BorderRadius.circular(30),
-                      ),
-
-                      child: IconButton(
-                        onPressed: () => menuDetailProvider.addQuantity(),
-                        icon: Icon(Icons.add, color: Colors.black),
+                    IconButton(
+                      onPressed: () => menuDetailProvider.addQuantity(),
+                      icon: Icon(
+                        Icons.add,
+                        color: Colors.black,
+                        size: ResponsiveStyles.detailPageQuantityIconSize(
+                          deviceType,
+                        ),
                       ),
                     ),
                   ],
@@ -218,15 +250,19 @@ class _DesertDetailPageState extends State<DesertDetailPage> {
                       addToCart();
                     },
                     child: Padding(
-                      padding: const EdgeInsets.only(
-                        top: 750.0,
+                      padding: EdgeInsets.only(
+                        top: ResponsiveStyles.detailPagePriceButtonLocation(
+                          deviceType,
+                        ),
                         left: 20,
                         right: 20,
                       ),
                       child: Container(
                         alignment: Alignment.center,
                         width: double.infinity,
-                        height: 58,
+                        height: ResponsiveStyles.detailPageButtonHeight(
+                          deviceType,
+                        ),
                         decoration: BoxDecoration(
                           color: Color(0xfff37210),
                           borderRadius: BorderRadius.circular(30),

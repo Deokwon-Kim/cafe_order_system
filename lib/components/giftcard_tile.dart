@@ -1,10 +1,10 @@
 import 'package:HERMESCAFE/model/cafe.dart';
 import 'package:flutter/material.dart';
 
-class CafeTile extends StatelessWidget {
+class GiftcardTile extends StatelessWidget {
   final Cafe cafe;
   final void Function()? onTap;
-  const CafeTile({super.key, required this.cafe, this.onTap});
+  const GiftcardTile({super.key, required this.cafe, this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class CafeTile extends StatelessWidget {
           children: [
             ClipRRect(
               borderRadius: BorderRadius.circular(50),
-              child: Image.asset(cafe.imagePath, height: 95),
+              child: Image.asset(cafe.imagePath, height: 75),
             ),
             SizedBox(width: 20),
             Column(
