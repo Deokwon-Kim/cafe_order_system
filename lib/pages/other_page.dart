@@ -1,7 +1,4 @@
 // ignore_for_file: use_build_context_synchronously
-
-import 'dart:ffi';
-
 import 'package:HERMESCAFE/login/login_page.dart';
 import 'package:HERMESCAFE/provider/user_provider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
