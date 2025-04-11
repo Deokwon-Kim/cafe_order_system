@@ -4,7 +4,7 @@ class ResponsiveStyles {
   static double suggestTileHeight(DeviceType type) {
     switch (type) {
       case DeviceType.extraSmall:
-        return 102;
+        return 106;
       case DeviceType.small:
         return 106;
       case DeviceType.medium:
@@ -12,20 +12,18 @@ class ResponsiveStyles {
       case DeviceType.large:
         return 120;
       case DeviceType.tablet:
-        return 500;
-      case DeviceType.pixel8:
-        return 108;
+        return 130;
     }
   }
 
   static double cardHeight(DeviceType type) {
     switch (type) {
       case DeviceType.extraSmall:
-        return 276;
+        return 390;
       case DeviceType.small:
         return 276;
       case DeviceType.medium:
-        return 440;
+        return 417;
       case DeviceType.large:
         return 480;
       case DeviceType.tablet:
@@ -38,7 +36,7 @@ class ResponsiveStyles {
   static double bottomTapBarHeight(DeviceType type) {
     switch (type) {
       case DeviceType.extraSmall:
-        return 276;
+        return 111;
       case DeviceType.small:
         return 88;
       case DeviceType.medium:
@@ -47,15 +45,13 @@ class ResponsiveStyles {
         return 122;
       case DeviceType.tablet:
         return 122;
-      case DeviceType.pixel8:
-        return 110;
     }
   }
 
   static double detailPageNameFontSize(DeviceType type) {
     switch (type) {
       case DeviceType.extraSmall:
-        return 16;
+        return 20;
       case DeviceType.small:
         return 20;
       case DeviceType.medium:
@@ -63,9 +59,37 @@ class ResponsiveStyles {
       case DeviceType.large:
         return 25;
       case DeviceType.tablet:
-        return 500;
-      case DeviceType.pixel8:
         return 25;
+    }
+  }
+
+  static double menuSelectPageNameFontSize(DeviceType type) {
+    switch (type) {
+      case DeviceType.extraSmall:
+        return 16;
+      case DeviceType.small:
+        return 18;
+      case DeviceType.medium:
+        return 18;
+      case DeviceType.large:
+        return 20;
+      case DeviceType.tablet:
+        return 25;
+    }
+  }
+
+  static double menuSelectPageEngNameFontSize(DeviceType type) {
+    switch (type) {
+      case DeviceType.extraSmall:
+        return 12;
+      case DeviceType.small:
+        return 13;
+      case DeviceType.medium:
+        return 14;
+      case DeviceType.large:
+        return 18;
+      case DeviceType.tablet:
+        return 18;
     }
   }
 
@@ -80,16 +104,14 @@ class ResponsiveStyles {
       case DeviceType.large:
         return 18;
       case DeviceType.tablet:
-        return 500;
-      case DeviceType.pixel8:
-        return 16;
+        return 18;
     }
   }
 
   static double detailPageenDescFontSize(DeviceType type) {
     switch (type) {
       case DeviceType.extraSmall:
-        return 16;
+        return 13;
       case DeviceType.small:
         return 13;
       case DeviceType.medium:
@@ -97,8 +119,6 @@ class ResponsiveStyles {
       case DeviceType.large:
         return 16;
       case DeviceType.tablet:
-        return 500;
-      case DeviceType.pixel8:
         return 16;
     }
   }
@@ -106,7 +126,7 @@ class ResponsiveStyles {
   static double detailPageFontNameLocation(DeviceType type) {
     switch (type) {
       case DeviceType.extraSmall:
-        return 16;
+        return 30;
       case DeviceType.small:
         return 160;
       case DeviceType.medium:
@@ -114,8 +134,6 @@ class ResponsiveStyles {
       case DeviceType.large:
         return 16;
       case DeviceType.tablet:
-        return 500;
-      case DeviceType.pixel8:
         return 16;
     }
   }
@@ -123,7 +141,7 @@ class ResponsiveStyles {
   static double detailPageFontEngNameLocation(DeviceType type) {
     switch (type) {
       case DeviceType.extraSmall:
-        return 16;
+        return 80;
       case DeviceType.small:
         return 205;
       case DeviceType.medium:
@@ -131,16 +149,14 @@ class ResponsiveStyles {
       case DeviceType.large:
         return 76;
       case DeviceType.tablet:
-        return 500;
-      case DeviceType.pixel8:
-        return 66;
+        return 76;
     }
   }
 
   static double detailPageFontDescLocation(DeviceType type) {
     switch (type) {
       case DeviceType.extraSmall:
-        return 16;
+        return 160;
       case DeviceType.small:
         return 285;
       case DeviceType.medium:
@@ -148,16 +164,14 @@ class ResponsiveStyles {
       case DeviceType.large:
         return 176;
       case DeviceType.tablet:
-        return 500;
-      case DeviceType.pixel8:
-        return 166;
+        return 176;
     }
   }
 
   static double detailPageFontPriceLocation(DeviceType type) {
     switch (type) {
       case DeviceType.extraSmall:
-        return 16;
+        return 250;
       case DeviceType.small:
         return 380;
       case DeviceType.medium:
@@ -165,16 +179,14 @@ class ResponsiveStyles {
       case DeviceType.large:
         return 286;
       case DeviceType.tablet:
-        return 500;
-      case DeviceType.pixel8:
-        return 276;
+        return 286;
     }
   }
 
   static double detailPagePriceFontSize(DeviceType type) {
     switch (type) {
       case DeviceType.extraSmall:
-        return 16;
+        return 23;
       case DeviceType.small:
         return 20;
       case DeviceType.medium:
@@ -182,8 +194,6 @@ class ResponsiveStyles {
       case DeviceType.large:
         return 26;
       case DeviceType.tablet:
-        return 10;
-      case DeviceType.pixel8:
         return 26;
     }
   }
@@ -191,24 +201,22 @@ class ResponsiveStyles {
   static double detailPageTempLocation(DeviceType type) {
     switch (type) {
       case DeviceType.extraSmall:
-        return 16;
+        return 535;
       case DeviceType.small:
         return 555;
       case DeviceType.medium:
         return 636;
       case DeviceType.large:
-        return 680;
+        return 686;
       case DeviceType.tablet:
-        return 500;
-      case DeviceType.pixel8:
-        return 636;
+        return 706;
     }
   }
 
   static double detailPageTempContainerSize(DeviceType type) {
     switch (type) {
       case DeviceType.extraSmall:
-        return 16;
+        return 60;
       case DeviceType.small:
         return 30;
       case DeviceType.medium:
@@ -216,16 +224,14 @@ class ResponsiveStyles {
       case DeviceType.large:
         return 80;
       case DeviceType.tablet:
-        return 500;
-      case DeviceType.pixel8:
-        return 70;
+        return 90;
     }
   }
 
   static double detailPageQuantityLocation(DeviceType type) {
     switch (type) {
       case DeviceType.extraSmall:
-        return 16;
+        return 450;
       case DeviceType.small:
         return 360;
       case DeviceType.medium:
@@ -233,9 +239,7 @@ class ResponsiveStyles {
       case DeviceType.large:
         return 556;
       case DeviceType.tablet:
-        return 500;
-      case DeviceType.pixel8:
-        return 526;
+        return 556;
     }
   }
 
@@ -250,9 +254,7 @@ class ResponsiveStyles {
       case DeviceType.large:
         return 30;
       case DeviceType.tablet:
-        return 500;
-      case DeviceType.pixel8:
-        return 25;
+        return 30;
     }
   }
 
@@ -267,16 +269,14 @@ class ResponsiveStyles {
       case DeviceType.large:
         return 25;
       case DeviceType.tablet:
-        return 500;
-      case DeviceType.pixel8:
-        return 20;
+        return 25;
     }
   }
 
   static double detailPagePriceButtonLocation(DeviceType type) {
     switch (type) {
       case DeviceType.extraSmall:
-        return 16;
+        return 640;
       case DeviceType.small:
         return 580;
       case DeviceType.medium:
@@ -284,16 +284,14 @@ class ResponsiveStyles {
       case DeviceType.large:
         return 806;
       case DeviceType.tablet:
-        return 500;
-      case DeviceType.pixel8:
-        return 726;
+        return 806;
     }
   }
 
   static double detailPageButtonHeight(DeviceType type) {
     switch (type) {
       case DeviceType.extraSmall:
-        return 16;
+        return 50;
       case DeviceType.small:
         return 50;
       case DeviceType.medium:
@@ -301,8 +299,6 @@ class ResponsiveStyles {
       case DeviceType.large:
         return 58;
       case DeviceType.tablet:
-        return 500;
-      case DeviceType.pixel8:
         return 58;
     }
   }
@@ -310,7 +306,7 @@ class ResponsiveStyles {
   static double gitcardPageImageHeight(DeviceType type) {
     switch (type) {
       case DeviceType.extraSmall:
-        return 16;
+        return 400;
       case DeviceType.small:
         return 400;
       case DeviceType.medium:

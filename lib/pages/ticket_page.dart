@@ -1,4 +1,3 @@
-import 'package:HERMESCAFE/components/cafe_tile.dart';
 import 'package:HERMESCAFE/components/giftcard_tile.dart';
 import 'package:HERMESCAFE/pages/detail_page/ticket_detail_page.dart';
 import 'package:HERMESCAFE/provider/ticket_provider.dart';

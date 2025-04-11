@@ -1,23 +1,24 @@
 import 'package:flutter/material.dart';
 
-enum DeviceType { extraSmall, small, medium, pixel8, large, tablet }
+enum DeviceType { extraSmall, small, medium, large, tablet }
 
 class DeviceTypeHelper {
   static DeviceType getDeviceType(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
 
     if (width == 360) {
-      return DeviceType.extraSmall; //ex) iPhone SE3, 작은 안드로이드 폰
+      return DeviceType.extraSmall;
     } else if (width == 375) {
-      return DeviceType.small; // ex) 일반 아이폰, 중간급 안드로이드 폰
+      //ex) iPhone SE3, 작은 안드로이드 폰
+      return DeviceType.small;
     } else if (width <= 412) {
-      return DeviceType.medium; //ex) 태블릿 , 대형화면
-    } else if (width == 412) {
-      return DeviceType.pixel8; //ex) 픽셀8, 픽셀8프로
+      // ex) 일반 아이폰, 중간급 안드로이드 폰
+      return DeviceType.medium;
     } else if (width <= 450) {
+      // ex) 아이폰 프로맥스 ,플러스
       return DeviceType.large;
     } else {
-      return DeviceType.tablet;
+      return DeviceType.tablet; //ex) 태블릿 , 대형화면
     }
   }
 }
