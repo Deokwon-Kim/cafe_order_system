@@ -7,14 +7,29 @@ import 'package:HERMESCAFE/provider/cart_provider.dart';
 import 'package:HERMESCAFE/provider/suggest_menu_provider.dart';
 import 'package:HERMESCAFE/provider/user_provider.dart';
 import 'package:HERMESCAFE/utils/responsive_styles.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:badges/badges.dart' as badges;
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  int _current = 0;
+
+  final CarouselSliderController _controller = CarouselSliderController();
+  List<Widget> imageList = [
+    Image.asset('lib/images/event1.png', fit: BoxFit.cover),
+    Image.asset('lib/images/event2.png', fit: BoxFit.cover),
+    Image.asset('lib/images/event3.png', fit: BoxFit.cover),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -31,6 +46,10 @@ class HomePage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          Padding(
+            padding: const EdgeInsets.only(bottom: 149),
+            child: SizedBox(height: 300, child: sliderWidget()),
+          ),
           Padding(
             padding: const EdgeInsets.only(top: 116, left: 10),
             child: Consumer<UserProvider>(
@@ -278,4 +297,59 @@ class HomePage extends StatelessWidget {
       ),
     );
   }
+
+  Widget sliderWidget() {
+    return CarouselSlider(
+      carouselController: _controller,
+      items:
+          imageList.map((item) {
+            return Builder(
+              builder: (context) {
+                return SizedBox(
+                  width: MediaQuery.of(context).size.width,
+                  child: item,
+                );
+              },
+            );
+          }).toList(),
+      options: CarouselOptions(
+        height: 300,
+        viewportFraction: 1.0,
+        autoPlay: true,
+        autoPlayInterval: const Duration(seconds: 3),
+        onPageChanged: (index, reason) {
+          setState(() {
+            _current = index;
+          });
+        },
+      ),
+    );
+  }
+
+  // Widget sliderIndicator() {
+  //   return Align(
+  //     alignment: Alignment.bottomCenter,
+  //     child: Row(
+  //       mainAxisAlignment: MainAxisAlignment.center,
+  //       children:
+  //           imageList.asMap().entries.map((entry) {
+  //             return GestureDetector(
+  //               onTap: () => _controller.animateToPage(entry.key),
+  //               child: Container(
+  //                 width: 12.0,
+  //                 height: 12.0,
+  //                 margin: const EdgeInsets.symmetric(horizontal: 4.0),
+  //                 decoration: BoxDecoration(
+  //                   shape: BoxShape.circle,
+  //                   color: (Theme.of(context).brightness == Brightness.dark
+  //                           ? Colors.white
+  //                           : Colors.black)
+  //                       .withOpacity(_current == entry.key ? 0.9 : 0.4),
+  //                 ),
+  //               ),
+  //             );
+  //           }).toList(),
+  //     ),
+  //   );
+  // }
 }
