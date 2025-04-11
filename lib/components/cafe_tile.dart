@@ -1,4 +1,6 @@
+import 'package:HERMESCAFE/devicetype/device_type_helper.dart';
 import 'package:HERMESCAFE/model/cafe.dart';
+import 'package:HERMESCAFE/utils/responsive_styles.dart';
 import 'package:flutter/material.dart';
 
 class CafeTile extends StatelessWidget {
@@ -8,6 +10,8 @@ class CafeTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final deviceType = DeviceTypeHelper.getDeviceType(context);
+
     return GestureDetector(
       onTap: onTap,
       child: Padding(
@@ -31,7 +35,9 @@ class CafeTile extends StatelessWidget {
                     textAlign: TextAlign.start,
                     style: TextStyle(
                       color: Colors.black,
-                      fontSize: 18,
+                      fontSize: ResponsiveStyles.menuSelectPageNameFontSize(
+                        deviceType,
+                      ),
                       fontWeight: FontWeight.w500,
                       fontFamily: 'BMHANNA',
                     ),
@@ -43,7 +49,9 @@ class CafeTile extends StatelessWidget {
                     cafe.engname,
                     style: TextStyle(
                       color: Colors.grey,
-                      fontSize: 13,
+                      fontSize: ResponsiveStyles.menuSelectPageEngNameFontSize(
+                        deviceType,
+                      ),
                       fontFamily: 'BMHANNA',
                     ),
                   ),
