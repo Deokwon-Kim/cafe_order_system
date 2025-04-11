@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:HERMESCAFE/components/cafe_tile.dart';
 import 'package:HERMESCAFE/model/cafe.dart';
 import 'package:HERMESCAFE/pages/detail_page/menu_detail_page.dart';
@@ -11,10 +13,16 @@ class EspressoDetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isAndroid = Platform.isAndroid;
+
+    const double expanedHeight = 200;
+    final double baseHeight = isAndroid ? expanedHeight - 90 : expanedHeight;
+
     final cafeMenu = Provider.of<CafeViewmodel>(context).getMenu('espresso');
     return Scaffold(
       backgroundColor: Colors.white,
       body: CustomScrollView(
+        physics: ClampingScrollPhysics(),
         slivers: [
           SliverAppBar(
             backgroundColor: Colors.white,
@@ -29,13 +37,17 @@ class EspressoDetailPage extends StatelessWidget {
                 // 스크롤 상태에 따라 타이틀을 보이게 설정
                 double percent =
                     (constraints.maxHeight - kToolbarHeight) /
-                    (200 - kToolbarHeight);
+                    (baseHeight - kToolbarHeight);
                 bool showTitle = percent < 0.5; // 절반 이상 스크롤되면 보이게
 
-                return FlexibleSpaceBar(
-                  title:
-                      showTitle
-                          ? Text(
+                return Padding(
+                  padding: const EdgeInsets.only(top: 40.0),
+                  child: Stack(
+                    children: [
+                      if (showTitle)
+                        Align(
+                          alignment: Alignment.center,
+                          child: Text(
                             '에스프레소',
                             style: TextStyle(
                               color: Colors.black,
@@ -43,8 +55,10 @@ class EspressoDetailPage extends StatelessWidget {
                               fontSize: 18,
                               fontFamily: 'BMJUA',
                             ),
-                          )
-                          : null, // 초기에는 타이틀 숨김
+                          ),
+                        ),
+                    ],
+                  ),
                 );
               },
             ),
