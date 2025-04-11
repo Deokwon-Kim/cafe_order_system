@@ -5,6 +5,7 @@ import 'package:HERMESCAFE/provider/cart_provider.dart';
 import 'package:HERMESCAFE/provider/menu_detail_provider.dart';
 import 'package:HERMESCAFE/utils/responsive_styles.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class MenuDetailPage extends StatefulWidget {
@@ -172,12 +173,13 @@ class _MenuDetailPageState extends State<MenuDetailPage> {
                     ),
                     child: Text(
                       currentMenu.name,
-                      style: TextStyle(
-                        fontSize: ResponsiveStyles.detailPageNameFontSize(
-                          deviceType,
+                      style: GoogleFonts.notoSansKr(
+                        textStyle: TextStyle(
+                          fontSize: ResponsiveStyles.detailPageNameFontSize(
+                            deviceType,
+                          ),
+                          fontWeight: FontWeight.bold,
                         ),
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'BMJUA',
                       ),
                     ),
                   ),
@@ -195,12 +197,12 @@ class _MenuDetailPageState extends State<MenuDetailPage> {
                     ),
                     child: Text(
                       currentMenu.engname,
-                      style: TextStyle(
+                      style: GoogleFonts.roboto(
+                        fontWeight: FontWeight.normal,
                         color: Colors.grey,
                         fontSize: ResponsiveStyles.detailPageEngNameFontSize(
                           deviceType,
                         ),
-                        fontFamily: 'BMHANNA',
                       ),
                     ),
                   ),
@@ -219,14 +221,14 @@ class _MenuDetailPageState extends State<MenuDetailPage> {
                     child: Text(
                       currentMenu.discription,
                       textAlign: TextAlign.start,
-                      style: TextStyle(
-                        color: Color(0xffa2a2a2),
-                        fontSize: ResponsiveStyles.detailPageenDescFontSize(
-                          deviceType,
+                      style: GoogleFonts.notoSansKr(
+                        textStyle: TextStyle(
+                          color: Colors.grey,
+                          fontWeight: FontWeight.w500,
+                          fontSize: ResponsiveStyles.detailPageenDescFontSize(
+                            deviceType,
+                          ),
                         ),
-                        fontWeight: FontWeight.w600,
-                        // fontFamily: 'BMJUA',
-                        fontFamily: 'BMHANNA',
                       ),
                     ),
                   ),
@@ -234,6 +236,7 @@ class _MenuDetailPageState extends State<MenuDetailPage> {
               ),
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   Padding(
                     padding: EdgeInsets.only(
@@ -244,14 +247,14 @@ class _MenuDetailPageState extends State<MenuDetailPage> {
                     ),
                     child: Text(
                       '${currentMenu.price}원',
-                      style: TextStyle(
-                        color: Color(0xfff37210),
-                        fontSize: ResponsiveStyles.detailPagePriceFontSize(
-                          deviceType,
+                      style: GoogleFonts.notoSansKr(
+                        textStyle: TextStyle(
+                          color: Colors.black,
+                          fontSize: ResponsiveStyles.detailPagePriceFontSize(
+                            deviceType,
+                          ),
+                          fontWeight: FontWeight.w500,
                         ),
-                        fontWeight: FontWeight.w600,
-                        // fontFamily: 'BMJUA',
-                        fontFamily: 'BMHANNA',
                       ),
                     ),
                   ),
@@ -280,7 +283,7 @@ class _MenuDetailPageState extends State<MenuDetailPage> {
                                   vertical: 10,
                                 ),
                                 decoration: BoxDecoration(
-                                  color: Colors.white,
+                                  color: Color(0xfff37210),
                                   borderRadius: BorderRadius.circular(20),
                                   boxShadow: [
                                     BoxShadow(
@@ -321,12 +324,12 @@ class _MenuDetailPageState extends State<MenuDetailPage> {
                             children: [
                               Container(
                                 padding: EdgeInsets.symmetric(
-                                  horizontal: 130,
-                                  vertical: 10,
+                                  horizontal: 178,
+                                  vertical: 15,
                                 ),
                                 decoration: BoxDecoration(
                                   color: Colors.white,
-                                  borderRadius: BorderRadius.circular(20),
+
                                   boxShadow: [
                                     BoxShadow(
                                       color: const Color.fromARGB(
@@ -341,7 +344,7 @@ class _MenuDetailPageState extends State<MenuDetailPage> {
                                   ],
                                 ),
                                 child: Text(
-                                  'ICED ONLY',
+                                  'ICE',
                                   style: TextStyle(
                                     color: Colors.blueAccent,
                                     fontWeight: FontWeight.bold,
@@ -374,11 +377,14 @@ class _MenuDetailPageState extends State<MenuDetailPage> {
                                         ResponsiveStyles.detailPageTempContainerSize(
                                           deviceType,
                                         ),
-                                    vertical: 10,
+                                    vertical: 15,
                                   ),
                                   decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(20),
+                                    color:
+                                        menuDetailProvider.isIce
+                                            ? Colors.white
+                                            : Color(0xfff37210),
+
                                     boxShadow: [
                                       BoxShadow(
                                         color: const Color.fromARGB(
@@ -398,7 +404,7 @@ class _MenuDetailPageState extends State<MenuDetailPage> {
                                       color:
                                           menuDetailProvider.isIce
                                               ? Colors.grey
-                                              : Colors.red,
+                                              : Colors.white,
                                       fontWeight: FontWeight.bold,
                                       fontSize: 16,
                                       fontFamily: 'BMHANNA',
@@ -406,7 +412,7 @@ class _MenuDetailPageState extends State<MenuDetailPage> {
                                   ),
                                 ),
                               ),
-                              SizedBox(width: 5),
+
                               // Ice버튼
                               GestureDetector(
                                 onTap:
@@ -417,11 +423,13 @@ class _MenuDetailPageState extends State<MenuDetailPage> {
                                         ResponsiveStyles.detailPageTempContainerSize(
                                           deviceType,
                                         ),
-                                    vertical: 8,
+                                    vertical: 15,
                                   ),
                                   decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(20),
+                                    color:
+                                        menuDetailProvider.isIce
+                                            ? Color(0xfff37210)
+                                            : Colors.white,
                                     boxShadow: [
                                       BoxShadow(
                                         color: const Color.fromARGB(
@@ -436,11 +444,11 @@ class _MenuDetailPageState extends State<MenuDetailPage> {
                                     ],
                                   ),
                                   child: Text(
-                                    'ICED',
+                                    'ICE',
                                     style: TextStyle(
                                       color:
                                           menuDetailProvider.isIce
-                                              ? Colors.blueAccent
+                                              ? Colors.white
                                               : Colors.grey,
                                       fontWeight: FontWeight.bold,
                                       fontSize: 16,

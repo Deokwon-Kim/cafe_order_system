@@ -9,6 +9,7 @@ import 'package:HERMESCAFE/provider/user_provider.dart';
 import 'package:HERMESCAFE/utils/responsive_styles.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:badges/badges.dart' as badges;
 
@@ -25,89 +26,192 @@ class HomePage extends StatelessWidget {
     final deviceType = DeviceTypeHelper.getDeviceType(context);
 
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 237, 236, 236),
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        backgroundColor: const Color.fromARGB(255, 237, 236, 236),
-        actions: [
+      backgroundColor: Colors.white,
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
           Padding(
-            padding: const EdgeInsets.only(right: 10.0),
-            child: Consumer<CartProvider>(
-              builder: (context, viewModel, child) {
-                return badges.Badge(
-                  position: badges.BadgePosition.topEnd(top: 0, end: 0),
-                  badgeAnimation: const badges.BadgeAnimation.slide(
-                    animationDuration: Duration(milliseconds: 300),
-                  ),
-                  showBadge: viewModel.cartItems.isNotEmpty,
-                  badgeStyle: const badges.BadgeStyle(
-                    badgeColor: Color(0xfff37210),
-                    padding: EdgeInsets.all(5),
-                  ),
-                  badgeContent: Text(
-                    '${viewModel.cartItems.length}',
-                    style: const TextStyle(color: Colors.white, fontSize: 10),
-                  ),
-                  child: IconButton(
-                    onPressed: () {
-                      Navigator.pushNamed(context, 'cart');
-                    },
-                    icon: const Icon(Icons.shopping_cart_outlined),
+            padding: const EdgeInsets.only(top: 116, left: 10),
+            child: Consumer<UserProvider>(
+              builder: (context, userProvider, child) {
+                return Text.rich(
+                  TextSpan(
+                    text: '${user?.displayName}',
+                    style: TextStyle(
+                      fontSize: ResponsiveStyles.mainTitleFontSize(deviceType),
+                      color: Color.fromARGB(255, 243, 80, 16),
+                    ),
+                    children: <TextSpan>[
+                      TextSpan(
+                        text: ' 고객님',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontFamily: 'HERMES',
+                          fontSize: ResponsiveStyles.mainTitleFontSize(
+                            deviceType,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 );
               },
             ),
           ),
-        ],
-      ),
-      body: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 20),
-                child: Consumer<UserProvider>(
-                  builder: (context, userProvider, child) {
-                    return Text.rich(
-                      TextSpan(
-                        text: '${user?.displayName} 님 \n환영합니다',
-                        style: TextStyle(fontSize: 20),
-                        children: <TextSpan>[
-                          TextSpan(
-                            text: 'HERMES COFFEE',
-                            style: TextStyle(
-                              color: Color(0xfff37210),
-                              fontFamily: 'HERMES',
-                            ),
-                            children: <TextSpan>[
-                              TextSpan(
-                                text: ' 입니다.',
-                                style: TextStyle(color: Colors.black),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    );
-                  },
-                ),
-              ),
-            ],
-          ),
-          SizedBox(height: 10),
           Padding(
-            padding: const EdgeInsets.only(left: 20.0, right: 20),
+            padding: const EdgeInsets.only(top: 10.0),
+            child: Row(
+              children: [
+                Container(
+                  width: 135,
+                  height: 110,
+                  decoration: BoxDecoration(
+                    border: Border(
+                      top: BorderSide(
+                        color: const Color.fromARGB(255, 209, 207, 207),
+                      ),
+                      right: BorderSide(
+                        color: const Color.fromARGB(255, 209, 207, 207),
+                      ),
+                      bottom: BorderSide(
+                        color: const Color.fromARGB(255, 209, 207, 207),
+                      ),
+                    ),
+                  ),
+                  child: Column(
+                    children: [
+                      Consumer<CartProvider>(
+                        builder: (context, viewModel, child) {
+                          return badges.Badge(
+                            position: badges.BadgePosition.topEnd(
+                              top: 0,
+                              end: 0,
+                            ),
+                            badgeAnimation: const badges.BadgeAnimation.slide(
+                              animationDuration: Duration(milliseconds: 300),
+                            ),
+                            showBadge: viewModel.cartItems.isNotEmpty,
+                            badgeStyle: const badges.BadgeStyle(
+                              badgeColor: Color(0xfff37210),
+                              padding: EdgeInsets.all(5),
+                            ),
+                            badgeContent: Text(
+                              '${viewModel.cartItems.length}',
+                              style: const TextStyle(
+                                color: Colors.white,
+                                fontSize: 15,
+                              ),
+                            ),
+                            child: IconButton(
+                              onPressed: () {
+                                Navigator.pushNamed(context, 'cart');
+                              },
+                              icon: const Icon(
+                                Icons.shopping_cart_outlined,
+                                size: 50,
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                      Text(
+                        '장바구니',
+                        style: TextStyle(color: Colors.black, fontSize: 15),
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  width: 135,
+                  height: 110,
+                  decoration: BoxDecoration(
+                    border: Border(
+                      top: BorderSide(
+                        color: const Color.fromARGB(255, 209, 207, 207),
+                      ),
+                      right: BorderSide(
+                        color: const Color.fromARGB(255, 209, 207, 207),
+                      ),
+                      bottom: BorderSide(
+                        color: const Color.fromARGB(255, 209, 207, 207),
+                      ),
+                    ),
+                  ),
+                ),
+                Container(
+                  width: 132,
+                  height: 110,
+                  decoration: BoxDecoration(
+                    border: Border(
+                      top: BorderSide(
+                        color: const Color.fromARGB(255, 209, 207, 207),
+                      ),
+                      bottom: BorderSide(
+                        color: const Color.fromARGB(255, 209, 207, 207),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          SizedBox(height: 30),
+          Padding(
+            padding: const EdgeInsets.only(left: 10.0, right: 10),
             child: Container(
               width: double.infinity,
               height: ResponsiveStyles.suggestTileHeight(deviceType),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: Row(
+              decoration: BoxDecoration(color: Colors.white),
+              child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(top: 5, left: 20),
+                        child: Text(
+                          '추천메뉴',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Transform.translate(
+                            offset: Offset(20, 0),
+                            child: Text(
+                              '전체 메뉴',
+                              style: GoogleFonts.notoSansKr(
+                                textStyle: TextStyle(
+                                  color: Colors.grey,
+                                  fontSize: 14,
+                                ),
+                              ),
+                            ),
+                          ),
+                          Transform.translate(
+                            offset: Offset(10, 0),
+                            child: IconButton(
+                              onPressed: () {},
+                              icon: Icon(
+                                Icons.arrow_forward_ios,
+                                color: Colors.grey,
+                                size: 14,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+
                   Expanded(
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
@@ -170,28 +274,6 @@ class HomePage extends StatelessWidget {
             ),
           ),
           SizedBox(height: 10),
-          Padding(
-            padding: const EdgeInsets.only(left: 20.0, right: 20),
-            child: Container(
-              height: ResponsiveStyles.cardHeight(deviceType),
-              color: Color(0xfff37210),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Image.asset('lib/images/coffee-cup2.png'),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        '사용가능 카드 없음',
-                        style: TextStyle(color: Colors.black, fontSize: 18),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-          ),
         ],
       ),
     );

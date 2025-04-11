@@ -1,33 +1,48 @@
 import 'package:HERMESCAFE/devicetype/device_type_helper.dart';
 
 class ResponsiveStyles {
+  static double mainTitleFontSize(DeviceType type) {
+    switch (type) {
+      case DeviceType.extraSmall:
+        return 18;
+      case DeviceType.small:
+        return 20;
+      case DeviceType.medium:
+        return 20;
+      case DeviceType.large:
+        return 20;
+      case DeviceType.tablet:
+        return 20;
+    }
+  }
+
   static double suggestTileHeight(DeviceType type) {
     switch (type) {
       case DeviceType.extraSmall:
-        return 106;
+        return 265;
       case DeviceType.small:
-        return 106;
+        return 132;
       case DeviceType.medium:
-        return 108;
+        return 328;
       case DeviceType.large:
-        return 120;
+        return 146;
       case DeviceType.tablet:
-        return 130;
+        return 156;
     }
   }
 
   static double cardHeight(DeviceType type) {
     switch (type) {
       case DeviceType.extraSmall:
-        return 390;
+        return 370;
       case DeviceType.small:
         return 276;
       case DeviceType.medium:
-        return 417;
+        return 395;
       case DeviceType.large:
-        return 480;
+        return 459;
       case DeviceType.tablet:
-        return 500;
+        return 579;
     }
   }
 
@@ -113,7 +128,7 @@ class ResponsiveStyles {
       case DeviceType.small:
         return 13;
       case DeviceType.medium:
-        return 16;
+        return 15;
       case DeviceType.large:
         return 16;
       case DeviceType.tablet:
@@ -203,7 +218,7 @@ class ResponsiveStyles {
       case DeviceType.small:
         return 555;
       case DeviceType.medium:
-        return 636;
+        return 616;
       case DeviceType.large:
         return 686;
       case DeviceType.tablet:
@@ -218,7 +233,7 @@ class ResponsiveStyles {
       case DeviceType.small:
         return 30;
       case DeviceType.medium:
-        return 70;
+        return 86;
       case DeviceType.large:
         return 80;
       case DeviceType.tablet:
@@ -233,7 +248,7 @@ class ResponsiveStyles {
       case DeviceType.small:
         return 360;
       case DeviceType.medium:
-        return 526;
+        return 536;
       case DeviceType.large:
         return 556;
       case DeviceType.tablet:

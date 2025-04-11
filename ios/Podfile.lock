@@ -1343,6 +1343,9 @@ PODS:
   - OrderedSet (6.0.3)
   - os_info_plugin (0.0.1):
     - Flutter
+  - path_provider_foundation (0.0.1):
+    - Flutter
+    - FlutterMacOS
   - RecaptchaInterop (100.0.0)
   - tosspayments_webview_flutter (0.0.1):
     - Flutter
@@ -1358,6 +1361,7 @@ DEPENDENCIES:
   - flutter_inappwebview_ios (from `.symlinks/plugins/flutter_inappwebview_ios/ios`)
   - flutter_local_notifications (from `.symlinks/plugins/flutter_local_notifications/ios`)
   - os_info_plugin (from `.symlinks/plugins/os_info_plugin/ios`)
+  - path_provider_foundation (from `.symlinks/plugins/path_provider_foundation/darwin`)
   - tosspayments_webview_flutter (from `.symlinks/plugins/tosspayments_webview_flutter/ios`)
   - url_launcher_ios (from `.symlinks/plugins/url_launcher_ios/ios`)
 
@@ -1401,6 +1405,8 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/flutter_local_notifications/ios"
   os_info_plugin:
     :path: ".symlinks/plugins/os_info_plugin/ios"
+  path_provider_foundation:
+    :path: ".symlinks/plugins/path_provider_foundation/darwin"
   tosspayments_webview_flutter:
     :path: ".symlinks/plugins/tosspayments_webview_flutter/ios"
   url_launcher_ios:
@@ -1434,6 +1440,7 @@ SPEC CHECKSUMS:
   nanopb: fad817b59e0457d11a5dfbde799381cd727c1275
   OrderedSet: e539b66b644ff081c73a262d24ad552a69be3a94
   os_info_plugin: d89ddf87e910a0d598fc4fc69d2b8f0f8239314f
+  path_provider_foundation: 2b6b4c569c0fb62ec74538f866245ac84301af46
   RecaptchaInterop: 7d1a4a01a6b2cb1610a47ef3f85f0c411434cb21
   tosspayments_webview_flutter: ceae304825a077de594d01ee39dd0ce2307adb4e
   url_launcher_ios: 5334b05cef931de560670eeae103fd3e431ac3fe
