@@ -1,5 +1,7 @@
 // ignore_for_file: use_build_context_synchronously
 
+import 'dart:ffi';
+
 import 'package:HERMESCAFE/login/login_page.dart';
 import 'package:HERMESCAFE/provider/user_provider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -22,7 +24,7 @@ class OtherPage extends StatelessWidget {
         Icon(Icons.star_border),
         'star',
       ),
-      //menuItem('전자 내역', Color(0xfff37210), Icon(Icons.receipt_long)),
+
       menuItem(
         context,
         '결제내역',
@@ -30,14 +32,28 @@ class OtherPage extends StatelessWidget {
         Icon(Icons.receipt_long),
         '주문내역',
       ),
-      // menuItem('개인정보 관리', Color(0xfff37210), Icon(Icons.receipt_long)),
       menuItem(context, '계정정보', Color(0xfff37210), Icon(Icons.person), '개인정보'),
+      menuItem(
+        context,
+        '개인정보 관리',
+        Color(0xfff37210),
+        Icon(Icons.receipt_long),
+        '개인정보 보호호',
+      ),
+
       menuItem(
         context,
         '나의 쿠폰',
         Color(0xfff37210),
         Icon(Icons.airplane_ticket),
         '나의 쿠폰',
+      ),
+      menuItem(
+        context,
+        '고객의 소리',
+        Color(0xfff37210),
+        Icon(Icons.surround_sound),
+        '고객의 소리',
       ),
     ];
 
@@ -99,6 +115,181 @@ class OtherPage extends StatelessWidget {
                     mainAxisSpacing: 10,
                     children: gridItems,
                   ),
+                ),
+                SizedBox(height: 10),
+                Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          'Pay',
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Row(
+                      children: [
+                        TextButton(
+                          onPressed: () {},
+                          child: Row(
+                            children: [
+                              Icon(Icons.payment, color: Color(0xfff37210)),
+                              SizedBox(width: 10),
+                              Text(
+                                '에르메스 카드 등록',
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  color: Color(0xfff37210),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(width: 40),
+
+                        TextButton(
+                          onPressed: () {},
+                          child: Row(
+                            children: [
+                              Icon(Icons.sd_card, color: Color(0xfff37210)),
+
+                              SizedBox(width: 10),
+                              Text(
+                                '카드 교환권 등록',
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  color: Color(0xfff37210),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 10),
+                    Row(
+                      children: [
+                        TextButton(
+                          onPressed: () {},
+                          child: Row(
+                            children: [
+                              Icon(Icons.credit_card, color: Color(0xfff37210)),
+                              SizedBox(width: 10),
+                              Text(
+                                '결제수단 관리',
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  color: Color(0xfff37210),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(width: 72),
+                        TextButton(
+                          onPressed: () {},
+                          child: Row(
+                            children: [
+                              Icon(
+                                Icons.receipt_long,
+                                color: Color(0xfff37210),
+                              ),
+                              SizedBox(width: 10),
+                              Text(
+                                '모바일 상품권 등록',
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  color: Color(0xfff37210),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+                Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          'Delivers',
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Row(
+                      children: [
+                        TextButton(
+                          onPressed: () {},
+                          child: Row(
+                            children: [
+                              Icon(Icons.payment, color: Color(0xfff37210)),
+                              SizedBox(width: 10),
+                              Text(
+                                '주문하기',
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  color: Color(0xfff37210),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(width: 105),
+
+                        TextButton(
+                          onPressed: () {},
+                          child: Row(
+                            children: [
+                              Icon(Icons.sd_card, color: Color(0xfff37210)),
+
+                              SizedBox(width: 10),
+                              Text(
+                                '장바구니',
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  color: Color(0xfff37210),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 10),
+                    Row(
+                      children: [
+                        TextButton(
+                          onPressed: () {},
+                          child: Row(
+                            children: [
+                              Icon(Icons.credit_card, color: Color(0xfff37210)),
+                              SizedBox(width: 10),
+                              Text(
+                                '히스토리',
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  color: Color(0xfff37210),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
               ],
             ),

@@ -28,8 +28,6 @@ class ResponsiveStyles {
         return 480;
       case DeviceType.tablet:
         return 500;
-      case DeviceType.pixel8:
-        return 440;
     }
   }
 
@@ -314,8 +312,6 @@ class ResponsiveStyles {
       case DeviceType.large:
         return 500;
       case DeviceType.tablet:
-        return 500;
-      case DeviceType.pixel8:
         return 500;
     }
   }
