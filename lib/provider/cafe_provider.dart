@@ -131,7 +131,7 @@ class CafeViewmodel extends ChangeNotifier {
         name: '콜드 브루',
         engname: 'Cold Brew',
         discription:
-            '콜드 브루 전용 원두를 차가운 물로 추출하여\n한정된 양만 제공 됩니다. 깊은 풍미의 새로운 커피\n경험을 즐겨보세요.',
+            '콜드 브루 전용 원두를 차가운 물로 추출하여\n한정된 양만 제공 됩니다. 깊은 풍미의\n새로운 커피 경험을 즐겨보세요.',
         price: '5,100',
         imagePath: 'lib/images/coldbrew/ColdBrew.jpg',
 
@@ -178,7 +178,7 @@ class CafeViewmodel extends ChangeNotifier {
         name: '더블 에스프레소 칩 프라푸치노',
         engname: 'Double Espresso Chip Frappuccino',
         discription:
-            '리스트레토 에스프레소 2샷과 에스프레소 칩, 하프앤하프가 진하게 어우러진 커피의 기본에 충실한 프라푸치노',
+            '리스트레토 에스프레소 2샷과 에스프레소 칩,\n하프앤하프가 진하게 어우러진 커피의\n기본에 충실한 프라푸치노',
         price: '6,500',
         imagePath: 'lib/images/frappuchino/Double_Espresso_Chip.jpg',
 
@@ -188,7 +188,7 @@ class CafeViewmodel extends ChangeNotifier {
         id: 'frappuchino2',
         name: '제주 말차 크림 프라푸치노',
         engname: 'Jeju Malcha Cream Frappuccino',
-        discription: '깊고 진한 말차 본연의 맛과 향을 시원하고 부드럽게 즐길 수 있는 프라푸치노',
+        discription: '깊고 진한 말차 본연의 맛과 향을 시원하고\n부드럽게 즐길 수 있는 프라푸치노',
         price: '6,500',
         imagePath: 'lib/images/frappuchino/Jeju_Malcha_Cream.jpg',
 
@@ -198,20 +198,18 @@ class CafeViewmodel extends ChangeNotifier {
         id: 'frappuchino3',
         name: '자바 칩 프라푸치노',
         engname: 'Java Chip Frapuccino',
-        discription: '커피, 모카 소스, 진한 초콜릿 칩이 입안 가득 느껴지는 프라푸치노',
+        discription: '커피, 모카 소스, 진한 초콜릿 칩이\n입안 가득 느껴지는 프라푸치노',
         price: '6,500',
         imagePath: 'lib/images/frappuchino/Java_Chip.jpg',
-
         temperatureOption: 'iceonly',
       ),
       Cafe(
         id: 'frappuchino4',
         name: '초콜릿 크림 칩 프라푸치노',
         engname: 'Chocaolate Cream Chip Frappuccino',
-        discription: '모카 소스와 진한 초콜릿 칩, 초콜릿 드리즐이 올라간 달콤한 크림 프라푸치노',
+        discription: '모카 소스와 진한 초콜릿 칩,\n초콜릿 드리즐이 올라간 달콤한\n크림 프라푸치노',
         price: '6,200',
         imagePath: 'lib/images/frappuchino/Chocolate_Cream_Chip.jpg',
-
         temperatureOption: 'iceonly',
       ),
       Cafe(
@@ -221,14 +219,14 @@ class CafeViewmodel extends ChangeNotifier {
         discription: '카라멜과 커피가 어우러진 프라푸치노',
         price: '6,100',
         imagePath: 'lib/images/frappuchino/Caramel_Frappuccino.jpg',
-
         temperatureOption: 'iceonly',
       ),
       Cafe(
         id: 'frappuchino6',
         name: '에스프레소 프라푸치노',
         engname: 'Espresso Frappuccino',
-        discription: '풍부하고 진한 에스프레소 샷의 강렬함과 달콤함이 어우러져 깊은 커피의 풍미를 느낄 수 있는 프라푸치노',
+        discription:
+            '풍부하고 진한 에스프레소 샷의 강렬함과\n달콤함이 어우러져 깊은 커피의\n풍미를 느낄 수 있는 프라푸치노',
         price: '5,700',
         imagePath: 'lib/images/frappuchino/Espresso_Frappuccino.jpg',
 
