@@ -131,7 +131,7 @@ class CafeViewmodel extends ChangeNotifier {
         name: '콜드 브루',
         engname: 'Cold Brew',
         discription:
-            '콜드 브루 전용 원두를 차가운 물로 추출하여\n한정된 양만 제공 됩니다. 깊은 풍미의 새로운 커피\n경험을 즐겨보세요.',
+            '콜드 브루 전용 원두를 차가운 물로 추출하여\n한정된 양만 제공 됩니다. 깊은 풍미의\n새로운 커피 경험을 즐겨보세요.',
         price: '5,100',
         imagePath: 'lib/images/coldbrew/ColdBrew.jpg',
 
