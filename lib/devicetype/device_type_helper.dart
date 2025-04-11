@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-enum DeviceType { extraSmall, small, medium, large, tablet }
+enum DeviceType { extraSmall, small, medium, pixel8, large, tablet }
 
 class DeviceTypeHelper {
   static DeviceType getDeviceType(BuildContext context) {
@@ -12,6 +12,8 @@ class DeviceTypeHelper {
       return DeviceType.small; // ex) 일반 아이폰, 중간급 안드로이드 폰
     } else if (width <= 412) {
       return DeviceType.medium; //ex) 태블릿 , 대형화면
+    } else if (width == 412) {
+      return DeviceType.pixel8; //ex) 픽셀8, 픽셀8프로
     } else if (width <= 450) {
       return DeviceType.large;
     } else {

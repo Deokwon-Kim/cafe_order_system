@@ -13,6 +13,8 @@ class ResponsiveStyles {
         return 120;
       case DeviceType.tablet:
         return 500;
+      case DeviceType.pixel8:
+        return 108;
     }
   }
 
@@ -28,6 +30,8 @@ class ResponsiveStyles {
         return 480;
       case DeviceType.tablet:
         return 500;
+      case DeviceType.pixel8:
+        return 440;
     }
   }
 
@@ -42,7 +46,9 @@ class ResponsiveStyles {
       case DeviceType.large:
         return 122;
       case DeviceType.tablet:
-        return 500;
+        return 122;
+      case DeviceType.pixel8:
+        return 110;
     }
   }
 
@@ -58,6 +64,8 @@ class ResponsiveStyles {
         return 25;
       case DeviceType.tablet:
         return 500;
+      case DeviceType.pixel8:
+        return 25;
     }
   }
 
@@ -73,6 +81,8 @@ class ResponsiveStyles {
         return 18;
       case DeviceType.tablet:
         return 500;
+      case DeviceType.pixel8:
+        return 16;
     }
   }
 
@@ -88,6 +98,8 @@ class ResponsiveStyles {
         return 16;
       case DeviceType.tablet:
         return 500;
+      case DeviceType.pixel8:
+        return 16;
     }
   }
 
@@ -103,6 +115,8 @@ class ResponsiveStyles {
         return 16;
       case DeviceType.tablet:
         return 500;
+      case DeviceType.pixel8:
+        return 16;
     }
   }
 
@@ -118,6 +132,8 @@ class ResponsiveStyles {
         return 76;
       case DeviceType.tablet:
         return 500;
+      case DeviceType.pixel8:
+        return 66;
     }
   }
 
@@ -133,6 +149,8 @@ class ResponsiveStyles {
         return 176;
       case DeviceType.tablet:
         return 500;
+      case DeviceType.pixel8:
+        return 166;
     }
   }
 
@@ -148,6 +166,8 @@ class ResponsiveStyles {
         return 286;
       case DeviceType.tablet:
         return 500;
+      case DeviceType.pixel8:
+        return 276;
     }
   }
 
@@ -163,6 +183,8 @@ class ResponsiveStyles {
         return 26;
       case DeviceType.tablet:
         return 10;
+      case DeviceType.pixel8:
+        return 26;
     }
   }
 
@@ -171,13 +193,15 @@ class ResponsiveStyles {
       case DeviceType.extraSmall:
         return 16;
       case DeviceType.small:
-        return 545;
+        return 555;
       case DeviceType.medium:
-        return 626;
+        return 636;
       case DeviceType.large:
-        return 656;
+        return 680;
       case DeviceType.tablet:
         return 500;
+      case DeviceType.pixel8:
+        return 636;
     }
   }
 
@@ -193,6 +217,8 @@ class ResponsiveStyles {
         return 80;
       case DeviceType.tablet:
         return 500;
+      case DeviceType.pixel8:
+        return 70;
     }
   }
 
@@ -208,6 +234,8 @@ class ResponsiveStyles {
         return 556;
       case DeviceType.tablet:
         return 500;
+      case DeviceType.pixel8:
+        return 526;
     }
   }
 
@@ -223,6 +251,8 @@ class ResponsiveStyles {
         return 30;
       case DeviceType.tablet:
         return 500;
+      case DeviceType.pixel8:
+        return 25;
     }
   }
 
@@ -238,6 +268,8 @@ class ResponsiveStyles {
         return 25;
       case DeviceType.tablet:
         return 500;
+      case DeviceType.pixel8:
+        return 20;
     }
   }
 
@@ -253,6 +285,8 @@ class ResponsiveStyles {
         return 806;
       case DeviceType.tablet:
         return 500;
+      case DeviceType.pixel8:
+        return 726;
     }
   }
 
@@ -268,6 +302,8 @@ class ResponsiveStyles {
         return 58;
       case DeviceType.tablet:
         return 500;
+      case DeviceType.pixel8:
+        return 58;
     }
   }
 
@@ -282,6 +318,8 @@ class ResponsiveStyles {
       case DeviceType.large:
         return 500;
       case DeviceType.tablet:
+        return 500;
+      case DeviceType.pixel8:
         return 500;
     }
   }
