@@ -216,7 +216,7 @@ class ResponsiveStyles {
       case DeviceType.extraSmall:
         return 535;
       case DeviceType.small:
-        return 545;
+        return 555;
       case DeviceType.medium:
         return 586;
       case DeviceType.large:
