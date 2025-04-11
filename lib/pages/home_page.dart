@@ -1,3 +1,5 @@
+// ignore_for_file: unused_field
+
 import 'package:HERMESCAFE/components/suggest_tile.dart';
 import 'package:HERMESCAFE/devicetype/device_type_helper.dart';
 import 'package:HERMESCAFE/model/cafe.dart';
