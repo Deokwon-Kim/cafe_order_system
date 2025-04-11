@@ -128,7 +128,7 @@ class ResponsiveStyles {
       case DeviceType.small:
         return 13;
       case DeviceType.medium:
-        return 15;
+        return 14;
       case DeviceType.large:
         return 16;
       case DeviceType.tablet:
@@ -203,7 +203,7 @@ class ResponsiveStyles {
       case DeviceType.small:
         return 20;
       case DeviceType.medium:
-        return 26;
+        return 23;
       case DeviceType.large:
         return 26;
       case DeviceType.tablet:
@@ -218,7 +218,7 @@ class ResponsiveStyles {
       case DeviceType.small:
         return 545;
       case DeviceType.medium:
-        return 616;
+        return 586;
       case DeviceType.large:
         return 686;
       case DeviceType.tablet:

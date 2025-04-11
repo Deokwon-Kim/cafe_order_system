@@ -161,17 +161,13 @@ class _MenuDetailPageState extends State<MenuDetailPage> {
                   ),
                 ),
               ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(
-                      left: 20,
-                      top: ResponsiveStyles.detailPageFontNameLocation(
-                        deviceType,
-                      ),
-                    ),
-                    child: Text(
+              Padding(
+                padding: const EdgeInsets.only(top: 140.0, left: 10),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
                       currentMenu.name,
                       style: GoogleFonts.notoSansKr(
                         textStyle: TextStyle(
@@ -182,20 +178,7 @@ class _MenuDetailPageState extends State<MenuDetailPage> {
                         ),
                       ),
                     ),
-                  ),
-                ],
-              ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(
-                      left: 20,
-                      top: ResponsiveStyles.detailPageFontEngNameLocation(
-                        deviceType,
-                      ),
-                    ),
-                    child: Text(
+                    Text(
                       currentMenu.engname,
                       style: GoogleFonts.roboto(
                         fontWeight: FontWeight.normal,
@@ -205,61 +188,42 @@ class _MenuDetailPageState extends State<MenuDetailPage> {
                         ),
                       ),
                     ),
-                  ),
-                ],
-              ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(
-                      top: ResponsiveStyles.detailPageFontDescLocation(
-                        deviceType,
-                      ),
-                      left: 20,
-                    ),
-                    child: Text(
+                    SizedBox(height: 5),
+                    Text(
                       currentMenu.discription,
-                      textAlign: TextAlign.start,
+                      textAlign: TextAlign.left,
                       style: GoogleFonts.notoSansKr(
                         textStyle: TextStyle(
-                          color: Colors.grey,
-                          fontWeight: FontWeight.w500,
+                          color: Colors.grey.shade600,
                           fontSize: ResponsiveStyles.detailPageenDescFontSize(
                             deviceType,
                           ),
                         ),
                       ),
                     ),
-                  ),
-                ],
-              ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(
-                      top: ResponsiveStyles.detailPageFontPriceLocation(
-                        deviceType,
-                      ),
-                      left: 20,
-                    ),
-                    child: Text(
-                      '${currentMenu.price}원',
-                      style: GoogleFonts.notoSansKr(
-                        textStyle: TextStyle(
-                          color: Colors.black,
-                          fontSize: ResponsiveStyles.detailPagePriceFontSize(
-                            deviceType,
+                    Padding(
+                      padding: const EdgeInsets.only(left: 280.0),
+                      child: Transform.translate(
+                        offset: Offset(0, -30),
+                        child: Text(
+                          '${currentMenu.price}원',
+                          style: GoogleFonts.notoSansKr(
+                            textStyle: TextStyle(
+                              color: Colors.black,
+                              fontSize:
+                                  ResponsiveStyles.detailPagePriceFontSize(
+                                    deviceType,
+                                  ),
+                              fontWeight: FontWeight.w500,
+                            ),
                           ),
-                          fontWeight: FontWeight.w500,
                         ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
+
               // HOT/ICE 버튼 선택 UI
               Padding(
                 padding: EdgeInsets.only(),

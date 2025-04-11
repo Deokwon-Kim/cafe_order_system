@@ -26,8 +26,7 @@ class IcedCafeViewmodel extends ChangeNotifier {
         id: 'icedespresso3',
         name: '아이스 카페 아메리카노',
         engname: 'Iced Caffe Americano',
-        discription:
-            '진한 에스프레소와 뜨거운 물을 섞어 깔끔하고 강렬한\n에스프레소를 가장 부드럽게 잘 느낄 수 있는 커피',
+        discription: '고소한 향미 부드러운 질감과 무거운 바디가 어우러진 블렌딩',
         price: '4,500',
         imagePath: 'lib/images/espresso/iceAmericano.jpg',
       ),
