@@ -52,7 +52,7 @@ class _HomePageState extends State<HomePage> {
             SizedBox(height: 350, child: sliderWidget()),
             SizedBox(height: 20),
             Padding(
-              padding: const EdgeInsets.only(left: 10),
+              padding: const EdgeInsets.only(left: 10, right: 10),
               child: Consumer<UserProvider>(
                 builder: (context, userProvider, child) {
                   return Text.rich(
@@ -82,7 +82,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 10.0),
+              padding: const EdgeInsets.only(top: 10.0, left: 10, right: 10),
               child: Row(
                 children: [
                   Container(

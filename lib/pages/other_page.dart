@@ -110,6 +110,7 @@ class OtherPage extends StatelessWidget {
                     crossAxisCount: 3,
                     crossAxisSpacing: 10,
                     mainAxisSpacing: 10,
+                    physics: NeverScrollableScrollPhysics(),
                     children: gridItems,
                   ),
                 ),
