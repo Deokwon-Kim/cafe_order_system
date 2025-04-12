@@ -4,6 +4,7 @@ import 'package:HERMESCAFE/provider/cart_provider.dart';
 import 'package:HERMESCAFE/provider/menu_detail_provider.dart';
 import 'package:HERMESCAFE/utils/responsive_styles.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class DesertDetailPage extends StatefulWidget {
@@ -101,99 +102,69 @@ class _DesertDetailPageState extends State<DesertDetailPage> {
                   icon: Icon(Icons.arrow_back_ios_new, color: Colors.white),
                 ),
               ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(
-                      top: ResponsiveStyles.detailPageFontNameLocation(
-                        deviceType,
-                      ),
-                      left: 20,
-                    ),
-                    child: Text(
+              Padding(
+                padding: const EdgeInsets.only(top: 150.0, left: 10),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
                       widget.cafeMenu.name,
-                      style: TextStyle(
-                        fontSize: ResponsiveStyles.detailPageNameFontSize(
+                      style: GoogleFonts.notoSansKr(
+                        textStyle: TextStyle(
+                          fontSize: ResponsiveStyles.detailPageNameFontSize(
+                            deviceType,
+                          ),
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    Text(
+                      widget.cafeMenu.engname,
+                      style: GoogleFonts.roboto(
+                        fontWeight: FontWeight.normal,
+                        color: Colors.grey,
+                        fontSize: ResponsiveStyles.detailPageEngNameFontSize(
                           deviceType,
                         ),
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'BMJUA',
                       ),
                     ),
-                  ),
-                ],
-              ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(
-                      top: ResponsiveStyles.detailPageFontEngNameLocation(
-                        deviceType,
-                      ),
-                      left: 20,
-                    ),
-                    child: Text(
-                      widget.cafeMenu.engname,
-                      style: TextStyle(
-                        color: Colors.grey,
-                        fontFamily: 'BMHANNA',
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(
-                      top: ResponsiveStyles.detailPageFontDescLocation(
-                        deviceType,
-                      ),
-                      left: 20,
-                      right: 20,
-                    ),
-                    child: Text(
+                    SizedBox(height: 5),
+                    Text(
                       widget.cafeMenu.discription,
                       textAlign: TextAlign.start,
-                      style: TextStyle(
-                        color: Color(0xffa2a2a2),
-                        fontSize: ResponsiveStyles.detailPageenDescFontSize(
-                          deviceType,
+                      style: GoogleFonts.notoSansKr(
+                        textStyle: TextStyle(
+                          color: Colors.grey.shade600,
+                          fontSize: ResponsiveStyles.detailPageenDescFontSize(
+                            deviceType,
+                          ),
                         ),
-                        fontWeight: FontWeight.w500,
-                        fontFamily: 'BMHANNA',
                       ),
                     ),
-                  ),
-                ],
-              ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(
-                      top: ResponsiveStyles.detailPageFontPriceLocation(
-                        deviceType,
-                      ),
-                      left: 20,
-                    ),
-                    child: Text(
-                      '${widget.cafeMenu.price}원',
-                      style: TextStyle(
-                        color: Color(0xfff37210),
-                        fontSize: ResponsiveStyles.detailPagePriceFontSize(
-                          deviceType,
+                    Padding(
+                      padding: const EdgeInsets.only(left: 295.0),
+                      child: Transform.translate(
+                        offset: Offset(0, -30),
+                        child: Text(
+                          '${widget.cafeMenu.price}원',
+                          style: GoogleFonts.notoSansKr(
+                            textStyle: TextStyle(
+                              color: Colors.black,
+                              fontSize:
+                                  ResponsiveStyles.detailPagePriceFontSize(
+                                    deviceType,
+                                  ),
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
                         ),
-                        fontWeight: FontWeight.w600,
-                        fontFamily: 'BMHANNA',
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
+
               Padding(
                 padding: EdgeInsets.only(
                   top: ResponsiveStyles.detailPageQuantityLocation(deviceType),

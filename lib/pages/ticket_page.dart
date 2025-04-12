@@ -1,4 +1,3 @@
-import 'package:HERMESCAFE/components/cafe_tile.dart';
 import 'package:HERMESCAFE/components/giftcard_tile.dart';
 import 'package:HERMESCAFE/pages/detail_page/ticket_detail_page.dart';
 import 'package:HERMESCAFE/provider/ticket_provider.dart';
@@ -16,6 +15,7 @@ class TicketPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       body: CustomScrollView(
+        physics: ClampingScrollPhysics(),
         slivers: [
           SliverAppBar(
             backgroundColor: Colors.white,
@@ -30,13 +30,17 @@ class TicketPage extends StatelessWidget {
                 // 스크롤 상태에 따라 타이틀을 보이게 설정
                 double percent =
                     (constraints.maxHeight - kToolbarHeight) /
-                    (200 - kToolbarHeight);
+                    (110 - kToolbarHeight);
                 bool showTitle = percent < 0.5; // 절반 이상 스크롤 되면 보이게 처리
 
-                return FlexibleSpaceBar(
-                  title:
-                      showTitle
-                          ? Text(
+                return Padding(
+                  padding: const EdgeInsets.only(top: 40.0),
+                  child: Stack(
+                    children: [
+                      if (showTitle)
+                        Align(
+                          alignment: Alignment.center,
+                          child: Text(
                             '금액권',
                             style: TextStyle(
                               color: Colors.black,
@@ -44,8 +48,10 @@ class TicketPage extends StatelessWidget {
                               fontSize: 18,
                               fontFamily: 'BMJUA',
                             ),
-                          )
-                          : null,
+                          ),
+                        ),
+                    ],
+                  ),
                 );
               },
             ),
