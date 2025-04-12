@@ -13,21 +13,26 @@ class SuggestTile extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: GestureDetector(
-            onTap: onTap,
-            child: Image.asset(cafe.imagePath, height: 150),
+          padding: const EdgeInsets.only(left: 10.0),
+          child: Transform.translate(
+            offset: Offset(-20, 0),
+            child: GestureDetector(
+              onTap: onTap,
+              child: Image.asset(cafe.imagePath, height: 150),
+            ),
           ),
         ),
         Column(
-          mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              cafe.name,
-              textAlign: TextAlign.start,
-              style: GoogleFonts.roboto(
-                textStyle: TextStyle(color: Colors.black),
+            Transform.translate(
+              offset: Offset(-15, 10),
+              child: Text(
+                cafe.name,
+                textAlign: TextAlign.start,
+                style: GoogleFonts.roboto(
+                  textStyle: TextStyle(color: Colors.black),
+                ),
               ),
             ),
           ],

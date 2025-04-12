@@ -247,8 +247,7 @@ class _MenuDetailPageState extends State<MenuDetailPage> {
                                   vertical: 10,
                                 ),
                                 decoration: BoxDecoration(
-                                  color: Color(0xfff37210),
-                                  borderRadius: BorderRadius.circular(20),
+                                  color: Colors.white,
                                   boxShadow: [
                                     BoxShadow(
                                       color: const Color.fromARGB(
@@ -288,7 +287,7 @@ class _MenuDetailPageState extends State<MenuDetailPage> {
                             children: [
                               Container(
                                 padding: EdgeInsets.symmetric(
-                                  horizontal: 178,
+                                  horizontal: 130,
                                   vertical: 15,
                                 ),
                                 decoration: BoxDecoration(
@@ -308,7 +307,7 @@ class _MenuDetailPageState extends State<MenuDetailPage> {
                                   ],
                                 ),
                                 child: Text(
-                                  'ICE',
+                                  'ICE ONLY',
                                   style: TextStyle(
                                     color: Colors.blueAccent,
                                     fontWeight: FontWeight.bold,
