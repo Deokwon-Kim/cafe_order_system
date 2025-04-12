@@ -5,6 +5,7 @@ import 'package:HERMESCAFE/firebase_options.dart';
 import 'package:HERMESCAFE/login/login_page.dart';
 import 'package:HERMESCAFE/pages/detail_page/coupon_detail_page.dart';
 import 'package:HERMESCAFE/pages/detail_page/edit_username_detail_page.dart';
+import 'package:HERMESCAFE/pages/detail_page/person_security_page.dart';
 import 'package:HERMESCAFE/pages/detail_page/star_detail_page.dart';
 import 'package:HERMESCAFE/login/edit_password_page.dart';
 import 'package:HERMESCAFE/login/find_password_page.dart';
@@ -80,6 +81,7 @@ class MyApp extends StatelessWidget {
         '비밀번호 변경': (context) => const EditPasswordPage(),
         '비밀번호 찾기': (context) => const FindPasswordPage(),
         '나의 쿠폰': (context) => const CouponDetailPage(),
+        '개인정보 관리': (context) => const PersonSecurityPage(),
       },
     );
   }
