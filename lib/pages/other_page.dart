@@ -12,6 +12,7 @@ class OtherPage extends StatelessWidget {
   Widget build(BuildContext context) {
     User? user = FirebaseAuth.instance.currentUser;
     final username = Provider.of<UserProvider>(context, listen: false);
+    final size = MediaQuery.of(context).size;
 
     final List<Widget> gridItems = [
       menuItem(
@@ -28,13 +29,6 @@ class OtherPage extends StatelessWidget {
         Color(0xfff37210),
         Icon(Icons.receipt_long),
         '주문내역',
-      ),
-      menuItem(
-        context,
-        '계정정보',
-        Color(0xfff37210),
-        Icon(Icons.receipt_long),
-        '개인정보',
       ),
       menuItem(context, '계정정보', Color(0xfff37210), Icon(Icons.person), '개인정보'),
       menuItem(
@@ -61,252 +55,254 @@ class OtherPage extends StatelessWidget {
       ),
     ];
 
-    return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 242, 241, 241),
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        automaticallyImplyLeading: false,
-        title: Text('Other'),
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: const Color.fromARGB(255, 242, 241, 241),
+        appBar: AppBar(
+          backgroundColor: Colors.white,
+          automaticallyImplyLeading: false,
+          title: Text('Other'),
 
-        actions: [
-          IconButton(
-            onPressed: () {
-              username.signOut();
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(builder: (context) => LoginPage()),
-              );
-            },
-            icon: Icon(Icons.logout),
-          ),
-        ],
-      ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Center(
-            child: Padding(
-              padding: const EdgeInsets.only(top: 10.0),
-              child: Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text.rich(
-                        TextSpan(
-                          text: user?.displayName,
-                          style: TextStyle(
-                            fontSize: 20,
-                            color: Color(0xfff37210),
-                            fontWeight: FontWeight.bold,
+          actions: [
+            IconButton(
+              onPressed: () {
+                username.signOut();
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => LoginPage()),
+                );
+              },
+              icon: Icon(Icons.logout),
+            ),
+          ],
+        ),
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Center(
+              child: Padding(
+                padding: const EdgeInsets.only(top: 10.0),
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text.rich(
+                          TextSpan(
+                            text: user?.displayName,
+                            style: TextStyle(
+                              fontSize: 20,
+                              color: Color(0xfff37210),
+                              fontWeight: FontWeight.bold,
+                            ),
+                            children: <TextSpan>[
+                              TextSpan(
+                                text: '님',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 20,
+                                ),
+                              ),
+                            ],
                           ),
-                          children: <TextSpan>[
-                            TextSpan(
-                              text: '님',
+                        ),
+                      ],
+                    ),
+                    Text('환영합니다!', style: TextStyle(fontSize: 20)),
+                    SizedBox(height: 30),
+                    SizedBox(
+                      height: 300,
+                      child: GridView.count(
+                        crossAxisCount: 3,
+                        crossAxisSpacing: 10,
+                        mainAxisSpacing: 10,
+                        physics: NeverScrollableScrollPhysics(),
+                        children: gridItems,
+                      ),
+                    ),
+                    SizedBox(height: 10),
+                    Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              'Pay',
                               style: TextStyle(
-                                color: Colors.black,
                                 fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        ),
+                        Row(
+                          children: [
+                            TextButton(
+                              onPressed: () {},
+                              child: Row(
+                                children: [
+                                  Icon(Icons.payment, color: Color(0xfff37210)),
+                                  SizedBox(width: 10),
+                                  Text(
+                                    '에르메스 카드 등록',
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      color: Color(0xfff37210),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            SizedBox(width: 40),
+
+                            TextButton(
+                              onPressed: () {},
+                              child: Row(
+                                children: [
+                                  Icon(Icons.sd_card, color: Color(0xfff37210)),
+
+                                  SizedBox(width: 10),
+                                  Text(
+                                    '카드 교환권 등록',
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      color: Color(0xfff37210),
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
                           ],
                         ),
-                      ),
-                    ],
-                  ),
-                  Text('환영합니다!', style: TextStyle(fontSize: 20)),
-                  SizedBox(height: 30),
-                  SizedBox(
-                    height: 300,
-                    child: GridView.count(
-                      crossAxisCount: 3,
-                      crossAxisSpacing: 10,
-                      mainAxisSpacing: 10,
-                      physics: NeverScrollableScrollPhysics(),
-                      children: gridItems,
+                        SizedBox(height: 10),
+                        Row(
+                          children: [
+                            TextButton(
+                              onPressed: () {},
+                              child: Row(
+                                children: [
+                                  Icon(
+                                    Icons.credit_card,
+                                    color: Color(0xfff37210),
+                                  ),
+                                  SizedBox(width: 10),
+                                  Text(
+                                    '결제수단 관리',
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      color: Color(0xfff37210),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            SizedBox(width: 72),
+                            TextButton(
+                              onPressed: () {},
+                              child: Row(
+                                children: [
+                                  Icon(
+                                    Icons.receipt_long,
+                                    color: Color(0xfff37210),
+                                  ),
+                                  SizedBox(width: 10),
+                                  Text(
+                                    '모바일 상품권 등록',
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      color: Color(0xfff37210),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
                     ),
-                  ),
-                  SizedBox(height: 10),
-                  Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(16.0),
-                        child: Align(
-                          alignment: Alignment.centerLeft,
-                          child: Text(
-                            'Pay',
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
+                    Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              'Delivers',
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                      Row(
-                        children: [
-                          TextButton(
-                            onPressed: () {},
-                            child: Row(
-                              children: [
-                                Icon(Icons.payment, color: Color(0xfff37210)),
-                                SizedBox(width: 10),
-                                Text(
-                                  '에르메스 카드 등록',
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                    color: Color(0xfff37210),
+                        Row(
+                          children: [
+                            TextButton(
+                              onPressed: () {},
+                              child: Row(
+                                children: [
+                                  Icon(Icons.payment, color: Color(0xfff37210)),
+                                  SizedBox(width: 10),
+                                  Text(
+                                    '주문하기',
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      color: Color(0xfff37210),
+                                    ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
-                          ),
-                          SizedBox(width: 40),
+                            SizedBox(width: 105),
 
-                          TextButton(
-                            onPressed: () {},
-                            child: Row(
-                              children: [
-                                Icon(Icons.sd_card, color: Color(0xfff37210)),
+                            TextButton(
+                              onPressed: () {},
+                              child: Row(
+                                children: [
+                                  Icon(Icons.sd_card, color: Color(0xfff37210)),
 
-                                SizedBox(width: 10),
-                                Text(
-                                  '카드 교환권 등록',
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                    color: Color(0xfff37210),
+                                  SizedBox(width: 10),
+                                  Text(
+                                    '장바구니',
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      color: Color(0xfff37210),
+                                    ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: 10),
-                      Row(
-                        children: [
-                          TextButton(
-                            onPressed: () {},
-                            child: Row(
-                              children: [
-                                Icon(
-                                  Icons.credit_card,
-                                  color: Color(0xfff37210),
-                                ),
-                                SizedBox(width: 10),
-                                Text(
-                                  '결제수단 관리',
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                    color: Color(0xfff37210),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          SizedBox(width: 72),
-                          TextButton(
-                            onPressed: () {},
-                            child: Row(
-                              children: [
-                                Icon(
-                                  Icons.receipt_long,
-                                  color: Color(0xfff37210),
-                                ),
-                                SizedBox(width: 10),
-                                Text(
-                                  '모바일 상품권 등록',
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                    color: Color(0xfff37210),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(16.0),
-                        child: Align(
-                          alignment: Alignment.centerLeft,
-                          child: Text(
-                            'Delivers',
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
+                          ],
                         ),
-                      ),
-                      Row(
-                        children: [
-                          TextButton(
-                            onPressed: () {},
-                            child: Row(
-                              children: [
-                                Icon(Icons.payment, color: Color(0xfff37210)),
-                                SizedBox(width: 10),
-                                Text(
-                                  '주문하기',
-                                  style: TextStyle(
-                                    fontSize: 16,
+                        SizedBox(height: 10),
+                        Row(
+                          children: [
+                            TextButton(
+                              onPressed: () {},
+                              child: Row(
+                                children: [
+                                  Icon(
+                                    Icons.credit_card,
                                     color: Color(0xfff37210),
                                   ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          SizedBox(width: 105),
-
-                          TextButton(
-                            onPressed: () {},
-                            child: Row(
-                              children: [
-                                Icon(Icons.sd_card, color: Color(0xfff37210)),
-
-                                SizedBox(width: 10),
-                                Text(
-                                  '장바구니',
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                    color: Color(0xfff37210),
+                                  SizedBox(width: 10),
+                                  Text(
+                                    '히스토리',
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      color: Color(0xfff37210),
+                                    ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: 10),
-                      Row(
-                        children: [
-                          TextButton(
-                            onPressed: () {},
-                            child: Row(
-                              children: [
-                                Icon(
-                                  Icons.credit_card,
-                                  color: Color(0xfff37210),
-                                ),
-                                SizedBox(width: 10),
-                                Text(
-                                  '히스토리',
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                    color: Color(0xfff37210),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ],
+                          ],
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
