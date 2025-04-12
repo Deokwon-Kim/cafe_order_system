@@ -31,10 +31,10 @@ class OtherPage extends StatelessWidget {
       ),
       menuItem(
         context,
-        '개인정보 관리',
+        '계정정보',
         Color(0xfff37210),
         Icon(Icons.receipt_long),
-        '개인정보 관리',
+        '개인정보',
       ),
       menuItem(context, '계정정보', Color(0xfff37210), Icon(Icons.person), '개인정보'),
       menuItem(
