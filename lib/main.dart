@@ -1,6 +1,5 @@
 // ignore_for_file: use_build_context_synchronously
-
-import 'package:HERMESCAFE/Tab/bottom_tab_bar.dart';
+import 'package:HERMESCAFE/Tab/custom_bottom_tab_bar.dart';
 import 'package:HERMESCAFE/firebase_options.dart';
 import 'package:HERMESCAFE/login/login_page.dart';
 import 'package:HERMESCAFE/pages/detail_page/coupon_detail_page.dart';
@@ -105,7 +104,7 @@ class AuthWrapper extends StatelessWidget {
           // Future.microtask(() {
           //   Provider.of<UserProvider>(context, listen: false).fetchUsername();
           // });
-          return const BottomTabBar(); // 로그인된 경우
+          return const CustomBottomNavigation(); // 로그인된 경우
         } else {
           return const LoginPage(); // 로그인되지 않은 경우
         }

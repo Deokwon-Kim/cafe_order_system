@@ -1,4 +1,4 @@
-import 'package:HERMESCAFE/Tab/bottom_tab_bar.dart';
+import 'package:HERMESCAFE/Tab/custom_bottom_tab_bar.dart';
 import 'package:HERMESCAFE/provider/cart_provider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -192,7 +192,9 @@ class PaysuccessPage extends StatelessWidget {
                 onTap: () {
                   Navigator.pushReplacement(
                     context,
-                    MaterialPageRoute(builder: (context) => BottomTabBar()),
+                    MaterialPageRoute(
+                      builder: (context) => CustomBottomNavigation(),
+                    ),
                   );
                 },
                 child: Container(

@@ -1,4 +1,4 @@
-import 'package:HERMESCAFE/Tab/bottom_tab_bar.dart';
+import 'package:HERMESCAFE/Tab/custom_bottom_tab_bar.dart';
 import 'package:HERMESCAFE/provider/cart_provider.dart';
 import 'package:HERMESCAFE/provider/menu_detail_provider.dart';
 import 'package:HERMESCAFE/provider/ticket_provider.dart';
@@ -25,7 +25,9 @@ class CartPage extends StatelessWidget {
                 onPressed: () {
                   Navigator.pushReplacement(
                     context,
-                    MaterialPageRoute(builder: (context) => BottomTabBar()),
+                    MaterialPageRoute(
+                      builder: (context) => CustomBottomNavigation(),
+                    ),
                   );
                 },
                 icon: Icon(Icons.arrow_back_ios_new),
