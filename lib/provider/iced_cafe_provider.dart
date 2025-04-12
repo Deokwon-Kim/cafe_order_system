@@ -18,7 +18,7 @@ class IcedCafeViewmodel extends ChangeNotifier {
         name: '아이스 플랫 화이트',
         engname: 'Iced Flat White',
         discription:
-            '부드러운 리스트레토 샷과 완벽한 양의 스팀밀크를 더해, 카페라떼 보다 커피의 맛을 진하게 즐길 수 있는 에스프레소 음료입니다.',
+            '부드러운 리스트레토 샷과 완벽한 양의 스팀밀크를 더해,\n카페라떼 보다 커피의 맛을 진하게 즐길 수 있는\n에스프레소 음료입니다.',
         price: '5,800',
         imagePath: 'lib/images/espresso/IcedFlatWhite.jpg',
       ),
@@ -26,7 +26,8 @@ class IcedCafeViewmodel extends ChangeNotifier {
         id: 'icedespresso3',
         name: '아이스 카페 아메리카노',
         engname: 'Iced Caffe Americano',
-        discription: '고소한 향미 부드러운 질감과 무거운 바디가 어우러진 블렌딩',
+        discription:
+            '진한 에스프레소와 뜨거운 물을 섞어 깔끔하고 \n강렬한 에스프레소를 가장 부드럽게\n잘 느낄 수 있는 커피',
         price: '4,500',
         imagePath: 'lib/images/espresso/iceAmericano.jpg',
       ),
@@ -35,7 +36,7 @@ class IcedCafeViewmodel extends ChangeNotifier {
         name: '아이스 카페 라떼',
         engname: 'Iced Caffe Latte',
         discription:
-            '풍부하고 진한 에스프레소가 신선한 스팀 밀크를 만나\n부드러워진 커피 위에 우유 거품을 살짝 얹은 대표적인\n커피 라떼',
+            '풍부하고 진한 에스프레소가 신선한 스팀 밀크를 만나\n부드러워진 커피 위에 우유 거품을 살짝 얹은\n대표적인 커피 라떼',
         price: '5,000',
         imagePath: 'lib/images/espresso/IcedCafeLatte.jpg',
       ),
@@ -44,7 +45,7 @@ class IcedCafeViewmodel extends ChangeNotifier {
         name: '아이스 돌체 라떼',
         engname: 'Iced Dolce Latte',
         discription:
-            '스타벅스의 다른 커피 음료보다 더욱 깊은 커피의 맛과 향에 깔끔한 무지방 우류와 부드러운 돌체 시럽이 들어간 음료로 달콤하고 진한 커피 라떼',
+            '다른 커피 음료보다 더욱 깊은 커피의 맛과 향에\n깔끔한 무지방 우유와 부드러운 돌체 시럽이 들어간\n음료로 달콤하고 진한 커피 라떼',
         price: '6,100',
         imagePath: 'lib/images/espresso/IcedDolceLatte.jpg',
       ),
@@ -53,7 +54,7 @@ class IcedCafeViewmodel extends ChangeNotifier {
         name: '아이스 카페 모카',
         engname: 'Iced Caffe Mocha',
         discription:
-            '진한 초콜릿 모카 시럽과 풍부한 에스프레소를\n스팀밀크 와 섞어 휘핑크림으로 마무리한 음료로 진한 에스프레소와 초콜릿 맛이 어우러진 커피',
+            '진한 초콜릿 모카 시럽과 풍부한 에스프레소를\n스팀밀크 와 섞어 휘핑크림으로 마무리한 음료로\n진한 에스프레소와 초콜릿 맛이 어우러진 커피',
         price: '5,500',
         imagePath: 'lib/images/espresso/IceCafeMocha.jpg',
       ),
@@ -62,7 +63,7 @@ class IcedCafeViewmodel extends ChangeNotifier {
         name: '아이스 카푸치노',
         engname: 'Iced Cappuccino',
         discription:
-            '풍부하고 진한 에스프레소에 따뜻한 우유와 벨벳 같은\n우유거품이 1:1 비율로 어우러져 마무리된 커피 음료',
+            '풍부하고 진한 에스프레소에 따뜻한 우유와 벨벳 같은\n우유거품이 1:1 비율로 어우러져 마무리된\n커피 음료',
         price: '5,200',
         imagePath: 'lib/images/espresso/IcedCappuchino.jpg',
       ),
@@ -70,8 +71,7 @@ class IcedCafeViewmodel extends ChangeNotifier {
         id: 'icedespresso8',
         name: '아이스 카라멜 마키아또',
         engname: 'Iced Caramel Macchiato',
-        discription:
-            '향긋한 바닐라 시럽과 따뜻한 스팀 밀크 위에 풍성한 우유 거품을 얹고 점을 찍듯이 에스프레소를 부은 후 벌집 모양으로 카라멜 드리즐을 올린 달콤한 커피 음료',
+        discription: '에스프레소에 거품을 낸 우유를 붓고\n카라멜  시럽을 얹은 커피',
         price: '6,100',
         imagePath: 'lib/images/espresso/Iced Caramel Macchiato.jpg',
       ),
@@ -80,7 +80,7 @@ class IcedCafeViewmodel extends ChangeNotifier {
         name: '아이스 화이트 초콜릿 모카',
         engname: 'Iced White Chocolate Mocha',
         discription:
-            '달콤하고 부드러운 화이트 초콜릿 시럽과 에스프레소를 스팀 밀크와 섞어 휘핑크림으로 마무리한 음료로 달콤함과 강렬한 에스프레소가 부드럽게 어우러진 커피',
+            '달콤하고 부드러운 화이트 초콜릿 시럽과 에스프레소를\n스팀 밀크와 섞어 휘핑크림으로 마무리한 음료로\n달콤함과 강렬한 에스프레소가\n부드럽게 어우러진 커피',
         price: '6,100',
         imagePath: 'lib/images/espresso/Iced White Chocolate Mocha.jpg',
       ),
