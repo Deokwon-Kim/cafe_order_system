@@ -244,6 +244,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ],
                   ),
+                  // 추천메뉴 컨테이너
                   Padding(
                     padding: const EdgeInsets.only(left: 10.0),
                     child: Container(
@@ -270,7 +271,6 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                 ),
                               ),
-
                               Row(
                                 children: [
                                   Transform.translate(
@@ -300,7 +300,6 @@ class _HomePageState extends State<HomePage> {
                               ),
                             ],
                           ),
-
                           Expanded(
                             child: ListView.builder(
                               scrollDirection: Axis.horizontal,
@@ -405,31 +404,4 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
-
-  // Widget sliderIndicator() {
-  //   return Align(
-  //     alignment: Alignment.bottomCenter,
-  //     child: Row(
-  //       mainAxisAlignment: MainAxisAlignment.center,
-  //       children:
-  //           imageList.asMap().entries.map((entry) {
-  //             return GestureDetector(
-  //               onTap: () => _controller.animateToPage(entry.key),
-  //               child: Container(
-  //                 width: 12.0,
-  //                 height: 12.0,
-  //                 margin: const EdgeInsets.symmetric(horizontal: 4.0),
-  //                 decoration: BoxDecoration(
-  //                   shape: BoxShape.circle,
-  //                   color: (Theme.of(context).brightness == Brightness.dark
-  //                           ? Colors.white
-  //                           : Colors.black)
-  //                       .withOpacity(_current == entry.key ? 0.9 : 0.4),
-  //                 ),
-  //               ),
-  //             );
-  //           }).toList(),
-  //     ),
-  //   );
-  // }
 }
