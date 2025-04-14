@@ -103,7 +103,10 @@ class _DesertDetailPageState extends State<DesertDetailPage> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 150.0, left: 10),
+                padding: EdgeInsets.only(
+                  top: ResponsiveStyles.detailPageFontNameLocation(deviceType),
+                  left: 10,
+                ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,

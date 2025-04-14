@@ -1,4 +1,4 @@
-import 'package:HERMESCAFE/Tab/bottom_tab_bar.dart';
+import 'package:HERMESCAFE/Tab/custom_bottom_tab_bar.dart';
 import 'package:HERMESCAFE/login/login_page.dart';
 import 'package:HERMESCAFE/provider/signup_provider.dart';
 import 'package:HERMESCAFE/provider/user_provider.dart';
@@ -101,7 +101,9 @@ class SignupPage extends StatelessWidget {
                                       Navigator.pushReplacement(
                                         context,
                                         MaterialPageRoute(
-                                          builder: (context) => BottomTabBar(),
+                                          builder:
+                                              (context) =>
+                                                  CustomBottomNavigation(),
                                         ),
                                       );
                                     } else {

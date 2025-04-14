@@ -21,13 +21,13 @@ class ResponsiveStyles {
       case DeviceType.extraSmall:
         return 265;
       case DeviceType.small:
-        return 132;
+        return 328;
       case DeviceType.medium:
         return 328;
       case DeviceType.large:
-        return 146;
+        return 328;
       case DeviceType.tablet:
-        return 156;
+        return 328;
     }
   }
 
@@ -36,13 +36,13 @@ class ResponsiveStyles {
       case DeviceType.extraSmall:
         return 370;
       case DeviceType.small:
-        return 276;
+        return 125;
       case DeviceType.medium:
-        return 395;
+        return 131;
       case DeviceType.large:
-        return 459;
+        return 133;
       case DeviceType.tablet:
-        return 579;
+        return 143;
     }
   }
 
@@ -66,7 +66,7 @@ class ResponsiveStyles {
       case DeviceType.extraSmall:
         return 20;
       case DeviceType.small:
-        return 20;
+        return 18;
       case DeviceType.medium:
         return 25;
       case DeviceType.large:
@@ -81,13 +81,13 @@ class ResponsiveStyles {
       case DeviceType.extraSmall:
         return 16;
       case DeviceType.small:
-        return 18;
+        return 16;
       case DeviceType.medium:
         return 18;
       case DeviceType.large:
-        return 20;
+        return 18;
       case DeviceType.tablet:
-        return 25;
+        return 20;
     }
   }
 
@@ -100,9 +100,9 @@ class ResponsiveStyles {
       case DeviceType.medium:
         return 14;
       case DeviceType.large:
-        return 18;
+        return 15;
       case DeviceType.tablet:
-        return 18;
+        return 16;
     }
   }
 
@@ -111,11 +111,11 @@ class ResponsiveStyles {
       case DeviceType.extraSmall:
         return 16;
       case DeviceType.small:
-        return 20;
+        return 14;
       case DeviceType.medium:
         return 16;
       case DeviceType.large:
-        return 18;
+        return 16;
       case DeviceType.tablet:
         return 18;
     }
@@ -126,11 +126,11 @@ class ResponsiveStyles {
       case DeviceType.extraSmall:
         return 13;
       case DeviceType.small:
-        return 13;
+        return 12;
       case DeviceType.medium:
         return 14;
       case DeviceType.large:
-        return 16;
+        return 14;
       case DeviceType.tablet:
         return 16;
     }
@@ -141,13 +141,13 @@ class ResponsiveStyles {
       case DeviceType.extraSmall:
         return 30;
       case DeviceType.small:
-        return 160;
+        return 280;
       case DeviceType.medium:
-        return 16;
+        return 150;
       case DeviceType.large:
-        return 16;
+        return 150;
       case DeviceType.tablet:
-        return 16;
+        return 160;
     }
   }
 
@@ -186,13 +186,13 @@ class ResponsiveStyles {
       case DeviceType.extraSmall:
         return 250;
       case DeviceType.small:
-        return 380;
+        return 280;
       case DeviceType.medium:
-        return 276;
+        return 280;
       case DeviceType.large:
         return 286;
       case DeviceType.tablet:
-        return 286;
+        return 310;
     }
   }
 
@@ -201,7 +201,7 @@ class ResponsiveStyles {
       case DeviceType.extraSmall:
         return 23;
       case DeviceType.small:
-        return 20;
+        return 18;
       case DeviceType.medium:
         return 23;
       case DeviceType.large:
@@ -216,13 +216,28 @@ class ResponsiveStyles {
       case DeviceType.extraSmall:
         return 535;
       case DeviceType.small:
-        return 555;
+        return 525;
       case DeviceType.medium:
         return 586;
       case DeviceType.large:
-        return 686;
+        return 606;
       case DeviceType.tablet:
-        return 706;
+        return 646;
+    }
+  }
+
+  static double detailPageTempLeftLocation(DeviceType type) {
+    switch (type) {
+      case DeviceType.extraSmall:
+        return 535;
+      case DeviceType.small:
+        return 180;
+      case DeviceType.medium:
+        return 0;
+      case DeviceType.large:
+        return 0;
+      case DeviceType.tablet:
+        return 0;
     }
   }
 
@@ -233,11 +248,41 @@ class ResponsiveStyles {
       case DeviceType.small:
         return 30;
       case DeviceType.medium:
-        return 86;
+        return 80;
       case DeviceType.large:
         return 80;
       case DeviceType.tablet:
         return 90;
+    }
+  }
+
+  static double detailPageTempHotandIceContainerSize(DeviceType type) {
+    switch (type) {
+      case DeviceType.extraSmall:
+        return 60;
+      case DeviceType.small:
+        return 30;
+      case DeviceType.medium:
+        return 130;
+      case DeviceType.large:
+        return 130;
+      case DeviceType.tablet:
+        return 170;
+    }
+  }
+
+  static double detailPageTempHotandIceContainerLocation(DeviceType type) {
+    switch (type) {
+      case DeviceType.extraSmall:
+        return 60;
+      case DeviceType.small:
+        return 220;
+      case DeviceType.medium:
+        return 0;
+      case DeviceType.large:
+        return 0;
+      case DeviceType.tablet:
+        return 0;
     }
   }
 
@@ -246,7 +291,7 @@ class ResponsiveStyles {
       case DeviceType.extraSmall:
         return 450;
       case DeviceType.small:
-        return 360;
+        return 440;
       case DeviceType.medium:
         return 536;
       case DeviceType.large:
@@ -293,9 +338,9 @@ class ResponsiveStyles {
       case DeviceType.small:
         return 580;
       case DeviceType.medium:
-        return 726;
+        return 706;
       case DeviceType.large:
-        return 806;
+        return 726;
       case DeviceType.tablet:
         return 806;
     }
