@@ -392,7 +392,7 @@ class _HomePageState extends State<HomePage> {
             );
           }).toList(),
       options: CarouselOptions(
-        height: 300,
+        height: 350,
         viewportFraction: 1.0,
         autoPlay: true,
         autoPlayInterval: const Duration(seconds: 3),
