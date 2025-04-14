@@ -111,13 +111,13 @@ class OtherPage extends StatelessWidget {
                   SizedBox(
                     height: 300,
                     child: GridView.count(
+                      physics: NeverScrollableScrollPhysics(),
                       crossAxisCount: 3,
                       crossAxisSpacing: 10,
                       mainAxisSpacing: 10,
                       children: gridItems,
                     ),
                   ),
-                  SizedBox(height: 10),
                   Column(
                     children: [
                       Padding(

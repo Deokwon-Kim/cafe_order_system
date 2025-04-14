@@ -1,6 +1,5 @@
 // ignore_for_file: use_build_context_synchronously
-
-import 'package:HERMESCAFE/Tab/bottom_tab_bar.dart';
+import 'package:HERMESCAFE/Tab/custom_bottom_tab_bar.dart';
 import 'package:HERMESCAFE/login/signup_page.dart';
 import 'package:HERMESCAFE/login/find_password_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -33,7 +32,7 @@ class _LoginPageState extends State<LoginPage> {
         debugPrint('로그인 성공: ${userCredential.user}');
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => BottomTabBar()),
+          MaterialPageRoute(builder: (context) => CustomBottomNavigation()),
         );
       }
     } catch (e) {
