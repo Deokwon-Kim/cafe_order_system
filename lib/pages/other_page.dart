@@ -12,6 +12,7 @@ class OtherPage extends StatelessWidget {
   Widget build(BuildContext context) {
     User? user = FirebaseAuth.instance.currentUser;
     final username = Provider.of<UserProvider>(context, listen: false);
+    final size = MediaQuery.of(context).size;
 
     final List<Widget> gridItems = [
       menuItem(
@@ -118,106 +119,109 @@ class OtherPage extends StatelessWidget {
                       children: gridItems,
                     ),
                   ),
-                  SizedBox(height: 10),
-                  Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(16.0),
-                        child: Align(
-                          alignment: Alignment.centerLeft,
-                          child: Text(
-                            'Pay',
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
+
+                  Transform.translate(
+                    offset: Offset(0, 5),
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              'Pay',
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                      Row(
-                        children: [
-                          TextButton(
-                            onPressed: () {},
-                            child: Row(
-                              children: [
-                                Icon(Icons.payment, color: Color(0xfff37210)),
-                                SizedBox(width: 10),
-                                Text(
-                                  '에르메스 카드 등록',
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                    color: Color(0xfff37210),
+                        Row(
+                          children: [
+                            TextButton(
+                              onPressed: () {},
+                              child: Row(
+                                children: [
+                                  Icon(Icons.payment, color: Color(0xfff37210)),
+                                  SizedBox(width: 10),
+                                  Text(
+                                    '에르메스 카드 등록',
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      color: Color(0xfff37210),
+                                    ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
-                          ),
-                          SizedBox(width: 40),
+                            SizedBox(width: 40),
 
-                          TextButton(
-                            onPressed: () {},
-                            child: Row(
-                              children: [
-                                Icon(Icons.sd_card, color: Color(0xfff37210)),
+                            TextButton(
+                              onPressed: () {},
+                              child: Row(
+                                children: [
+                                  Icon(Icons.sd_card, color: Color(0xfff37210)),
 
-                                SizedBox(width: 10),
-                                Text(
-                                  '카드 교환권 등록',
-                                  style: TextStyle(
-                                    fontSize: 16,
+                                  SizedBox(width: 10),
+                                  Text(
+                                    '카드 교환권 등록',
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      color: Color(0xfff37210),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: 10),
+                        Row(
+                          children: [
+                            TextButton(
+                              onPressed: () {},
+                              child: Row(
+                                children: [
+                                  Icon(
+                                    Icons.credit_card,
                                     color: Color(0xfff37210),
                                   ),
-                                ),
-                              ],
+                                  SizedBox(width: 10),
+                                  Text(
+                                    '결제수단 관리',
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      color: Color(0xfff37210),
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: 10),
-                      Row(
-                        children: [
-                          TextButton(
-                            onPressed: () {},
-                            child: Row(
-                              children: [
-                                Icon(
-                                  Icons.credit_card,
-                                  color: Color(0xfff37210),
-                                ),
-                                SizedBox(width: 10),
-                                Text(
-                                  '결제수단 관리',
-                                  style: TextStyle(
-                                    fontSize: 16,
+                            SizedBox(width: 72),
+                            TextButton(
+                              onPressed: () {},
+                              child: Row(
+                                children: [
+                                  Icon(
+                                    Icons.receipt_long,
                                     color: Color(0xfff37210),
                                   ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          SizedBox(width: 72),
-                          TextButton(
-                            onPressed: () {},
-                            child: Row(
-                              children: [
-                                Icon(
-                                  Icons.receipt_long,
-                                  color: Color(0xfff37210),
-                                ),
-                                SizedBox(width: 10),
-                                Text(
-                                  '모바일 상품권 등록',
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                    color: Color(0xfff37210),
+                                  SizedBox(width: 10),
+                                  Text(
+                                    '모바일 상품권 등록',
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      color: Color(0xfff37210),
+                                    ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
-                          ),
-                        ],
-                      ),
-                    ],
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                   Column(
                     children: [
