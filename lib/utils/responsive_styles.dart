@@ -151,51 +151,6 @@ class ResponsiveStyles {
     }
   }
 
-  static double detailPageFontEngNameLocation(DeviceType type) {
-    switch (type) {
-      case DeviceType.extraSmall:
-        return 80;
-      case DeviceType.small:
-        return 205;
-      case DeviceType.medium:
-        return 66;
-      case DeviceType.large:
-        return 76;
-      case DeviceType.tablet:
-        return 76;
-    }
-  }
-
-  static double detailPageFontDescLocation(DeviceType type) {
-    switch (type) {
-      case DeviceType.extraSmall:
-        return 160;
-      case DeviceType.small:
-        return 285;
-      case DeviceType.medium:
-        return 166;
-      case DeviceType.large:
-        return 176;
-      case DeviceType.tablet:
-        return 176;
-    }
-  }
-
-  static double detailPageFontPriceLocation(DeviceType type) {
-    switch (type) {
-      case DeviceType.extraSmall:
-        return 250;
-      case DeviceType.small:
-        return 280;
-      case DeviceType.medium:
-        return 280;
-      case DeviceType.large:
-        return 286;
-      case DeviceType.tablet:
-        return 310;
-    }
-  }
-
   static double detailPagePriceFontSize(DeviceType type) {
     switch (type) {
       case DeviceType.extraSmall:
@@ -220,7 +175,7 @@ class ResponsiveStyles {
       case DeviceType.medium:
         return 586;
       case DeviceType.large:
-        return 606;
+        return 576;
       case DeviceType.tablet:
         return 646;
     }
@@ -295,7 +250,7 @@ class ResponsiveStyles {
       case DeviceType.medium:
         return 536;
       case DeviceType.large:
-        return 556;
+        return 646;
       case DeviceType.tablet:
         return 556;
     }
@@ -310,7 +265,7 @@ class ResponsiveStyles {
       case DeviceType.medium:
         return 25;
       case DeviceType.large:
-        return 30;
+        return 20;
       case DeviceType.tablet:
         return 30;
     }
@@ -325,7 +280,7 @@ class ResponsiveStyles {
       case DeviceType.medium:
         return 20;
       case DeviceType.large:
-        return 25;
+        return 20;
       case DeviceType.tablet:
         return 25;
     }

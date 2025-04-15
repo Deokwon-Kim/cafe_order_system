@@ -98,13 +98,13 @@ class _HomePageState extends State<HomePage> {
                         decoration: BoxDecoration(
                           border: Border(
                             top: BorderSide(
-                              color: const Color.fromARGB(255, 209, 207, 207),
+                              color: const Color.fromARGB(141, 209, 207, 207),
                             ),
                             right: BorderSide(
-                              color: const Color.fromARGB(255, 209, 207, 207),
+                              color: const Color.fromARGB(141, 209, 207, 207),
                             ),
                             bottom: BorderSide(
-                              color: const Color.fromARGB(255, 209, 207, 207),
+                              color: const Color.fromARGB(141, 209, 207, 207),
                             ),
                           ),
                         ),
@@ -171,13 +171,13 @@ class _HomePageState extends State<HomePage> {
                         decoration: BoxDecoration(
                           border: Border(
                             top: BorderSide(
-                              color: const Color.fromARGB(255, 209, 207, 207),
+                              color: const Color.fromARGB(141, 209, 207, 207),
                             ),
                             right: BorderSide(
-                              color: const Color.fromARGB(255, 209, 207, 207),
+                              color: const Color.fromARGB(141, 209, 207, 207),
                             ),
                             bottom: BorderSide(
-                              color: const Color.fromARGB(255, 209, 207, 207),
+                              color: const Color.fromARGB(141, 209, 207, 207),
                             ),
                           ),
                         ),
@@ -209,10 +209,10 @@ class _HomePageState extends State<HomePage> {
                         decoration: BoxDecoration(
                           border: Border(
                             top: BorderSide(
-                              color: const Color.fromARGB(255, 209, 207, 207),
+                              color: const Color.fromARGB(141, 209, 207, 207),
                             ),
                             bottom: BorderSide(
-                              color: const Color.fromARGB(255, 209, 207, 207),
+                              color: const Color.fromARGB(141, 209, 207, 207),
                             ),
                           ),
                         ),
