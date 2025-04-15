@@ -11,6 +11,7 @@ import 'package:HERMESCAFE/login/edit_password_page.dart';
 import 'package:HERMESCAFE/login/find_password_page.dart';
 import 'package:HERMESCAFE/pages/order_history_page.dart';
 import 'package:HERMESCAFE/pages/personal_info_page.dart';
+import 'package:HERMESCAFE/provider/option_item_provider.dart';
 import 'package:HERMESCAFE/provider/signup_provider.dart';
 import 'package:HERMESCAFE/provider/suggest_menu_provider.dart';
 import 'package:HERMESCAFE/provider/ticket_provider.dart';
@@ -50,6 +51,7 @@ Future<void> main() async {
         ChangeNotifierProvider(create: (context) => TicketProvider()),
         ChangeNotifierProvider(create: (context) => SuggestMenuProvider()),
         ChangeNotifierProvider(create: (context) => SignupProvider()),
+        ChangeNotifierProvider(create: (context) => OptionItemProvider()),
       ],
       child: const MyApp(),
     ),
