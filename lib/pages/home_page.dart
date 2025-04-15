@@ -50,9 +50,11 @@ class _HomePageState extends State<HomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Padding(
-              padding: const EdgeInsets.only(bottom: 149),
-              child: SizedBox(height: 300, child: sliderWidget()),
+            SafeArea(
+              child: Padding(
+                padding: const EdgeInsets.only(bottom: 149),
+                child: SizedBox(height: 300, child: sliderWidget()),
+              ),
             ),
             Transform.translate(
               offset: Offset(0, -110),
