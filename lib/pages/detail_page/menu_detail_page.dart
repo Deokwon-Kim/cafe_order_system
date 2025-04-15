@@ -162,7 +162,10 @@ class _MenuDetailPageState extends State<MenuDetailPage> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 140.0, left: 10),
+                padding: EdgeInsets.only(
+                  top: ResponsiveStyles.detailPageFontNameLocation(deviceType),
+                  left: 10,
+                ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -202,7 +205,11 @@ class _MenuDetailPageState extends State<MenuDetailPage> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(left: 280.0),
+                      padding: EdgeInsets.only(
+                        left: ResponsiveStyles.detailPageFontPriceLocation(
+                          deviceType,
+                        ),
+                      ),
                       child: Transform.translate(
                         offset: Offset(0, -30),
                         child: Text(
@@ -237,14 +244,22 @@ class _MenuDetailPageState extends State<MenuDetailPage> {
                             top: ResponsiveStyles.detailPageTempLocation(
                               deviceType,
                             ),
+                            right:
+                                ResponsiveStyles.detailPageTempHotandIceContainerLocation(
+                                  deviceType,
+                                ),
                           ),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
+
                             children: [
                               Container(
                                 padding: EdgeInsets.symmetric(
-                                  horizontal: 130,
-                                  vertical: 10,
+                                  horizontal:
+                                      ResponsiveStyles.detailPageTempHotandIceContainerSize(
+                                        deviceType,
+                                      ),
+                                  vertical: 15,
                                 ),
                                 decoration: BoxDecoration(
                                   color: Colors.white,
@@ -281,13 +296,20 @@ class _MenuDetailPageState extends State<MenuDetailPage> {
                             top: ResponsiveStyles.detailPageTempLocation(
                               deviceType,
                             ),
+                            right:
+                                ResponsiveStyles.detailPageTempHotandIceContainerLocation(
+                                  deviceType,
+                                ),
                           ),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Container(
                                 padding: EdgeInsets.symmetric(
-                                  horizontal: 130,
+                                  horizontal:
+                                      ResponsiveStyles.detailPageTempHotandIceContainerSize(
+                                        deviceType,
+                                      ),
                                   vertical: 15,
                                 ),
                                 decoration: BoxDecoration(
@@ -323,6 +345,9 @@ class _MenuDetailPageState extends State<MenuDetailPage> {
                         return Padding(
                           padding: EdgeInsets.only(
                             top: ResponsiveStyles.detailPageTempLocation(
+                              deviceType,
+                            ),
+                            right: ResponsiveStyles.detailPageTempLeftLocation(
                               deviceType,
                             ),
                           ),

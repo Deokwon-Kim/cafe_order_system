@@ -119,9 +119,8 @@ class OtherPage extends StatelessWidget {
                       children: gridItems,
                     ),
                   ),
-
                   Transform.translate(
-                    offset: Offset(0, 5),
+                    offset: Offset(0, -30),
                     child: Column(
                       children: [
                         Padding(
