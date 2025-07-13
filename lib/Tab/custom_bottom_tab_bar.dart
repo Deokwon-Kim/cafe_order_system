@@ -42,13 +42,13 @@ class _CustomBottomNavigationState extends State<CustomBottomNavigation> {
           height: 70,
           color: const Color.fromARGB(255, 255, 254, 254),
           shape: CircularNotchedRectangle(),
-          notchMargin: 20,
+          notchMargin: 10,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               _buildNavItem(Icons.home, "홈", 0),
               Transform.translate(
-                offset: Offset(0, 30),
+                offset: Offset(0, 10),
                 child: Text(
                   '오더',
                   style: TextStyle(color: Colors.grey.shade600, fontSize: 12),
@@ -68,7 +68,7 @@ class _CustomBottomNavigationState extends State<CustomBottomNavigation> {
         child: CircleAvatar(
           radius: 32,
           backgroundColor: Color(0xfff37210),
-          child: Icon(Icons.coffee_outlined, size: 40, color: Colors.white),
+          child: Icon(Icons.add, size: 40, color: Colors.white),
         ),
       ),
     );
